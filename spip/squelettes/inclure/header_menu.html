@@ -1,0 +1,20 @@
+<header role="banner" class="conteneur">
+<div class="direct"><a href="#main">aller au contenu</a></div>
+<div class="direct"><a href="#search">aller à la recherche</a></div>
+<div class="direct"><a href="#main">aller au contenu</a></div>
+<div id="menu_ferme">
+<nav role="navigation" id="nav-collapse">
+	<button aria-label="fermer le menu" id="fermer_menu" role="button" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="fermer le menu" height="18px" width="18px"></button>
+	<div class="titre_menu">Place-handicap.fr</div>
+	<ul>
+		<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
+		<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_menuburger>
+	</ul>
+</nav>
+</div>
+<div class="entete">
+<button role="button" type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile_b.png}" alt="ouvrir le menu" height="24px" width="39px"><span>Menu</span></button>
+	<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span>Accueil</span><img src="#CHEMIN{images/MDPHmini.png}" alt="Accueil Place-Handicap" height="42px"></a>
+</div>
+</header>

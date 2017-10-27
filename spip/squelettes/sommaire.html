@@ -1,0 +1,67 @@
+#CACHE{0}
+<!doctype html>   
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<link rel="preload" href="#CHEMIN{css/styles.css}" type="text/css" as="style" onload="this.rel='stylesheet'">-->
+		<link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css">
+	<script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
+	<!--[if lt IE 9]>
+		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
+	<![endif]-->
+	<title>Accueil du site de la MDPH de la Seine-Saint-Denis</title>
+</head>
+<body class="accueil">
+<div class="direct"><a href="#main">aller au contenu</a></div>
+<div class="direct"><a href="#search">aller à la recherche</a></div>
+<div class="direct"><a href="#main">aller au contenu</a></div>
+<header role="banner" class="conteneur sommaire"	>
+	<button role="button" id="nav-toggle" aria-label="ouvrir le menu" type="button"><img src="#CHEMIN{images/menu_mobile.png}" alt="ouvrir le menu" height="24px" width="39px"><span>Menu</span></button>
+	<div id="menu_ferme">
+	<nav role="navigation" id="nav-collapse">
+		<button aria-label="fermer le menu" id="fermer_menu" role="button" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="fermer le menu" height="18px" width="18px"></button>
+		
+		<div class="titre_menu">Place-handicap.fr</div><ul>
+			<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
+			<li><a href="#URL_ARTICLE">#TITRE</a></li>
+			</BOUCLE_menuburger>
+		</ul>
+	</nav>
+	</div>
+<h1 class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis"></h1>
+</header>
+<main role="main" class="conteneur sommaire" id="main">
+	<BOUCLE_flashinfo(ARTICLES){id_rubrique=4}{par date}{0,1}>
+	<div class="flash_info">
+		<div class="inner_flash">
+			<h2>#TITRE</h2>
+			#TEXTE
+		</div>
+	</div>
+	</BOUCLE_flashinfo>
+	<ul class="menu_central" role="menu" id="menu">
+		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
+		<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
+		</BOUCLE_rubriquemere>
+	</ul>
+	<div role="search" id="search">
+		<a href="#URL_PAGE{recherche}" class="question">
+		<img src="#CHEMIN{images/icon-message@2x.png}" alt="" height="40px" width="40px">
+		J'ai une question
+		</a>
+	</div>
+</main>
+<footer role="contentinfo" id="footer">
+	<ul>
+		<li><a href="#">plan du site</a></li>
+		<li><a href="#">accessibilité</a></li>
+		<li><a href="#">mentions légales</a></li>
+		<li><a href="#">contact</a></li>
+	</ul>
+</footer>
+<script data-main="#CHEMIN{js/app.js}" src="#CHEMIN{js/require.js}" async></script>
+</body>
+</html>

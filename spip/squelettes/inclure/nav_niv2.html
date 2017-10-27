@@ -1,0 +1,25 @@
+<BOUCLE_context(RUBRIQUES){id_rubrique}{tous}>
+<main role="main" class="conteneur" id="main">
+<div id="fil_ariane">
+	<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+	<div class="chemin">
+		<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px"><a href="#INFO_URL{rubrique,#ID_PARENT}">#INFO_TITRE{rubrique,#ID_PARENT}</a>
+		</h1>
+		<h2 class="petites_rub">#TITRE</h2>
+	</div>
+	
+	
+</div>
+	<nav role="navigation" aria-label="Menu de la sous-rubrique">
+		<ul class="nav_rub_second">
+		<BOUCLE_articles(ARTICLES){id_rubrique}>
+			<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_articles>
+		</ul>
+	</nav>
+	<a href="#URL_PAGE{recherche}" class="question">
+	<img src="#CHEMIN{images/icon-message@2x.png}" alt="" height="40px" width="40px">
+	J'ai une question
+	</a>
+</main>
+</BOUCLE_context>
