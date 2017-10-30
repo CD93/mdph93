@@ -158,45 +158,6 @@ button {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* Blocs */
-.block {
-  display: block;
-  margin-bottom: 1.5em; }
-
-.inline {
-  display: inline; }
-
-.inline-block {
-  display: inline-block; }
-
-/* Positionnement */
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
-.center {
-  margin-right: auto;
-  margin-left: auto; }
-
-/* Espace de blocs
-[fr] Espaceur de blocs : http://romy.tetue.net/657 */
-.clear {
-  clear: both; }
-
-br.clear {
-  clear: both;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  height: 0;
-  line-height: 1px;
-  font-size: 1px; }
-
-hr.clear {
-  visibility: hidden; }
-
 /* clearfix : http://www.positioniseverything.net/easyclearing.html */
 .clearfix:after {
   content: "\0020";
@@ -216,29 +177,6 @@ hr.clear {
 .clearfix {
   display: block; }
 
-/* End hide from IE-mac */
-/* Not visible */
-.offscreen {
-  position: absolute;
-  left: -999em;
-  height: 1%; }
-
-.hidden {
-  visibility: hidden; }
-
-.none {
-  display: none; }
-
-/* debug */
-.todo {
-  opacity: 0.5; }
-
-.todo:hover {
-  opacity: 1; }
-
-.blink {
-  text-decoration: blink; }
-
 /* fin */
 /* style de la MDPH */
 @font-face {
@@ -252,6 +190,12 @@ hr.clear {
   src: url("../fonts/robotocondensed-bold-webfont.woff") format("woff"), url("../fonts/robotocondensed-bold-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+
+em {
+  font-style: italic; }
+
+strong {
+  font-weight: bold; }
 
 a {
   text-decoration: none; }
@@ -316,13 +260,13 @@ div.direct a:focus {
   .flash_info .inner_flash {
     padding: 15px 10%; }
 
-#main.conteneur {
+#main.conteneur, #main_recherche.conteneur {
   transition: all .20s ease-in;
   position: relative;
   left: 0;
   margin: 50px auto; }
   @media screen and (max-width: 800px) {
-    #main.conteneur {
+    #main.conteneur, #main_recherche.conteneur {
       margin: 12px 0; } }
 
 @media screen and (min-width: 800px) {
@@ -624,15 +568,24 @@ footer {
   .nav_rub_second li a:hover, .nav_rub_second li a:focus {
     color: #d4cb13; }
 
-#form_question {
+#main_recherche h1 {
+  font-family: 'robotoregular';
+  font-size: 1.8em;
+  max-width: 100%;
+  margin: 0.4em 0; }
+  @media screen and (max-width: 800px) {
+    #main_recherche h1 {
+      font-size: 1.5em; } }
+
+#main_recherche .rechercher {
+  margin: 0.5em 1em; }
+
+#main_recherche #form_question {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   max-width: 500px; }
-  @media screen and (min-width: 800px) {
-    #form_question {
-      margin-left: 20px; } }
-  #form_question textarea {
+  #main_recherche #form_question textarea {
     font-size: 1em;
     height: 5em;
     border: none;
@@ -640,50 +593,80 @@ footer {
     padding: 8px;
     font-family: 'robotoregular';
     box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.5); }
-  #form_question label {
-    font-family: 'robotocondensedbold', sans-serif;
+  #main_recherche #form_question label {
+    font-family: 'robotoregular', sans-serif;
     font-size: 1.4em;
     color: #613665;
     line-height: 22px;
     padding: 10px 0; }
 
-.btnviolet, .btnblanc {
+#main_recherche .btnviolet, #main_recherche .btnblanc {
   margin-top: 15px;
   align-self: flex-end;
   background: #5C3261;
   border-radius: 1.2em;
+  padding: 0 0.6em 0.2em 0.6em;
   color: #fff;
   border: none;
-  font-family: 'robotocondensedbold', sans-serif;
-  font-size: 1.2em;
+  font-family: 'robotoregular', sans-serif;
+  font-size: 1em;
   cursor: pointer; }
 
-.btnblanc {
-  background: #fff;
-  color: #000;
-  font-family: 'robotoregular';
+#main_recherche .liste_reponse hr {
   border: 1px solid #D2C800;
-  font-size: 0.8em; }
+  border-bottom: none; }
 
-.liste_reponse li {
+#main_recherche .liste_reponse h2 {
+  font-family: 'robotoregular', sans-serif;
+  font-size: 1.4em;
+  color: #613665;
+  line-height: 22px;
+  padding: 10px 15px; }
+
+#main_recherche .liste_reponse li {
+  padding: 1em;
+  margin-left: 2.5em;
+  list-style-type: disc;
+  color: #D2C800; }
+  #main_recherche .liste_reponse li em, #main_recherche .liste_reponse li p {
+    color: #000;
+    font-size: 0.9em; }
+  #main_recherche .liste_reponse li p {
+    margin-top: 0.3em;
+    font-size: 1em; }
+  #main_recherche .liste_reponse li a {
+    word-wrap: normal;
+    hyphens: manual;
+    font-family: 'robotoregular', sans-serif;
+    font-size: 1.2em;
+    color: #5C3261;
+    display: block; }
+  #main_recherche .liste_reponse li em a {
+    display: inline; }
+  #main_recherche .liste_reponse li .btnblanc {
+    background: #fff;
+    color: #000;
+    font-family: 'robotoregular';
+    border: 1px solid #D2C800;
+    font-size: 1em;
+    display: inline-block;
+    float: right; }
+
+#main_recherche .liste_reponse li:after {
+  content: "\0020";
+  display: block;
+  height: 0;
   clear: both;
-  padding: 5px;
-  list-style-type: none; }
-  .liste_reponse li a {
-    font-family: 'robotocondensedbold', sans-serif;
-    font-size: 1.1em;
-    color: #5C3261; }
+  visibility: hidden;
+  overflow: hidden; }
 
-.liste_reponse {
-  margin-top: 10px; }
-
-.btnviolet:hover, .btnviolet:focus {
+#main_recherche .btnviolet:hover, #main_recherche .btnviolet:focus {
   background: #6c6700; }
 
-a.btnviolet, a.btnblanc {
+#main_recherche a.btnviolet, #main_recherche a.btnblanc {
   padding: 2px 7px; }
 
-.btnviolet:hover, .btnviolet:focus {
+#main_recherche .btnviolet:hover, #main_recherche .btnviolet:focus {
   background: #1c0f1e; }
 
 #minifil {
@@ -716,35 +699,28 @@ a.ariane {
   padding: 0.5em;
   hyphens: none; }
 
-#main
-article {
+#main {
   max-width: 900px;
   padding: 5px 15px; }
-  #main
-article h1 {
+  #main h1 {
     font-family: 'robotoregular';
     font-size: 1.8em;
     max-width: 100%;
     margin: 0.4em 0; }
     @media screen and (max-width: 800px) {
-      #main
-article h1 {
+      #main h1 {
         font-size: 1.5em; } }
-  #main
-article .pliage {
+  #main article .pliage {
     padding: 0.6em 0;
     text-align: right; }
-    #main
-article .pliage .btn-collapse-up {
+    #main article .pliage .btn-collapse-up {
       display: none; }
-  #main
-article h2 {
+  #main article h2 {
     font-size: 1.2em;
     color: #5c3261;
     margin: 0;
     padding: 0; }
-  #main
-article h2 button {
+  #main article h2 button {
     width: 100%;
     text-align: left;
     font-family: 'robotoregular';
@@ -756,37 +732,27 @@ article h2 button {
     border: 1px solid #EFEEC6;
     margin-bottom: 3px;
     border-radius: 0; }
-  #main
-article h2:first-child button {
+  #main article h2:first-child button {
     border-top: 1px solid #EFEEC6; }
-  #main
-article button.btn-collapse {
+  #main article button.btn-collapse {
     padding-right: 2em; }
-  #main
-article button.btn-collapse-up {
+  #main article button.btn-collapse-up {
     background: #FFFFFF url(../images/fhaut.png) right center no-repeat; }
-  #main
-article button.btn-collapse-down {
+  #main article button.btn-collapse-down {
     background: #FFFFFF url(../images/fbas.png) right center no-repeat; }
-  #main
-article h2 button:hover, #main
-article h2 button:focus, #main
-article h2 button.active {
+  #main article h2 button:hover, #main article h2 button:focus, #main article h2 button.active {
     background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
     text-decoration: underline; }
-  #main
-article sup {
+  #main article sup {
     vertical-align: super;
     font-size: 0.8em; }
-  #main
-article div.paragraphe {
+  #main article div.paragraphe {
     padding: 10px 10px 15px 10px;
     text-align: justify;
     line-height: 1.35em;
     font-size: 1em; }
     @media screen and (min-width: 800px) {
-      #main
-article div.paragraphe {
+      #main article div.paragraphe {
         hyphens: none;
         background-color: rgba(255, 255, 255, 0.6);
         font-family: arial; } }
