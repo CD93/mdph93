@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!--<link rel="preload" href="#CHEMIN{css/styles.css}" type="text/css" as="style" onload="this.rel='stylesheet'">-->
-	<link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css">
-	<script>
-	!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
+	<link rel="stylesheet" href="#CHEMIN{css/recherche.css}" type="text/css">
+	<link rel="preload" href="#CHEMIN{css/styles.css}" type="text/css" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css"></noscript>
+	<script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
 	<title>Rechercher - #NOM_SITE_SPIP</title>
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
@@ -16,22 +16,28 @@
 </head>
 <body>
 <INCLURE{fond=inclure/header_menu}/>
-<main role="main" class="conteneur" id="main">
-	<h1>J'ai une question</h1>
-	<div class="chapo">Vous cherchez une information, une ressource ?<br/>
-	Vous avez des questions sur votre dossier ?<br/>
-	Vous recherchez un article sur le site ?<br/>
-	Posez votre question dans le champ suivant.</div>
+<main role="main" class="conteneur" id="main_recherche">
+	<header class="rechercher">
+		<h1>J'ai une question</h1>
+		<div class="chapo">Vous cherchez une information, une ressource ?<br/>
+		Vous avez des questions sur votre dossier ?<br/>
+		Vous recherchez un article sur le site ?<br/>
+		Posez votre question dans le champ suivant.</div>
 	#FORMULAIRE_RECHERCHE
+	</header>
 	<B_recherche>
+		
 	<ul class="liste_reponse">
-	<BOUCLE_recherche(ARTICLES){recherche}{!par points}>
+	<h2>Nos réponses :</h2>
+	<hr/>
+	<BOUCLE_recherche(ARTICLES){recherche}{!par points}{"<hr/>"}{0,10}>
 			<li>
-				<p>#INFO_TITRE{rubrique,#ID_RUBRIQUE}</p>
-				<p>#POINTS</p>
 				<a href="#URL_ARTICLE">#TITRE</a>
-				#INTRODUCTION	
-				<a href="#" class="btnblanc">Lire la r&eacute;ponse</a>
+				<BOUCLE_ariane(HIERARCHIE){id_article}{0,2}{" | "}>
+					<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
+				</BOUCLE_ariane>
+				#CHAPO	
+				<a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
 			</li>
 	</BOUCLE_recherche>
 	</ul>
