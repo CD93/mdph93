@@ -4,4 +4,6 @@ mdph.key
 /spip
 !/spip
 /spip/*
+!/spip/service-worker.js
+!/spip/manifest.json
 !/spip/squelettes
