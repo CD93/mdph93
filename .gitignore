@@ -7,3 +7,7 @@ mdph.key
 !/spip/service-worker.js
 !/spip/manifest.json
 !/spip/squelettes
+spip/squelettes/css/article.css
+spip/squelettes/css/recherche.css
+spip/squelettes/css/rubrique.css
+spip/squelettes/css/sommaire.css
