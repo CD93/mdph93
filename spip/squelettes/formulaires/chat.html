@@ -1,0 +1,9 @@
+<form method="post" action="[(#ENV{action})]" id="question_chat">
+	#ACTION_FORMULAIRE{#ENV{action}}
+	<label for="ma_question">Ma question</label>
+	<input id="question" name="question" type="text" />
+	<button type="submit" class="btnviolet">envoyer</button>
+</form>
+<p class="reponse_formulaire reponse_formulaire_ok">ici :<pre>[(#ENV*{message_ok}|foreach)]</pre></p>
+
+

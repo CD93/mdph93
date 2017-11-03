@@ -85,7 +85,27 @@ require(['domReady'], function (domReady) {
 				$(".pliage button.btn-collapse-down").show();
 				$(this).hide();	
 			});
-			
+			/* chatbot 
+			var MY_WIT_TOKEN = "HLHDZURUOOM3ONQ6HLH2ULI3K7HXTJVB";
+			$("#question_chat").submit(function( event ) {
+				event.preventDefault();
+				$("#reponse_chat").html("en cours");
+				$.ajax({
+					url: 'https://api.wit.ai/message',
+					data: {
+						'q': $("#question").val(),
+						'access_token': 'HLHDZURUOOM3ONQ6HLH2ULI3K7HXTJVB'
+					},
+					dataType: 'json',
+					method: 'GET',
+					success: function (response) {
+						alert(reponse);
+						console.log("response", response);
+						$("reponse_chat").html(reponse);
+					}
+				});
+			});
+			*/
 			//focustrap
 			var findInsiders = function(elem) {
 				var tabbable = elem.find('select, input, textarea, button, a').filter(':visible');
