@@ -191,12 +191,6 @@ button {
   font-weight: normal;
   font-style: normal; }
 
-em {
-  font-style: italic; }
-
-strong {
-  font-weight: bold; }
-
 a {
   text-decoration: none; }
 
@@ -695,16 +689,41 @@ a.ariane {
   color: #5C3261; }
 
 .chapo {
-  font-size: 1em;
+  font-size: 1.15em;
   background-color: #FAFAFA;
   margin-bottom: 1em;
   padding: 0.5em;
-  hyphens: none; }
+  hyphens: none;
+  line-height: 1.35em; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
 
 #main {
   max-width: 900px; }
   #main article {
+    /* habillage article */
     padding: 5px 15px; }
+    #main article p {
+      margin: 0;
+      padding: 0; }
+    #main article ul {
+      margin-left: 1.2em; }
+      #main article ul li {
+        list-style-type: square; }
+    #main article a {
+      color: #3c3468;
+      text-decoration: underline; }
+    #main article a:hover, #main article a:focus {
+      color: #448040; }
+    #main article .texteencadre-spip {
+      padding: 0.5em 1em;
+      margin: 1em 0;
+      background-color: #FAFAFA;
+      border: 1px solid #ccc; }
     #main article .pliage {
       padding: 0.6em 0;
       text-align: right; }
