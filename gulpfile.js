@@ -41,11 +41,7 @@ gulp.task('uglify',function() {
 	.pipe(gulp.dest('spip/squelettes-compil/js'))
 
 });
-gulp.task('minify-css', function() {
-  return gulp.src('spip/squelettes/css/*.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('spip/squelettes-compil/css'));
-});
+
 gulp.task('images', function(){
   return gulp.src('spip/squelettes/images/**/*.+(png|jpg|gif|svg)')
   .pipe(imagemin())
@@ -63,20 +59,25 @@ gulp.task('autoprefixer',function() {
 	            cascade: false
 	        }))
 	.pipe(gulp.dest('spip/squelettes-compil/css'))
-
+});
+gulp.task('minify-css', function() {
+  return gulp.src('spip/squelettes-compil/css/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('spip/squelettes-compil/css'));
 });
 gulp.task('copieHTML', function() {
   return gulp.src('spip/squelettes/**/*.html')
   .pipe(gulp.dest('spip/squelettes-compil/'))
-})
+});
+
 gulp.task('copiePHP', function() {
   return gulp.src('spip/squelettes/**/*.php')
   .pipe(gulp.dest('spip/squelettes-compil/'))
-})
+});
 gulp.task('copieFonts', function() {
   return gulp.src('spip/squelettes/fonts/*')
   .pipe(gulp.dest('spip/squelettes-compil/fonts/'))
-})
+});
 gulp.task('clean', function() {
   del('spip/squelettes/css/*');
   del('spip/squelettes/js/*');
@@ -92,11 +93,11 @@ gulp.task('require', function () {
         .pipe(requirejsOptimize())
         .pipe(gulp.dest('spip/squelettes/js/build/'));
 });
-gulp.task('Csommaire', function (cb) {
+gulp.task('Csommaire', function () {
     critical.generate({
         inline: false,
         base: 'spip',
-        css: ['spip/squelettes-compil/css/styles.css'],
+        css: ['spip/squelettes/css/styles.css'],
         ignore: ['@font-face'],
         src: 'squelettes/sommaire.html',
         dest: 'squelettes-compil/css/sommaire.css',
@@ -105,11 +106,11 @@ gulp.task('Csommaire', function (cb) {
         height: 800
        });
 });
-gulp.task('Carticle', function (cb) {
+gulp.task('Carticle', function () {
     critical.generate({
         inline: false,
         base: 'spip',
-        css: ['spip/squelettes-compil/css/styles.css'],
+        css: ['spip/squelettes/css/styles.css'],
         ignore: ['@font-face'],
         src: 'squelettes/article.html',
         dest: 'squelettes-compil/css/article.css',
@@ -118,11 +119,11 @@ gulp.task('Carticle', function (cb) {
         height: 800
        });
 });
-gulp.task('Crubrique', function (cb) {
+gulp.task('Crubrique', function () {
     critical.generate({
         inline: false,
         base: 'spip',
-        css: ['spip/squelettes-compil/css/styles.css'],
+        css: ['spip/squelettes/css/styles.css'],
         ignore: ['@font-face'],
         src: 'squelettes/rubrique.html',
         dest: 'squelettes-compil/css/rubrique.css',
@@ -131,11 +132,11 @@ gulp.task('Crubrique', function (cb) {
         height: 800
        });
 });
-gulp.task('Crecherche', function (cb) {
+gulp.task('Crecherche', function () {
     critical.generate({
         inline: false,
         base: 'spip',
-        css: ['spip/squelettes-compil/css/styles.css'],
+        css: ['spip/squelettes/css/styles.css'],
         ignore: ['@font-face'],
         src: 'squelettes/recherche.html',
         dest: 'squelettes-compil/css/recherche.css',
@@ -149,7 +150,7 @@ gulp.task('Crecherche', function (cb) {
 
 gulp.task('build', function (callback) {
   runSequence('cleancompile','sass','autoprefixer',
-  ['uglify', 'minify-css'],'copieHTML','copieFonts','copiePHP','images',['Csommaire','Carticle','Crubrique','Crecherche'],
+  ['uglify', 'minify-css'],'Csommaire','Carticle','Crubrique','Crecherche','copieHTML','copieFonts','copiePHP','images',
   callback
   )
 });
