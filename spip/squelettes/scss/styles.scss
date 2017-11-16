@@ -149,7 +149,7 @@ button {
    clear.css
    Aides a la composition
   (c) 2010-2016 Tiny Typo v1.3 - MIT License - tinytypo.tetue.net
-  
+
  ----------------------------------------------------- */
 /* Modele de boite
 [fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
@@ -210,13 +210,13 @@ a:hover, a:focus {
 	text-decoration:underline
 }
 hr {
-	color: #ddd;	
+	color: #ddd;
 }
 body {
 	margin-bottom: 35px;
 	font-family: robotoregular, Fallback, sans-serif;
 	word-wrap : break-word;
-	hyphens : auto;	
+	hyphens : auto;
 }
 h1,h2,h3,h4,h5,h6 {
 	word-wrap : normal;
@@ -245,7 +245,7 @@ div.direct a {
 	position: absolute;
 	left: -7000px;
 	z-index: 1000;
-	height: 0px;	
+	height: 0px;
 }
 div.direct a:focus{
 	position: relative;
@@ -302,7 +302,7 @@ header.conteneur{
 }
 .conteneur {
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
 		//align-items: center;
 		padding-bottom: 40px;
 		background-color: rgba(255,255,255,0.8);
@@ -321,7 +321,7 @@ header.conteneur{
 		@media screen and (min-width: $break-menu) {
 			margin: 0px auto;
 		}
-		
+
 }
 
 h1.logoMDPH img {
@@ -333,7 +333,7 @@ h1.logoMDPH img {
 	}
 }
 @media screen and (max-width: $break-menu) {
-	#fil_ariane .logoMDPH {display: none};	
+	#fil_ariane .logoMDPH {display: none};
 }
 header .entete{
 	position: fixed;
@@ -355,7 +355,7 @@ a.logoMDPHmin {
 	}
 }
 #nav-toggle {
-    position: absolute ; 
+    position: absolute ;
     color:#4a4a4a;
     top: 12px;
     left: 12px;
@@ -372,7 +372,7 @@ a.logoMDPHmin {
 	text-decoration: underline;
 }
 #fermer_menu {
-	position: relative; 
+	position: relative;
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -415,7 +415,7 @@ a.logoMDPHmin {
 		border-top: 1px solid #fff;
 		height: 1px;
 	}
-	
+
 	ul li {
 		list-style-type: none;
 		margin: 20px 20px;
@@ -542,10 +542,10 @@ footer {
 
 
 #main_bloc, #main {
-	
+
 	p {
 		padding: 10px;
-		
+
 	}
 	header h3 {
 		font-family: 'robotoregular';
@@ -581,7 +581,7 @@ footer {
 			margin-left:15px;
 		}
 	}
-	
+
 	.grandes_rub {
 		a {
 				width: 100%;
@@ -636,7 +636,7 @@ footer {
 		line-height: 1.3em;
 		padding: 0.5em 0;
 		border-bottom: 1px solid #5C3261;
-		
+
 		@media screen and (min-width: $break-menu) {
 			min-width: $break-menu - 100px;
 		}
@@ -683,7 +683,7 @@ footer {
 		font-size: 1em;
 		cursor: pointer;
 	}
-	
+
 	.liste_reponse {
 		hr {
 			border: 1px solid #D2C800;
@@ -696,8 +696,8 @@ footer {
 			line-height: 22px;
 			padding: 10px 15px;
 		}
-		
-		li{ 
+
+		li{
 			em,p {
 				color: #000;
 				font-size: 0.9em;
@@ -721,7 +721,7 @@ footer {
 			em a {
 				display: inline;
 			}
-			
+
 			.btnblanc {
 				background: #fff;
 				color: #000;
@@ -766,7 +766,7 @@ footer {
 	align-items: center;
 	flex-direction:row-reverse;
 	justify-content: space-between;
-	
+
 	@media screen and (max-width: $break-menu) {
 		flex-direction:column;
 	}
@@ -813,7 +813,7 @@ em {
 		a:hover,a:focus {
 			color: #448040;
 		}
-		
+
 		.texteencadre-spip {
 			padding: 0.5em 1em;
 			margin: 1em 0;
@@ -829,10 +829,10 @@ em {
 				display: none;
 			}
 	}
-	
+
 	h2 {
 		font-size: 1.2em;
-		color: #5c3261;	
+		color: #5c3261;
 		margin: 0;
 		padding: 0;
 	}
@@ -843,31 +843,31 @@ em {
 		font-size: 1em;
 		color: #5c3261;
 		display: inline;
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
 		padding: 0.5em  1em 0.5em 0.5em;
 		border: 1px solid #EFEEC6;
 		//border-top: none;
 		margin-bottom: 3px;
 		border-radius: 0;
 	}
-	
+
 	h2:first-child button{
-		border-top: 1px solid #EFEEC6;	
+		border-top: 1px solid #EFEEC6;
 	}
 	button.btn-collapse {
 		padding-right: 2em;
 	}
 	button.btn-collapse-up{
-		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;
 	}
 	button.btn-collapse-down{
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
 	}
-	
+
 	h2 button:hover, h2 button:focus, h2 button.active {
 		background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
 		text-decoration: underline;
-		
+
 	}
 	sup {
 		vertical-align: super;
@@ -883,7 +883,7 @@ em {
 		padding: 10px 10px 15px 10px;
 		text-align: justify;
 		line-height: 1.35em;
-		font-size: 1em;	
-		}	
+		font-size: 1em;
+		}
 	}
 }
