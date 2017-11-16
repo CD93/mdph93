@@ -4,11 +4,15 @@
 <div id="menu_ferme">
 <nav role="navigation" id="nav-collapse">
 	<button aria-label="fermer le menu" id="fermer_menu" role="button" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="fermer le menu" height="18px" width="18px"></button>
-	<div class="titre_menu">Place-handicap.fr</div>
+	<div class="titre_menu">Menu ressources</div>
 	<ul>
 		<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
 		<li><a href="#URL_ARTICLE">#TITRE</a></li>
 		</BOUCLE_menuburger>
+		<hr/>
+		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
+			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|image_gamma{254}|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
+		</BOUCLE_rubriquemere>
 	</ul>
 </nav>
 </div>

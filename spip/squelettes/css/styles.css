@@ -381,13 +381,22 @@ a.logoMDPHmin {
     margin: 40px 20px 15px 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #fff; }
+  #nav-collapse hr {
+    margin: 0 20px;
+    border: none;
+    border-top: 1px solid #fff;
+    height: 1px; }
   #nav-collapse ul li {
     list-style-type: none;
     margin: 20px 20px; }
     #nav-collapse ul li a {
       color: #fff;
       font-family: 'robotocondensedbold';
-      font-size: 1.1em; }
+      font-size: 1.1em;
+      display: flex;
+      align-items: center; }
+      #nav-collapse ul li a img {
+        margin-right: 0.5em; }
     #nav-collapse ul li a:hover, #nav-collapse ul li a:focus {
       color: #D0C813;
       text-decoration: underline; }
