@@ -10,9 +10,16 @@
 </div>
 	<nav role="navigation" aria-label="Menu de la rubrique">
 		<ul class="nav_rub">
-		<BOUCLE_liste(RUBRIQUES){id_parent}>
+		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}>
 			<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
 		</BOUCLE_liste>
+		</ul>
+	</nav>
+	<nav role="navigation" aria-label="Menu de la rubrique">
+		<ul class="nav_rub">
+		<BOUCLE_listeart(ARTICLES){id_rubrique}{par num titre}>
+			<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_listeart>
 		</ul>
 	</nav>
 	<div id="search">

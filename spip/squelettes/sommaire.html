@@ -26,6 +26,10 @@
 			<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
 			<li><a href="#URL_ARTICLE">#TITRE</a></li>
 			</BOUCLE_menuburger>
+			<hr/>
+			<BOUCLE_rubriquemereburger(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
+			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
+			</BOUCLE_rubriquemereburger>
 		</ul>
 	</nav>
 	</div>
