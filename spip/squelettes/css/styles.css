@@ -720,7 +720,7 @@ em {
       margin: 0;
       padding: 0; }
     #main article ul {
-      margin-left: 1.2em; }
+      margin: 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
     #main article a {
