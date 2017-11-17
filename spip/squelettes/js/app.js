@@ -46,7 +46,7 @@ require(['domReady'], function (domReady) {
 					$("#main, .logoMDPH").css("left",decal);
 				}
         $('#menu_ferme').show(250);
-        $(':not(#menu_ferme)').attr('aria-hidden','true');
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
 			});
 			$('#fermer_menu').click(function(e) {
