@@ -16,6 +16,7 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
 			var decal;
 			$(".paragraphe").css("display","none");
+      $("h2 button.titrepara").attr('aria-expanded','false');
 			if(cookie.get('menuouvert')=='oui'){
 				if($( document ).width() > 800) {
 					var offsets = $('#main').offset();
@@ -53,14 +54,14 @@ require(['domReady'], function (domReady) {
 				console.log(cookie.get('menuouvert'));
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
-				
+
 				$('#menu_ferme').hide(250);
 				findInsiders($('#menu_ferme'));
 			});
 			$("h2 button").click(function(e) {
 				$(this).toggleClass( "active" ).parent().next('div').slideToggle(300);
 				if ($(this).hasClass("active")) {
-					$(this).css("background-image","url(squelettes/images/fhaut.png)");				
+					$(this).css("background-image","url(squelettes/images/fhaut.png)");
 					$(this).attr('aria-expanded','true');
 				}
 				else {
@@ -69,7 +70,7 @@ require(['domReady'], function (domReady) {
 				}
 				$(".pliage button.btn-collapse-up").show();
 			});
-			$(".pliage button.btn-collapse-down").click(function(e) { 
+			$(".pliage button.btn-collapse-down").click(function(e) {
 				$('.paragraphe').slideDown(300);
 				$('.titrepara').css("background-image","url(squelettes/images/fhaut.png)");
 				$('.titrepara').attr('aria-expanded','true');
@@ -83,9 +84,9 @@ require(['domReady'], function (domReady) {
 				$('.titrepara').attr('aria-expanded','false');
 				$('.titrepara').removeClass( "active" );
 				$(".pliage button.btn-collapse-down").show();
-				$(this).hide();	
+				$(this).hide();
 			});
-			
+
 			//focustrap
 			var findInsiders = function(elem) {
 				var tabbable = elem.find('select, input, textarea, button, a').filter(':visible');
