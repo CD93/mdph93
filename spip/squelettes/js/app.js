@@ -45,7 +45,8 @@ require(['domReady'], function (domReady) {
 					decal = 300 - left ;
 					$("#main, .logoMDPH").css("left",decal);
 				}
-				$('#menu_ferme').show(250);
+        $('#menu_ferme').show(250);
+        $(':not(#menu_ferme)').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
 			});
 			$('#fermer_menu').click(function(e) {
@@ -54,7 +55,6 @@ require(['domReady'], function (domReady) {
 				console.log(cookie.get('menuouvert'));
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
-
 				$('#menu_ferme').hide(250);
 				findInsiders($('#menu_ferme'));
 			});
