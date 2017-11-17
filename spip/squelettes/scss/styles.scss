@@ -683,21 +683,21 @@ footer {
 		font-size: 1em;
 		cursor: pointer;
 	}
+  h2.liste_reponse {
+    font-family: 'robotoregular', sans-serif;
+    font-size: 1.4em;
+    color: #613665;
+    line-height: 22px;
+    padding: 10px 15px;
+  }
 
 	.liste_reponse {
 		hr {
 			border: 1px solid #D2C800;
 			border-bottom: none;
 		}
-		h2 {
-			font-family: 'robotoregular', sans-serif;
-			font-size: 1.4em;
-			color: #613665;
-			line-height: 22px;
-			padding: 10px 15px;
-		}
-
 		li{
+      border-bottom: 1px solid #D2C800;
 			em,p {
 				color: #000;
 				font-size: 0.9em;

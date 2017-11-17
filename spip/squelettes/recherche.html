@@ -1,4 +1,4 @@
-<!doctype html>   
+<!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
@@ -34,16 +34,16 @@
 	#FORMULAIRE_RECHERCHE
 	</header>
 	<B_recherche>
-	<h2>Nos réponses :</h2>	
+	<h2 class="liste_reponse">Nos réponses :</h2>
 	<hr/>
 	<ul class="liste_reponse">
-	<BOUCLE_recherche(ARTICLES){recherche}{!par points}{"<hr/>"}{0,10}>
+	<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>
 			<li>
 				<a href="#URL_ARTICLE">#TITRE</a>
 				<BOUCLE_ariane(HIERARCHIE){id_article}{0,2}{" | "}>
 					<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
 				</BOUCLE_ariane>
-				#CHAPO	
+				#CHAPO
 				<a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
 			</li>
 	</BOUCLE_recherche>

@@ -146,7 +146,7 @@ button {
    clear.css
    Aides a la composition
   (c) 2010-2016 Tiny Typo v1.3 - MIT License - tinytypo.tetue.net
-  
+
  ----------------------------------------------------- */
 /* Modele de boite
 [fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
@@ -617,18 +617,19 @@ footer {
   font-size: 1em;
   cursor: pointer; }
 
-.liste_reponse hr {
-  border: 1px solid #D2C800;
-  border-bottom: none; }
-
-.liste_reponse h2 {
+h2.liste_reponse {
   font-family: 'robotoregular', sans-serif;
   font-size: 1.4em;
   color: #613665;
   line-height: 22px;
   padding: 10px 15px; }
 
+.liste_reponse hr {
+  border: 1px solid #D2C800;
+  border-bottom: none; }
+
 .liste_reponse li {
+  border-bottom: 1px solid #D2C800;
   padding: 1em;
   margin-left: 2.5em;
   list-style-type: disc;
