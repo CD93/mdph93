@@ -18,6 +18,8 @@ require(['domReady'], function (domReady) {
 			$(".paragraphe").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
 			if(cookie.get('menuouvert')=='oui'){
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
 				if($( document ).width() > 800) {
 					var offsets = $('#main').offset();
 					var left = offsets.left;
@@ -47,6 +49,7 @@ require(['domReady'], function (domReady) {
 				}
         $('#menu_ferme').show(250);
         $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
 				findInsiders($('#menu_ferme'));
 			});
 			$('#fermer_menu').click(function(e) {
@@ -56,6 +59,8 @@ require(['domReady'], function (domReady) {
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
 			});
 			$("h2 button").click(function(e) {
