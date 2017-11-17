@@ -1,5 +1,5 @@
 <BOUCLE_article(ARTICLES){id_article}>
-<!doctype html>   
+<!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
@@ -28,7 +28,7 @@
 	<title>#INFO_TITRE{rubrique,#ID_RUBRIQUE} - #TITRE</title>
 </head>
 <body>
-
+<!-- fyf -->
 <INCLURE{fond=inclure/header_menu}/>
 <main role="main" class="conteneur" id="main">
 	<div id="minifil">
@@ -40,9 +40,9 @@
 	<a href="#INFO_URL{rubrique,#ID_SECTEUR}">#INFO_TITRE{rubrique,#ID_SECTEUR}</a>
 		> <a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a> > #TITRE</div>
 	]
-	<div id="fil_ariane">	
+	<div id="fil_ariane">
 		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
-		
+
 		<div class="chemin">
 			<div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
 			[(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
