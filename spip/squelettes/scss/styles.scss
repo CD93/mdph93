@@ -698,28 +698,31 @@ footer {
 		}
 		li{
       border-bottom: 1px solid #D2C800;
-			em,p {
+      padding: 1em;
+			padding-left: 2.5em;
+			color: #D2C800;
+      div {
 				color: #000;
-				font-size: 0.9em;
-			}
+				font-size: 1em;
+        line-height:1.4em;
+	    }
 			p {
 				margin-top: 0.3em;
 				font-size: 1em;
 			}
-			padding: 1em;
-			margin-left: 2.5em;
-			list-style-type:disc;
-			color: #D2C800;
 			a {
 				word-wrap : normal;
 				hyphens:manual ;
-				font-family: 'robotoregular', sans-serif;
+				font-family: 'robotocondensedbold', sans-serif;
 				font-size: 1.2em;
 				color: #5C3261;
 				display: block;
+        padding: 0.3em 0;
 				}
 			em a {
+        font-family: 'robotoregular', sans-serif;
 				display: inline;
+        font-size: 1.1em;
 			}
 
 			.btnblanc {

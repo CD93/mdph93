@@ -9,16 +9,7 @@
 	<style>
 		<INCLURE{fond=css/recherche.css}/>
 	</style>
-	<link rel="preload" href="#CHEMIN{css/styles.css}" type="text/css" as="style" onload="this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css"></noscript>
-	<script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
-	<!--<script>
-		if ('serviceWorker' in navigator) {
-		  navigator.serviceWorker
-		           .register('sw.js')
-		           .then(function() { console.log('Service Worker Registered'); });
-	}
-</script>-->
+	<INCLURE{fond=inclure/preload}/>
 	<title>Rechercher - #RECHERCHE sur #NOM_SITE_SPIP</title>
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
@@ -45,19 +36,28 @@
 				<BOUCLE_niveau(ARTICLES){id_article}{si #INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>={2}}>
 					<BOUCLE_rubniv(RUBRIQUES){id_rubrique}>
 							<BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}{titre == ^#RANG+[.][[:space:]]}>
-
-									<a href="#URL_ARTICLE##_recherche:ID_ARTICLE">#_recherche:TITRE (niveau 2)</a>
-								</BOUCLE_art_source2>
+									<div class="surtitre">#TITRE</div>
+									<a href="#URL_ARTICLE##_recherche:ID_ARTICLE">#_recherche:TITRE</a>
+									<div class="ariane">
+										<em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em> |
+										<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>
+									</div>
+							</BOUCLE_art_source2>
+							[<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
+							<a href="#URL_ARTICLE##_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse (niv2)</a>
 					</BOUCLE_rubniv>
 				</BOUCLE_niveau>
-
-					<a href="#URL_ARTICLE">#TITRE (niveau 1)</a>
+					<a href="#URL_ARTICLE">#TITRE</a>
+					<B_ariane>
+						<div class="ariane">
+							<BOUCLE_ariane(HIERARCHIE){id_article}{0,2}{" | "}>
+								<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
+							</BOUCLE_ariane>
+						</div>
+					</B_ariane>
+					[<div class="texte">(#CHAPO|?{#CHAPO|couper{300},#TEXTE*|couper{300}})</div>]
+					<a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse (niv1)</a>
 				<//B_niveau>
-				<BOUCLE_ariane(HIERARCHIE){id_article}{0,2}{" | "}>
-					<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
-				</BOUCLE_ariane>
-					#INTRODUCTION{150}
-				<a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
 			</li>
 	</BOUCLE_recherche>
 	</ul>

@@ -631,24 +631,27 @@ h2.liste_reponse {
 .liste_reponse li {
   border-bottom: 1px solid #D2C800;
   padding: 1em;
-  margin-left: 2.5em;
-  list-style-type: disc;
+  padding-left: 2.5em;
   color: #D2C800; }
-  .liste_reponse li em, .liste_reponse li p {
+  .liste_reponse li div {
     color: #000;
-    font-size: 0.9em; }
+    font-size: 1em;
+    line-height: 1.4em; }
   .liste_reponse li p {
     margin-top: 0.3em;
     font-size: 1em; }
   .liste_reponse li a {
     word-wrap: normal;
     hyphens: manual;
-    font-family: 'robotoregular', sans-serif;
+    font-family: 'robotocondensedbold', sans-serif;
     font-size: 1.2em;
     color: #5C3261;
-    display: block; }
+    display: block;
+    padding: 0.3em 0; }
   .liste_reponse li em a {
-    display: inline; }
+    font-family: 'robotoregular', sans-serif;
+    display: inline;
+    font-size: 1.1em; }
   .liste_reponse li .btnblanc {
     background: #fff;
     color: #000;
