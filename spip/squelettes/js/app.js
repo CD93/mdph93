@@ -95,9 +95,7 @@ require(['domReady'], function (domReady) {
       $('#message').on('keyup', function(e) {
         if(e.which == 13 && !e.shiftKey) { // KeyCode de la touche entrée
           e.preventDefault();
-          console.log(e.which);
           $('#form_question').submit();
-          $('#sendbutton').click();
         }
       });
 			//focustrap
