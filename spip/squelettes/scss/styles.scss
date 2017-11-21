@@ -671,7 +671,7 @@ footer {
 			padding: 10px 0;
 		}
 	}
-	.btnviolet, .btnblanc {
+	.btnviolet {
 		margin-top: 15px;
 		align-self: flex-end;
 		background: #5C3261;
@@ -683,6 +683,7 @@ footer {
 		font-size: 1em;
 		cursor: pointer;
 	}
+
   h2.liste_reponse {
     font-family: 'robotoregular', sans-serif;
     font-size: 1.4em;
@@ -700,8 +701,7 @@ footer {
       border-bottom: 1px solid #D2C800;
       padding: 1em;
 			padding-left: 2.5em;
-			color: #D2C800;
-      div {
+      div.texte {
 				color: #000;
 				font-size: 1em;
         line-height:1.4em;
@@ -727,12 +727,18 @@ footer {
 
 			.btnblanc {
 				background: #fff;
-				color: #000;
+				color: #5C3261;
 				font-family: 'robotoregular';
 				border: 1px solid #D2C800;
 				font-size: 1em;
 				display: inline-block;
 				float: right;
+        margin-top: 15px;
+        align-self: flex-end;
+        border-radius: 1.2em;
+        padding: 0 0.6em 0.2em 0.6em;
+        cursor: pointer;
+
 			}
 		}
 		li:after {
@@ -747,7 +753,7 @@ footer {
 	.btnviolet:hover, .btnviolet:focus {
 		background: darken(#D2C800,20%);
 	}
-	a.btnviolet, a.btnblanc {
+	a.btnviolet {
 		padding: 2px 7px;
 	}
 	.btnviolet:hover, .btnviolet:focus {
