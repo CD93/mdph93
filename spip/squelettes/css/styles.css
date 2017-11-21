@@ -699,7 +699,8 @@ a.ariane {
   color: #5C3261; }
 
 .chapo {
-  font-size: 1.15em;
+  font-family: robotoregular;
+  font-size: 1.1 em;
   background-color: #FAFAFA;
   margin-bottom: 1em;
   padding: 0.5em;
