@@ -91,7 +91,15 @@ require(['domReady'], function (domReady) {
 				$(".pliage button.btn-collapse-down").show();
 				$(this).hide();
 			});
-
+      //Valider les messages par la touche entrée
+      $('#message').on('keyup', function(e) {
+        if(e.which == 13 && !e.shiftKey) { // KeyCode de la touche entrée
+          e.preventDefault();
+          console.log(e.which);
+          $('#form_question').submit();
+          $('#sendbutton').click();
+        }
+      });
 			//focustrap
 			var findInsiders = function(elem) {
 				var tabbable = elem.find('select, input, textarea, button, a').filter(':visible');
