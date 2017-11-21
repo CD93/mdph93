@@ -92,7 +92,7 @@ require(['domReady'], function (domReady) {
 				$(this).hide();
 			});
       //Valider les messages par la touche entrée
-      $('#message').on('keyup', function(e) {
+      $('#message').on('keydown', function(e) {
         if(e.which == 13 && !e.shiftKey) { // KeyCode de la touche entrée
           e.preventDefault();
           $('#form_question').submit();
