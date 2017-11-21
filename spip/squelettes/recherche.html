@@ -39,14 +39,14 @@
 					<BOUCLE_rubniv(RUBRIQUES){id_rubrique}>
 							<BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}{titre == ^#RANG+[.][[:space:]]}>
 									<div class="surtitre">#TITRE</div>
-									<a href="#URL_ARTICLE##_recherche:ID_ARTICLE">#_recherche:TITRE</a>
+									<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE">#_recherche:TITRE</a>
 									<div class="ariane">
 										<em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em> |
 										<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>
 									</div>
 							</BOUCLE_art_source2>
 							[<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
-							<a href="#URL_ARTICLE##_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
+							<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
 					</BOUCLE_rubniv>
 				</BOUCLE_niveau>
 					<a href="#URL_ARTICLE">#TITRE</a>

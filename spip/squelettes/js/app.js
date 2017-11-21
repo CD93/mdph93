@@ -91,6 +91,14 @@ require(['domReady'], function (domReady) {
 				$(".pliage button.btn-collapse-down").show();
 				$(this).hide();
 			});
+      // on récupère l'ancre
+      if (window.location.hash) {
+        var ancre=$("h2 button"+window.location.hash);
+        ancre.addClass( "active" ).parent().next('div').slideToggle(300);
+        ancre.css("background-image","url(squelettes/images/fhaut.png)");
+        ancre.attr('aria-expanded','true');
+        $(".pliage button.btn-collapse-up").show();
+      }
       //Valider les messages par la touche entrée
       $('#message').on('keydown', function(e) {
         if(e.which == 13 && !e.shiftKey) { // KeyCode de la touche entrée
