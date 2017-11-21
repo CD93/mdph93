@@ -101,7 +101,7 @@ gulp.task('Csommaire', function () {
         ignore: ['@font-face'],
         src: 'squelettes/sommaire.html',
         dest: 'squelettes-compil/css/sommaire.css',
-        minify: false,
+        minify: true,
         width: 500,
         height: 800
        });
@@ -114,7 +114,7 @@ gulp.task('Carticle', function () {
         ignore: ['@font-face'],
         src: 'squelettes/article.html',
         dest: 'squelettes-compil/css/article.css',
-        minify: false,
+        minify: true,
         width: 500,
         height: 800
        });
@@ -127,7 +127,7 @@ gulp.task('Crubrique', function () {
         ignore: ['@font-face'],
         src: 'squelettes/rubrique.html',
         dest: 'squelettes-compil/css/rubrique.css',
-        minify: false,
+        minify: true,
         width: 500,
         height: 800
        });
@@ -140,7 +140,7 @@ gulp.task('Crecherche', function () {
         ignore: ['@font-face'],
         src: 'squelettes/recherche.html',
         dest: 'squelettes-compil/css/recherche.css',
-        minify: false,
+        minify: true,
         width: 500,
         height: 800
        });

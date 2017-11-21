@@ -149,7 +149,7 @@ button {
    clear.css
    Aides a la composition
   (c) 2010-2016 Tiny Typo v1.3 - MIT License - tinytypo.tetue.net
-  
+
  ----------------------------------------------------- */
 /* Modele de boite
 [fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
@@ -210,13 +210,13 @@ a:hover, a:focus {
 	text-decoration:underline
 }
 hr {
-	color: #ddd;	
+	color: #ddd;
 }
 body {
 	margin-bottom: 35px;
 	font-family: robotoregular, Fallback, sans-serif;
 	word-wrap : break-word;
-	hyphens : auto;	
+	hyphens : auto;
 }
 h1,h2,h3,h4,h5,h6 {
 	word-wrap : normal;
@@ -245,7 +245,7 @@ div.direct a {
 	position: absolute;
 	left: -7000px;
 	z-index: 1000;
-	height: 0px;	
+	height: 0px;
 }
 div.direct a:focus{
 	position: relative;
@@ -302,7 +302,7 @@ header.conteneur{
 }
 .conteneur {
 		display: flex;
-		flex-direction: column;	
+		flex-direction: column;
 		//align-items: center;
 		padding-bottom: 40px;
 		background-color: rgba(255,255,255,0.8);
@@ -321,7 +321,7 @@ header.conteneur{
 		@media screen and (min-width: $break-menu) {
 			margin: 0px auto;
 		}
-		
+
 }
 
 h1.logoMDPH img {
@@ -333,7 +333,7 @@ h1.logoMDPH img {
 	}
 }
 @media screen and (max-width: $break-menu) {
-	#fil_ariane .logoMDPH {display: none};	
+	#fil_ariane .logoMDPH {display: none};
 }
 header .entete{
 	position: fixed;
@@ -355,7 +355,7 @@ a.logoMDPHmin {
 	}
 }
 #nav-toggle {
-    position: absolute ; 
+    position: absolute ;
     color:#4a4a4a;
     top: 12px;
     left: 12px;
@@ -372,7 +372,7 @@ a.logoMDPHmin {
 	text-decoration: underline;
 }
 #fermer_menu {
-	position: relative; 
+	position: relative;
 	color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -409,6 +409,13 @@ a.logoMDPHmin {
 		padding-bottom: 10px;
 		border-bottom: 1px solid #fff;
 	}
+	hr {
+		margin: 0 20px;
+		border: none;
+		border-top: 1px solid #fff;
+		height: 1px;
+	}
+
 	ul li {
 		list-style-type: none;
 		margin: 20px 20px;
@@ -416,6 +423,11 @@ a.logoMDPHmin {
 			color: #fff;
 			font-family: 'robotocondensedbold';
 			font-size: 1.1em;
+			display: flex;
+			align-items: center;
+			img {
+				margin-right: 0.5em;
+			}
 		}
 		a:hover, a:focus {
 			color:  #D0C813;
@@ -530,10 +542,10 @@ footer {
 
 
 #main_bloc, #main {
-	
+
 	p {
 		padding: 10px;
-		
+
 	}
 	header h3 {
 		font-family: 'robotoregular';
@@ -569,7 +581,7 @@ footer {
 			margin-left:15px;
 		}
 	}
-	
+
 	.grandes_rub {
 		a {
 				width: 100%;
@@ -624,7 +636,7 @@ footer {
 		line-height: 1.3em;
 		padding: 0.5em 0;
 		border-bottom: 1px solid #5C3261;
-		
+
 		@media screen and (min-width: $break-menu) {
 			min-width: $break-menu - 100px;
 		}
@@ -659,7 +671,7 @@ footer {
 			padding: 10px 0;
 		}
 	}
-	.btnviolet, .btnblanc {
+	.btnviolet {
 		margin-top: 15px;
 		align-self: flex-end;
 		background: #5C3261;
@@ -671,53 +683,62 @@ footer {
 		font-size: 1em;
 		cursor: pointer;
 	}
-	
+
+  h2.liste_reponse {
+    font-family: 'robotoregular', sans-serif;
+    font-size: 1.4em;
+    color: #613665;
+    line-height: 22px;
+    padding: 10px 15px;
+  }
+
 	.liste_reponse {
 		hr {
 			border: 1px solid #D2C800;
 			border-bottom: none;
 		}
-		h2 {
-			font-family: 'robotoregular', sans-serif;
-			font-size: 1.4em;
-			color: #613665;
-			line-height: 22px;
-			padding: 10px 15px;
-		}
-		
-		li{ 
-			em,p {
+		li{
+      border-bottom: 1px solid #D2C800;
+      padding: 1em;
+			padding-left: 2.5em;
+      div.texte {
 				color: #000;
-				font-size: 0.9em;
-			}
+				font-size: 1em;
+        line-height:1.4em;
+	    }
 			p {
 				margin-top: 0.3em;
 				font-size: 1em;
 			}
-			padding: 1em;
-			margin-left: 2.5em;
-			list-style-type:disc;
-			color: #D2C800;
 			a {
 				word-wrap : normal;
 				hyphens:manual ;
-				font-family: 'robotoregular', sans-serif;
+				font-family: 'robotocondensedbold', sans-serif;
 				font-size: 1.2em;
 				color: #5C3261;
 				display: block;
+        padding: 0.3em 0;
 				}
 			em a {
+        font-family: 'robotoregular', sans-serif;
 				display: inline;
+        font-size: 1.1em;
 			}
-			
+
 			.btnblanc {
 				background: #fff;
-				color: #000;
+				color: #5C3261;
 				font-family: 'robotoregular';
 				border: 1px solid #D2C800;
 				font-size: 1em;
 				display: inline-block;
 				float: right;
+        margin-top: 15px;
+        align-self: flex-end;
+        border-radius: 1.2em;
+        padding: 0 0.6em 0.2em 0.6em;
+        cursor: pointer;
+
 			}
 		}
 		li:after {
@@ -732,7 +753,7 @@ footer {
 	.btnviolet:hover, .btnviolet:focus {
 		background: darken(#D2C800,20%);
 	}
-	a.btnviolet, a.btnblanc {
+	a.btnviolet {
 		padding: 2px 7px;
 	}
 	.btnviolet:hover, .btnviolet:focus {
@@ -754,7 +775,7 @@ footer {
 	align-items: center;
 	flex-direction:row-reverse;
 	justify-content: space-between;
-	
+
 	@media screen and (max-width: $break-menu) {
 		flex-direction:column;
 	}
@@ -766,7 +787,8 @@ a.ariane {
 	color: #5C3261;
 }
 .chapo {
-	font-size: 1.15em;
+  font-family: robotoregular;
+	font-size: 1.1 em;
 	background-color: #FAFAFA;
 	margin-bottom: 1em;
 	padding: 0.5em;
@@ -789,7 +811,7 @@ em {
 				padding: 0;
 			}
 		ul {
-			margin-left: 1.2em;
+			margin: 1.2em 2em;
 			li {
 				list-style-type: square;
 			}
@@ -801,7 +823,7 @@ em {
 		a:hover,a:focus {
 			color: #448040;
 		}
-		
+
 		.texteencadre-spip {
 			padding: 0.5em 1em;
 			margin: 1em 0;
@@ -817,10 +839,10 @@ em {
 				display: none;
 			}
 	}
-	
+
 	h2 {
 		font-size: 1.2em;
-		color: #5c3261;	
+		color: #5c3261;
 		margin: 0;
 		padding: 0;
 	}
@@ -831,31 +853,31 @@ em {
 		font-size: 1em;
 		color: #5c3261;
 		display: inline;
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
 		padding: 0.5em  1em 0.5em 0.5em;
 		border: 1px solid #EFEEC6;
 		//border-top: none;
 		margin-bottom: 3px;
 		border-radius: 0;
 	}
-	
+
 	h2:first-child button{
-		border-top: 1px solid #EFEEC6;	
+		border-top: 1px solid #EFEEC6;
 	}
 	button.btn-collapse {
 		padding-right: 2em;
 	}
 	button.btn-collapse-up{
-		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;
 	}
 	button.btn-collapse-down{
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;	
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
 	}
-	
+
 	h2 button:hover, h2 button:focus, h2 button.active {
 		background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
 		text-decoration: underline;
-		
+
 	}
 	sup {
 		vertical-align: super;
@@ -871,7 +893,7 @@ em {
 		padding: 10px 10px 15px 10px;
 		text-align: justify;
 		line-height: 1.35em;
-		font-size: 1em;	
-		}	
+		font-size: 1em;
+		}
 	}
 }

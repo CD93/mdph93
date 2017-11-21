@@ -146,7 +146,7 @@ button {
    clear.css
    Aides a la composition
   (c) 2010-2016 Tiny Typo v1.3 - MIT License - tinytypo.tetue.net
-  
+
  ----------------------------------------------------- */
 /* Modele de boite
 [fr] http://blog.goetter.fr/post/27612618411/box-sizing-et-pourquoi-pas
@@ -381,13 +381,22 @@ a.logoMDPHmin {
     margin: 40px 20px 15px 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #fff; }
+  #nav-collapse hr {
+    margin: 0 20px;
+    border: none;
+    border-top: 1px solid #fff;
+    height: 1px; }
   #nav-collapse ul li {
     list-style-type: none;
     margin: 20px 20px; }
     #nav-collapse ul li a {
       color: #fff;
       font-family: 'robotocondensedbold';
-      font-size: 1.1em; }
+      font-size: 1.1em;
+      display: flex;
+      align-items: center; }
+      #nav-collapse ul li a img {
+        margin-right: 0.5em; }
     #nav-collapse ul li a:hover, #nav-collapse ul li a:focus {
       color: #D0C813;
       text-decoration: underline; }
@@ -596,7 +605,7 @@ footer {
     line-height: 22px;
     padding: 10px 0; }
 
-.btnviolet, .btnblanc {
+.btnviolet {
   margin-top: 15px;
   align-self: flex-end;
   background: #5C3261;
@@ -608,45 +617,53 @@ footer {
   font-size: 1em;
   cursor: pointer; }
 
-.liste_reponse hr {
-  border: 1px solid #D2C800;
-  border-bottom: none; }
-
-.liste_reponse h2 {
+h2.liste_reponse {
   font-family: 'robotoregular', sans-serif;
   font-size: 1.4em;
   color: #613665;
   line-height: 22px;
   padding: 10px 15px; }
 
+.liste_reponse hr {
+  border: 1px solid #D2C800;
+  border-bottom: none; }
+
 .liste_reponse li {
+  border-bottom: 1px solid #D2C800;
   padding: 1em;
-  margin-left: 2.5em;
-  list-style-type: disc;
-  color: #D2C800; }
-  .liste_reponse li em, .liste_reponse li p {
+  padding-left: 2.5em; }
+  .liste_reponse li div.texte {
     color: #000;
-    font-size: 0.9em; }
+    font-size: 1em;
+    line-height: 1.4em; }
   .liste_reponse li p {
     margin-top: 0.3em;
     font-size: 1em; }
   .liste_reponse li a {
     word-wrap: normal;
     hyphens: manual;
-    font-family: 'robotoregular', sans-serif;
+    font-family: 'robotocondensedbold', sans-serif;
     font-size: 1.2em;
     color: #5C3261;
-    display: block; }
+    display: block;
+    padding: 0.3em 0; }
   .liste_reponse li em a {
-    display: inline; }
+    font-family: 'robotoregular', sans-serif;
+    display: inline;
+    font-size: 1.1em; }
   .liste_reponse li .btnblanc {
     background: #fff;
-    color: #000;
+    color: #5C3261;
     font-family: 'robotoregular';
     border: 1px solid #D2C800;
     font-size: 1em;
     display: inline-block;
-    float: right; }
+    float: right;
+    margin-top: 15px;
+    align-self: flex-end;
+    border-radius: 1.2em;
+    padding: 0 0.6em 0.2em 0.6em;
+    cursor: pointer; }
 
 .liste_reponse li:after {
   content: "\0020";
@@ -659,7 +676,7 @@ footer {
 .btnviolet:hover, .btnviolet:focus {
   background: #6c6700; }
 
-a.btnviolet, a.btnblanc {
+a.btnviolet {
   padding: 2px 7px; }
 
 .btnviolet:hover, .btnviolet:focus {
@@ -689,7 +706,8 @@ a.ariane {
   color: #5C3261; }
 
 .chapo {
-  font-size: 1.15em;
+  font-family: robotoregular;
+  font-size: 1.1 em;
   background-color: #FAFAFA;
   margin-bottom: 1em;
   padding: 0.5em;
@@ -711,7 +729,7 @@ em {
       margin: 0;
       padding: 0; }
     #main article ul {
-      margin-left: 1.2em; }
+      margin: 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
     #main article a {

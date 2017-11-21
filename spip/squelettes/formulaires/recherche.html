@@ -1,6 +1,6 @@
 <form method="get" action="[(#ENV{action})]" id="form_question">
 	[(#ENV{action}|form_hidden)]
-	<label for="ma_question">Ma question</label>
+	<label for="message">Ma question</label>
 	<textarea name="recherche" id="message" type="search">[(#ENV{recherche})]</textarea>
-	<button type="submit" class="btnviolet">envoyer</button>
+	<button id="sendbutton" type="submit" class="btnviolet">envoyer</button>
 </form>
