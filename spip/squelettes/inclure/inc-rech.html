@@ -2,7 +2,7 @@
 <h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>
 <hr/>
 <ul class="liste_reponse surlignable">
-<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>
+<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>[(#AUTORISER{#ENV{email}}|oui) prof=#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE} ( #POINTS pts)]
     <li>
       <BOUCLE_niveau(ARTICLES){id_article}{si #INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>={2}}>
         <BOUCLE_rubniv(RUBRIQUES){id_rubrique}>#SET{rang,#RANG}

@@ -8,6 +8,8 @@ mdph.key
 !/spip/sw.js
 !/spip/manifest.json
 !/spip/squelettes
+/spip/config
+!/spip/config
 /spip/config/*
 !/spip/config/mes_options.php
 spip/squelettes/css/article.css

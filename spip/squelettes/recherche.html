@@ -33,8 +33,11 @@
 	<header class="rechercher">
 		#FORMULAIRE_RECHERCHE
 	</header>
+	<BOUCLE_rechercheform(ARTICLES){recherche #ENV{recherche}}{!par points}{0,1}>
+	#SET{recherche,#ENV{recherche}}
+	</BOUCLE_rechercheform>
 		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE} />
-	[(#RECHERCHE|oui)
+	[(#GET{recherche}|non)
 		[(#REM)<h2>Il n'y a pas de réponse à votre recherche</h2>
 			Voulez vous essayer avec [(#RECHERCHE|explode{" "}|foreach{modelecouperliste})]
 		]
