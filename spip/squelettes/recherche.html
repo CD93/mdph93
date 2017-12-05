@@ -20,66 +20,26 @@
 <body>
 <INCLURE{fond=inclure/header_menu}/>
 <main role="main" class="conteneur" id="main">
+	<div id="minifil">
+		<a href="#URL_SITE_SPIP">Accueil</a> > Recherche
+	</div>
+	<div id="fil_ariane"class="">
+	<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+		<div class="chemin">
+			<h1 class="cadre">&nbsp;&nbsp;Recherche</h1>
+		</div>
+
+	</div>
 	<header class="rechercher">
-		<h1>J'ai une question</h1>
-		<div class="chapo">Vous cherchez une information, une ressource ?<br/>
-		Vous avez des questions sur votre dossier ?<br/>
-		Vous recherchez un article sur le site ?<br/>
-		Posez votre question dans le champ suivant.</div>
-	#FORMULAIRE_RECHERCHE
+		#FORMULAIRE_RECHERCHE
 	</header>
-
-	<BOUCLE_rechercheform(ARTICLES){recherche #ENV{recherche}}{!par points}{0,10}>
-	#SET{recherche,#ENV{recherche}}
-	</BOUCLE_rechercheform>
-	#SET{recherchemuch,#ENV{recherche}|explode{' '}|foreach{modelecouper}}
-	#SET{recherche,#GET{recherchemuch}|explode{"|"}|implode{" "}|trim}
-	<//B_rechercheform>
-
-	<B_recherche>
-	<h2 class="liste_reponse">Nos réponses : #RECHERCHE</h2>
-	<hr/>
-	<ul class="liste_reponse surlignable">
-
-	<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>
-			<li>
-				<BOUCLE_niveau(ARTICLES){id_article}{si #INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>={2}}>
-					<BOUCLE_rubniv(RUBRIQUES){id_rubrique}>#SET{rang,#RANG}
-							<BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}>
-								[(#RANG|=={#GET{rang}}|oui)
-									[(#REM)<div class="surtitre">#TITRE</div>]
-									<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE">#_recherche:TITRE</a>
-									<div class="ariane">
-										<em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em>[ |
-										(#ID_SECTEUR|!=={#ID_RUBRIQUE}|oui)<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>]
-										| <em><a href="#URL_ARTICLE">#TITRE</a></em>
-									</div>
-									[<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
-									<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
-								]
-							</BOUCLE_art_source2>
-							<//B_art_source2>
-					</BOUCLE_rubniv>
-				</BOUCLE_niveau>
-					[(#REM)<div class="surtitre">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</div>]
-					<a href="#URL_ARTICLE">#TITRE</a>
-					<B_ariane>
-						<div class="ariane">
-							<BOUCLE_ariane(HIERARCHIE){id_article}{0,1}{" | "}>
-								<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
-							</BOUCLE_ariane>
-							 | <em><a href="#URL_RUBRIQUE{#ID_RUBRIQUE}">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a></em>
-						</div>
-					</B_ariane>
-					[<div class="texte">(#CHAPO|?{#CHAPO|couper{300},#TEXTE*|couper{300}})</div>]
-					<a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
-				<//B_niveau>
-			</li>
-	</BOUCLE_recherche>
-	</ul>
-	</B_recherche>
-	<h2>Il n'y a pas de réponse à votre recherche</h2>
-	Voulez vous essayer avec [(#RECHERCHE|explode{" "}|foreach{modelecouper})]
+		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE} />
+	[(#RECHERCHE|oui)
+		[(#REM)<h2>Il n'y a pas de réponse à votre recherche</h2>
+			Voulez vous essayer avec [(#RECHERCHE|explode{" "}|foreach{modelecouperliste})]
+		]
+		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim} />
+	]
 	<//B_recherche>
 </main>
 
