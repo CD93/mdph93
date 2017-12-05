@@ -1,0 +1,9 @@
+#SET{long,#ENV{valeur}|strlen|div{2}|round}
+#SET{regex, ([a-z0-9]}
+#SET{regex, #GET{regex}|concat{"{",#GET{long},"}$")}}
+#SET{retour,""}
+#SET{retour,#GET{retour}|concat{'<li><a href="',#URL_PAGE{recherche}|parametre_url{recherche,#ENV{valeur}|couper{#GET{long}}},'">'}}
+#SET{retour,#GET{retour}|concat{#ENV{valeur}|couper{#GET{long}},'</a></li>'}}
+#SET{retour,#GET{retour}|concat{'<li><a href="',#URL_PAGE{recherche}|parametre_url{recherche,#ENV{valeur}|match{#GET{regex}}},'">'}}
+#SET{retour,#GET{retour}|concat{#ENV{valeur}|match{#GET{regex}},'</a></li>'}}
+#GET{retour}

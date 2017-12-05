@@ -28,33 +28,47 @@
 		Posez votre question dans le champ suivant.</div>
 	#FORMULAIRE_RECHERCHE
 	</header>
+
+	<BOUCLE_rechercheform(ARTICLES){recherche #ENV{recherche}}{!par points}{0,10}>
+	#SET{recherche,#ENV{recherche}}
+	</BOUCLE_rechercheform>
+	#SET{recherchemuch,#ENV{recherche}|explode{' '}|foreach{modelecouper}}
+	#SET{recherche,#GET{recherchemuch}|explode{"|"}|implode{" "}|trim}
+	<//B_rechercheform>
+
 	<B_recherche>
 	<h2 class="liste_reponse">Nos réponses : #RECHERCHE</h2>
 	<hr/>
-	<ul class="liste_reponse">
+	<ul class="liste_reponse surlignable">
 
 	<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>
 			<li>
 				<BOUCLE_niveau(ARTICLES){id_article}{si #INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>={2}}>
-					<BOUCLE_rubniv(RUBRIQUES){id_rubrique}>
-							<BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}{titre == ^#RANG+[.][[:space:]]}>
-									<div class="surtitre">#TITRE</div>
+					<BOUCLE_rubniv(RUBRIQUES){id_rubrique}>#SET{rang,#RANG}
+							<BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}>
+								[(#RANG|=={#GET{rang}}|oui)
+									[(#REM)<div class="surtitre">#TITRE</div>]
 									<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE">#_recherche:TITRE</a>
 									<div class="ariane">
-										<em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em> |
-										<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>
+										<em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em>[ |
+										(#ID_SECTEUR|!=={#ID_RUBRIQUE}|oui)<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>]
+										| <em><a href="#URL_ARTICLE">#TITRE</a></em>
 									</div>
+									[<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
+									<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
+								]
 							</BOUCLE_art_source2>
-							[<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
-							<a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
+							<//B_art_source2>
 					</BOUCLE_rubniv>
 				</BOUCLE_niveau>
+					[(#REM)<div class="surtitre">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</div>]
 					<a href="#URL_ARTICLE">#TITRE</a>
 					<B_ariane>
 						<div class="ariane">
-							<BOUCLE_ariane(HIERARCHIE){id_article}{0,2}{" | "}>
+							<BOUCLE_ariane(HIERARCHIE){id_article}{0,1}{" | "}>
 								<em><a href="#URL_RUBRIQUE">#TITRE</a></em>
 							</BOUCLE_ariane>
+							 | <em><a href="#URL_RUBRIQUE{#ID_RUBRIQUE}">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a></em>
 						</div>
 					</B_ariane>
 					[<div class="texte">(#CHAPO|?{#CHAPO|couper{300},#TEXTE*|couper{300}})</div>]
@@ -64,6 +78,9 @@
 	</BOUCLE_recherche>
 	</ul>
 	</B_recherche>
+	<h2>Il n'y a pas de réponse à votre recherche</h2>
+	Voulez vous essayer avec [(#RECHERCHE|explode{" "}|foreach{modelecouper})]
+	<//B_recherche>
 </main>
 
 <footer role="contentinfo" id="footer">

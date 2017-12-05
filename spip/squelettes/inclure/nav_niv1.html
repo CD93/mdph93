@@ -6,17 +6,13 @@
 	<div class="chemin">
 		<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#TITRE</h1>
 	</div>
-	
+
 </div>
 	<nav role="navigation" aria-label="Menu de la rubrique">
 		<ul class="nav_rub">
-		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}>
+		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}{titre !==^[0-9]. Dossier }>
 			<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
 		</BOUCLE_liste>
-		</ul>
-	</nav>
-	<nav role="navigation" aria-label="Menu de la rubrique">
-		<ul class="nav_rub">
 		<BOUCLE_listeart(ARTICLES){id_rubrique}{par num titre}>
 			<li><a href="#URL_ARTICLE">#TITRE</a></li>
 		</BOUCLE_listeart>
