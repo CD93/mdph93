@@ -29,7 +29,7 @@
 </head>
 <body>
 <INCLURE{fond=inclure/header_menu}/>
-<main role="main" class="conteneur" id="main">
+<main role="main" class="conteneur surlignable" id="main">
 	<div id="minifil">
 		<a href="#URL_SITE_SPIP">Accueil</a> >
 	[(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|=={0}|?{' ',''})
@@ -39,7 +39,7 @@
 	<a href="#INFO_URL{rubrique,#ID_SECTEUR}">#INFO_TITRE{rubrique,#ID_SECTEUR}</a>
 		> <a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a> > #TITRE</div>
 	]
-	<div id="fil_ariane">
+	<div id="fil_ariane" class="">
 
 		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
 

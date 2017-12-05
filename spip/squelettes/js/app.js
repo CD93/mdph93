@@ -31,7 +31,7 @@ require(['domReady'], function (domReady) {
 					$('#menu_ferme').show();
 					$("#nav-collapse").css("left","0");
 				}
-			}else {
+			} else {
 				$('#menu_ferme').hide();
 				$("#nav-collapse").css("left","-280px");
 			}
@@ -134,6 +134,15 @@ require(['domReady'], function (domReady) {
 			      };
 			    });
 			};
+      //fixer fil d'ariane
+      var ariane = $("#minifil");
+      function scrolled(){
+	         var windowHeight = document.body.clientHeight,
+		       currentScroll = document.body.scrollTop || document.documentElement.scrollTop;
+	         ariane.className = (currentScroll >= windowHeight - ariane.offsetHeight) ? "fixed" : "";
+           //console.log(windowHeight+" "+currentScroll+" "+ariane.className+" "+ariane.offsetHeight);
+      }
+      addEventListener("scroll", scrolled, false);
 		});
 	});
 });
