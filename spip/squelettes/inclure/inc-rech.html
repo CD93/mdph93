@@ -1,41 +1,43 @@
+
+#SET{resultats,#ARRAY}
+<B_recherchebrute>
+<BOUCLE_recherchebrute(ARTICLES){recherche}{!par points}{0,10}>
+  #SET{source,#ID_ARTICLE}
+  #SET{article,#ID_ARTICLE}
+  #SET{articles,""}
+  #SET{points,#POINTS}
+  #SET{existe,""}
+  <BOUCLE_rubniv(RUBRIQUES){id_rubrique}>#SET{rang,#RANG}
+      <BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}>
+        [(#RANG|=={#GET{rang}}|oui)
+          #SET{source,#ID_ARTICLE}
+        ]
+      </BOUCLE_art_source2>
+  </BOUCLE_rubniv>
+  <!--début test existence d'un article source-->
+  [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
+    #SET{existe,"existe"}
+    #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
+    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|?{#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{",",#ID_ARTICLE}},#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}})]
+    #SET{source,#GET{source}}
+    #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
+  ]
+  <!--fin du test d'existence-->
+  #SET{resultats, #GET{resultats}|array_merge{#ARRAY{artsrc#GET{source},#ARRAY{articlesource,#GET{source},article,#GET{article},articles,#GET{articles},points,#GET{points}}}}}
+</BOUCLE_recherchebrute>
+</B_recherchebrute>
+
 <B_recherche>
 <h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>
-<hr/>
+[(#REM)<h3>[(#GET{resultats}|print_r{1})]</h3>]
 <ul class="liste_reponse surlignable">
-<BOUCLE_recherche(ARTICLES){recherche}{!par points}{0,10}>[(#AUTORISER{#ENV{email}}|oui) prof=#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE} ( #POINTS pts)]
+<BOUCLE_recherche(DATA){source tableau, #GET{resultats}}{!par points}>
+  <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li>
-      <BOUCLE_niveau(ARTICLES){id_article}{si #INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>={2}}>
-        <BOUCLE_rubniv(RUBRIQUES){id_rubrique}>#SET{rang,#RANG}
-            <BOUCLE_art_source2(ARTICLES){id_rubrique=#ID_PARENT}>
-              [(#RANG|=={#GET{rang}}|oui)
-                <div class="surtitre">#TITRE</div>
-                <a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE">#_recherche:TITRE</a>
-                <div class="ariane">
-                  <em><a href="#URL_SECTEUR">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></em>[ |
-                  (#ID_SECTEUR|!=={#ID_RUBRIQUE}|oui)<em><a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_PARENT}</a></em>]
-                [(#REM) | <em><a href="#URL_ARTICLE">#TITRE</a></em>]
-                </div>
-                [<div class="texte">(#_niveau:CHAPO|?{#_niveau:CHAPO|couper{300},  #_niveau:TEXTE*|couper{300}})</div>]
-                <a href="#URL_ARTICLE#titre#_recherche:ID_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
-              ]
-            </BOUCLE_art_source2>
-            <//B_art_source2>
-        </BOUCLE_rubniv>
-      </BOUCLE_niveau>
-        [(#REM)<div class="surtitre">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</div>]
-        <a href="#URL_ARTICLE">#TITRE</a>
-        <B_ariane>
-          <div class="ariane">
-            <BOUCLE_ariane(HIERARCHIE){id_article}{0,1}{" | "}>
-              <em><a href="#URL_RUBRIQUE">#TITRE</a></em>
-            </BOUCLE_ariane>
-             | <em><a href="#URL_RUBRIQUE{#ID_RUBRIQUE}">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a></em>
-          </div>
-        </B_ariane>
-        [<div class="texte">(#CHAPO|?{#CHAPO|couper{300},#TEXTE*|couper{300}})</div>]
-        <a href="#URL_ARTICLE" class="btnblanc">Lire la r&eacute;ponse</a>
-      <//B_niveau>
+      <a href="#URL_ARTICLE#titre#VALEUR{article}">#INFO_TITRE{article,#VALEUR{article}}</a>
+      [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{300},  #INFO_TEXTE{article,#VALEUR{article}}|couper{300}})</div>]
     </li>
+  </BOUCLE_article>
 </BOUCLE_recherche>
 </ul>
 </B_recherche>
