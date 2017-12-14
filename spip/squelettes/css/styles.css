@@ -624,34 +624,41 @@ h2.liste_reponse {
   line-height: 22px;
   padding: 10px 15px; }
 
-.liste_reponse hr {
-  border: 1px solid #D2C800;
-  border-bottom: none; }
-
-.liste_reponse li {
-  border-bottom: 1px solid #D2C800;
-  padding: 1em;
-  padding-left: 2.5em; }
-  .liste_reponse li div.texte {
-    color: #000;
-    font-size: 1em;
-    line-height: 1.4em; }
-  .liste_reponse li p {
-    margin-top: 0.3em;
-    font-size: 1em; }
-  .liste_reponse li a {
+ul.liste_reponse {
+  padding: 0 2em; }
+  ul.liste_reponse hr {
+    border: 1px solid #D2C800;
+    border-bottom: none; }
+  ul.liste_reponse li.niv1 {
+    margin: 1em 0 2em 0; }
+  ul.liste_reponse li a {
     word-wrap: normal;
     hyphens: manual;
     font-family: 'robotocondensedbold', sans-serif;
     font-size: 1.2em;
+    line-height: 1.44em;
     color: #5C3261;
-    display: block;
-    padding: 0.3em 0; }
-  .liste_reponse li em a {
+    display: block; }
+  ul.liste_reponse li div.texte {
+    color: #545454;
+    font-size: 1em;
+    line-height: 1.4em; }
+  ul.liste_reponse li p {
+    font-size: 1em; }
+  ul.liste_reponse li .rechprinc {
+    font-size: 1.1em;
+    color: #006621;
+    line-height: 1.23em; }
+  ul.liste_reponse li ul {
+    padding: 0 1em; }
+    ul.liste_reponse li ul li {
+      margin-top: 0.1em;
+      padding: 0.4em 0.4em 0.2em 0.3em; }
+  ul.liste_reponse li em a {
     font-family: 'robotoregular', sans-serif;
     display: inline;
     font-size: 1.1em; }
-  .liste_reponse li .btnblanc {
+  ul.liste_reponse li .btnblanc {
     background: #fff;
     color: #5C3261;
     font-family: 'robotoregular';
@@ -664,14 +671,13 @@ h2.liste_reponse {
     border-radius: 1.2em;
     padding: 0 0.6em 0.2em 0.6em;
     cursor: pointer; }
-
-.liste_reponse li:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  overflow: hidden; }
+  ul.liste_reponse li:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
 
 .btnviolet:hover, .btnviolet:focus {
   background: #6c6700; }

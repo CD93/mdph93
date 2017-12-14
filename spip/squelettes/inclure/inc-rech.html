@@ -1,7 +1,7 @@
 
 #SET{resultats,#ARRAY}
 <B_recherchebrute>
-<BOUCLE_recherchebrute(ARTICLES){recherche}{!par points}{0,10}>
+<BOUCLE_recherchebrute(ARTICLES){recherche}{!par points}{0,20}>
   #SET{source,#ID_ARTICLE}
   #SET{article,#ID_ARTICLE}
   #SET{articles,""}
@@ -14,28 +14,36 @@
         ]
       </BOUCLE_art_source2>
   </BOUCLE_rubniv>
-  <!--début test existence d'un article source-->
   [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
     #SET{existe,"existe"}
     #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
-    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|?{#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{",",#ID_ARTICLE}},#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}})]
+    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|?{#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}},#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}})]
     #SET{source,#GET{source}}
     #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
   ]
-  <!--fin du test d'existence-->
   #SET{resultats, #GET{resultats}|array_merge{#ARRAY{artsrc#GET{source},#ARRAY{articlesource,#GET{source},article,#GET{article},articles,#GET{articles},points,#GET{points}}}}}
 </BOUCLE_recherchebrute>
 </B_recherchebrute>
 
 <B_recherche>
-<h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>
+[(#REM)<h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>]
 [(#REM)<h3>[(#GET{resultats}|print_r{1})]</h3>]
 <ul class="liste_reponse surlignable">
 <BOUCLE_recherche(DATA){source tableau, #GET{resultats}}{!par points}>
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
-    <li>
-      <a href="#URL_ARTICLE#titre#VALEUR{article}">#INFO_TITRE{article,#VALEUR{article}}</a>
-      [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{300},  #INFO_TEXTE{article,#VALEUR{article}}|couper{300}})</div>]
+    <li class="niv1">
+      [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
+      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}</a>
+      <div class="rechprinc">#TITRE</div>
+      [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
+      <div class="sousrech">
+        <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
+      </div>
+      ]
+      [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
+      <a href='#URL_ARTICLE'>#TITRE</a>
+      [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
+      ]
     </li>
   </BOUCLE_article>
 </BOUCLE_recherche>

@@ -692,33 +692,45 @@ footer {
     padding: 10px 15px;
   }
 
-	.liste_reponse {
+	ul.liste_reponse {
+    padding:0 2em;
 		hr {
 			border: 1px solid #D2C800;
 			border-bottom: none;
 		}
-		li{
-      border-bottom: 1px solid #D2C800;
-      padding: 1em;
-			padding-left: 2.5em;
-      div.texte {
-				color: #000;
-				font-size: 1em;
-        line-height:1.4em;
-	    }
-			p {
-				margin-top: 0.3em;
-				font-size: 1em;
-			}
+		li.niv1 {
+      margin: 1em 0 2em 0;
+    }
+    li {
 			a {
 				word-wrap : normal;
 				hyphens:manual ;
 				font-family: 'robotocondensedbold', sans-serif;
 				font-size: 1.2em;
+        line-height: 1.44em;
 				color: #5C3261;
 				display: block;
-        padding: 0.3em 0;
-				}
+			}
+      div.texte {
+				color: #545454;
+				font-size: 1em;
+        line-height:1.4em;
+	    }
+			p {
+				font-size: 1em;
+			}
+      .rechprinc {
+        font-size: 1.1em;
+        color: #006621;
+        line-height: 1.23em;
+      }
+      ul {
+        padding:0 1em;
+        li {
+          margin-top: 0.1em;
+          padding: 0.4em 0.4em 0.2em 0.3em;
+        }
+      }
 			em a {
         font-family: 'robotoregular', sans-serif;
 				display: inline;
