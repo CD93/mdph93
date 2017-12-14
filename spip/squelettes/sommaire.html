@@ -1,4 +1,4 @@
-<!doctype html>   
+<!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
@@ -21,18 +21,20 @@
 	<div id="menu_ferme">
 	<nav role="navigation" id="nav-collapse">
 		<button aria-label="fermer le menu" id="fermer_menu" role="button" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="" height="18px" width="18px"></button>
-		
+
 		<div class="titre_menu">Place-handicap.fr</div><ul>
 			<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
 			<li><a href="#URL_ARTICLE">#TITRE</a></li>
 			</BOUCLE_menuburger>
 		</ul>
-			<hr/>
+		<hr/>
 			<ul>
 			<BOUCLE_rubriquemereburger(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
 			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE||image_gamma{254}|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
 			</BOUCLE_rubriquemereburger>
+			<li><a href=""><img src="#CHEMIN{images/loupe_b@2x.png}" height="33px" width="33px" />Rechercher</a></li>
 		</ul>
+
 	</nav>
 	</div>
 <h1 class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis"></h1>
@@ -53,8 +55,8 @@
 	</ul>
 	<div role="search" id="search">
 		<a href="#URL_PAGE{recherche}" class="question">
-		<img src="#CHEMIN{images/icon-message@2x.png}" alt="" height="40px" width="40px">
-		J'ai une question
+		<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">
+		Rechercher
 		</a>
 	</div>
 </main>
