@@ -555,19 +555,23 @@ footer {
 .nav_rub {
   width: 100%;
   margin: 10px 0; }
-  .nav_rub li a {
+  .nav_rub li button {
     display: block;
     font-family: 'robotocondensedbold', sans-serif;
     font-size: 1.4em;
     color: #613665;
     line-height: 22px;
-    padding: 10px 15px; }
-  .nav_rub li a:hover, .nav_rub li a:focus {
+    padding: 10px 15px;
+    background: #FFFFFF url(../images/fbas.png) left center no-repeat;
+    padding-left: 40px;
+    margin-left: 15px; }
+  .nav_rub li button:hover, .nav_rub li button:focus {
     color: #d4cb13; }
 
 .nav_rub_second {
   padding: 5px 15px;
-  margin: 10px 0; }
+  margin-left: 40px;
+  margin-bottom: 20px; }
   .nav_rub_second li a {
     display: block;
     font-family: 'robotocondensedbold', sans-serif;

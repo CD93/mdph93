@@ -11,7 +11,13 @@
 	<nav role="navigation" aria-label="Menu de la rubrique">
 		<ul class="nav_rub">
 		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}{titre !==^[0-9]. Dossier }>
-			<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+			<li><button id="titre#ID_RUBRIQUE" aria-expanded="false" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
+					<ul class="nav_rub_second">
+					<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
+						<li><a href="#URL_ARTICLE">#TITRE</a></li>
+					</BOUCLE_articles>
+					</ul>
+			</li>
 		</BOUCLE_liste>
 		<BOUCLE_listeart(ARTICLES){id_rubrique}{par num titre}>
 			<li><a href="#URL_ARTICLE">#TITRE</a></li>
