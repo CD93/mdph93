@@ -191,6 +191,9 @@ button {
   font-weight: normal;
   font-style: normal; }
 
+body {
+  overflow-y: scroll; }
+
 a {
   text-decoration: none; }
 
@@ -747,6 +750,11 @@ em {
       text-decoration: underline; }
     #main article a:hover, #main article a:focus {
       color: #448040; }
+    #main article h3 {
+      font-family: 'robotoregular', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 1em 0 0.5em 0.5em; }
     #main article .texteencadre-spip {
       padding: 0.5em 1em;
       margin: 1em 0;
