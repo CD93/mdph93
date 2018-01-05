@@ -17,7 +17,14 @@
   [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
     #SET{existe,"existe"}
     #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
-    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|?{#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}},#SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}})]
+    [(#ID_ARTICLE|=={#GET{source}}|non)
+      [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|oui)
+        #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}}
+      ]
+      [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|non)
+        #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}
+      ]
+    ]
     #SET{source,#GET{source}}
     #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
   ]
@@ -33,7 +40,7 @@
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li class="niv1">
       [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
-      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}</a>
+      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="font-size:0.5em;font-weight:200;margin-left:0.5em;vertical-align:top;">#VALEUR{points}pts</em></a>
       <div class="rechprinc">#TITRE</div>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
       <div class="sousrech">
@@ -41,7 +48,7 @@
       </div>
       ]
       [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
-      <a href='#URL_ARTICLE'>#TITRE</a>
+      <a href='#URL_ARTICLE'>#TITRE<em style="font-size:0.5em;font-weight:200;margin-left:0.5em;vertical-align:top">#VALEUR{points}pts</em></a>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
       ]
     </li>
