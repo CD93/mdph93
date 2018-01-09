@@ -1,6 +1,6 @@
-<header role="banner" class="conteneur">
 <div class="direct"><a href="#search">aller à la recherche</a></div>
-<div class="direct"><a href="#main">aller au contenu</a></div>
+[(#ENV{page}|=={sommaire}|non)<div class="direct"><a href="#main">aller au contenu</a></div>]
+<header role="banner" class="conteneur[ (#ENV{page}|=={sommaire}|oui) sommaire]">
 <div id="menu_ferme">
 <nav role="navigation" id="nav-collapse">
 	<button aria-label="fermer le menu" id="fermer_menu" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="" height="18px" width="18px"></button>
@@ -15,11 +15,13 @@
 		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
 			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|image_gamma{254}|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
 		</BOUCLE_rubriquemere>
+		<li><a href=""><img src="#CHEMIN{images/loupe_b@2x.png}" height="33px" width="33px" />Rechercher</a></li>
 	</ul>
 </nav>
 </div>
 <div class="entete">
-<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile_b.png}" alt="" height="24px" width="39px"><span>Menu</span></button>
-	<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span>Accueil</span><img src="#CHEMIN{images/MDPHmini.png}" alt="Place-Handicap" height="42px"></a>
+[(#ENV{page}|=={sommaire}|oui)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile_b.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
+[(#ENV{page}|=={sommaire}|non)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
+[(#ENV{page}|=={sommaire}|non)<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span>Accueil</span><img src="#CHEMIN{images/MDPHmini.png}" alt="Place-Handicap" height="42px"></a>]
 </div>
 </header>

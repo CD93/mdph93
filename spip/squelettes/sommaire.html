@@ -13,33 +13,9 @@
 	<title>Accueil du site de la MDPH de la Seine-Saint-Denis</title>
 </head>
 <body class="accueil">
-<div class="direct"><a href="#main">aller au contenu</a></div>
-<div class="direct"><a href="#search">aller à la recherche</a></div>
-<div class="direct"><a href="#main">aller au contenu</a></div>
-<header role="banner" class="conteneur sommaire"	>
-	<button id="nav-toggle" aria-label="ouvrir le menu" type="button"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span>Menu</span></button>
-	<div id="menu_ferme">
-	<nav role="navigation" id="nav-collapse">
-		<button aria-label="fermer le menu" id="fermer_menu" role="button" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="" height="18px" width="18px"></button>
-
-		<div class="titre_menu">Place-handicap.fr</div><ul>
-			<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
-			<li><a href="#URL_ARTICLE">#TITRE</a></li>
-			</BOUCLE_menuburger>
-		</ul>
-		<hr/>
-			<ul>
-			<BOUCLE_rubriquemereburger(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
-			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE||image_gamma{254}|vider_attribut{width}|inserer_attribut{style,'width:33px;'}|vider_attribut{height}|inserer_attribut{style,'height:33px;'})] #TITRE</a></li>
-			</BOUCLE_rubriquemereburger>
-			<li><a href=""><img src="#CHEMIN{images/loupe_b@2x.png}" height="33px" width="33px" />Rechercher</a></li>
-		</ul>
-
-	</nav>
-	</div>
-<h1 class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis"></h1>
-</header>
+<INCLURE{fond=inclure/header_menu}{page=sommaire} />
 <main role="main" class="conteneur sommaire" id="main">
+	<h1 class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis"></h1>
 	<BOUCLE_flashinfo(ARTICLES){id_rubrique=4}{par date}{0,1}>
 	<div class="flash_info">
 		<div class="inner_flash">
