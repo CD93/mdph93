@@ -2,7 +2,7 @@
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 [(#ENV{editable})
-<form method="post" action="#ENV{action}#formulaire_avis_utilisateur#ENV{id}">
+<form method="post" action="#ENV{action}formulaire_avis_utilisateur#ENV{id}">
 	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
 	#ACTION_FORMULAIRE
 	[(#REM) Previsualisation... ]
@@ -24,59 +24,59 @@
 	<fieldset>
 		<legend>Navigation :</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_avis_navigation obligatoire[ (#ENV*{erreurs}|table_valeur{avis_navigation}|oui)erreur]">
+			<div class="editer saisie_avis_navigation[ (#ENV*{erreurs}|table_valeur{avis_navigation}|oui)erreur]">
 				<label for="avis_navigation#ENV{id}">La navigation vous a t'elle parue facile ?</label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_navigation})</span>]
 				<label for="avis_navigation#ENV{id}_oui">oui</label>
         <input type="radio" value="oui" checked="[(#ENV{avis_navigation}|=={oui}|?{checked,''})]" name="avis_navigation" id="avis_navigation#ENV{id}_oui" />
 				<label for="avis_navigation#ENV{id}_non">non</label>
-				<input type="radio" value="non" checked="[(#ENV{avis_navigation}|=={non}|?{checked,''})]" name="avis_navigation" id="avis_navigation#ENV{id}_non" />
+				<input type="radio" value="non" checked="[(#ENV{avis_navigation}|=={non}|?{'',checked})]" name="avis_navigation" id="avis_navigation#ENV{id}_non" />
 			</div>
 		</div>
 	</fieldset>
 	<fieldset>
 		<legend>Accessibilité :</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_avis_accessibilite obligatoire[ (#ENV*{erreurs}|table_valeur{avis_accessibilite}|oui)erreur]">
+			<div class="editer saisie_avis_accessibilite[ (#ENV*{erreurs}|table_valeur{avis_accessibilite}|oui)erreur]">
 				<label for="avis_accessibilite#ENV{id}">Ce site est-il accessible à votre handicap ?</label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_accessibilite})</span>]
 				<label for="avis_accessibilite#ENV{id}_oui">oui</label>
 				<input type="radio" value="oui" checked="[(#ENV{avis_accessibilite}|=={oui}|?{checked,''})]" name="avis_accessibilite" id="avis_accessibilite#ENV{id}_oui" />
 				<label for="avis_accessibilite#ENV{id}_non">non</label>
-				<input type="radio" value="non" checked="[(#ENV{avis_accessibilite}|=={non}|?{checked,''})]" name="avis_accessibilite" id="avis_accessibilite#ENV{id}_non" />
+				<input type="radio" value="non" checked="[(#ENV{avis_accessibilite}|=={non}|?{'',checked})]" name="avis_accessibilite" id="avis_accessibilite#ENV{id}_non" />
 			</div>
 		</div>
 	</fieldset>
 	<fieldset>
 		<legend>Présentation :</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_avis_presentation obligatoire[ (#ENV*{erreurs}|table_valeur{avis_presentation}|oui)erreur]">
+			<div class="editer saisie_avis_presentation[ (#ENV*{erreurs}|table_valeur{avis_presentation}|oui)erreur]">
 				<label for="avis_presentation#ENV{id}">Est-ce que la mise en page du site facilite la lecture ? (ex : titres, paragraphes…)</label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_presentation})</span>]
 				<label for="avis_presentation#ENV{id}_oui">oui</label>
 				<input type="radio" value="oui" checked="[(#ENV{avis_presentation}|=={oui}|?{checked,''})]" name="avis_presentation" id="avis_presentation#ENV{id}_oui" />
 				<label for="avis_presentation#ENV{id}_non">non</label>
-				<input type="radio" value="non" checked="[(#ENV{avis_presentation}|=={non}|?{checked,''})]" name="avis_presentation" id="avis_presentation#ENV{id}_non" />
+				<input type="radio" value="non" checked="[(#ENV{avis_presentation}|=={non}|?{'',checked})]" name="avis_presentation" id="avis_presentation#ENV{id}_non" />
 			</div>
 		</div>
 	</fieldset>
 	<fieldset>
 		<legend>Esthétique :</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_avis_esthetique obligatoire[ (#ENV*{erreurs}|table_valeur{avis_esthetique}|oui)erreur]">
+			<div class="editer saisie_avis_esthetique[ (#ENV*{erreurs}|table_valeur{avis_esthetique}|oui)erreur]">
 				<label for="avis_esthetique#ENV{id}">Le design du site vous plait-il ? (forme, couleurs…)</label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_esthetique})</span>]
 				<label for="avis_esthetique#ENV{id}_oui">oui</label>
 				<input type="radio" value="oui" checked="[(#ENV{avis_esthetique}|=={oui}|?{checked,''})]" name="avis_esthetique" id="avis_esthetique#ENV{id}_oui" />
 				<label for="avis_esthetique#ENV{id}_non">non</label>
-				<input type="radio" value="non" checked="[(#ENV{avis_esthetique}|=={non}|?{checked,''})]" name="avis_esthetique" id="avis_esthetique#ENV{id}_non" />
+				<input type="radio" value="non" checked="[(#ENV{avis_esthetique}|=={non}|?{'',checked})]" name="avis_esthetique" id="avis_esthetique#ENV{id}_non" />
 			</div>
 		</div>
 	</fieldset>
 	<fieldset>
 		<legend>Vous avez un avis ? des conseils ?</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_avis_texte obligatoire[ (#ENV*{erreurs}|table_valeur{avis_texte}|oui)erreur]">
+			<div class="editer saisie_avis_texte[ (#ENV*{erreurs}|table_valeur{avis_texte}|oui)erreur]">
 				<label for="avis_texte#ENV{id}"><:info_texte_message:> <:info_obligatoire_02:></label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_texte})</span>]
 				<textarea name="avis_texte" id="avis_texte#ENV{id}" rows="10" cols="45"[(#HTML5) required="required"]>#ENV{avis_texte}</textarea>
