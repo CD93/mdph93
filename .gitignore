@@ -12,5 +12,5 @@ mdph.key
 !/spip/config
 /spip/config/*
 !/spip/config/mes_options.php
-/spip/squelettes/css/styles.css
+**/css/styles.css
 .DS_Store
