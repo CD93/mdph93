@@ -1,5 +1,6 @@
 <div class="direct"><a href="#search">aller à la recherche</a></div>
 [(#ENV{page}|=={sommaire}|non)<div class="direct"><a href="#main">aller au contenu</a></div>]
+[(#ENV{page}|=={sommaire}|oui)<div class="direct"><a href="#menu">aller au menu</a></div>]
 <header role="banner" class="conteneur[ (#ENV{page}|=={sommaire}|oui) sommaire]">
 <div id="menu_ferme">
 <nav role="navigation" id="nav-collapse">
@@ -19,9 +20,9 @@
 	</ul>
 </nav>
 </div>
-<div class="entete">
-[(#ENV{page}|=={sommaire}|oui)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile_b.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
-[(#ENV{page}|=={sommaire}|non)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
+<div class="[(#ENV{page}|=={sommaire}|non)entete]">
+[(#ENV{page}|=={sommaire}|non)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile_b.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
+[(#ENV{page}|=={sommaire}|oui)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span>Menu</span></button>]
 [(#ENV{page}|=={sommaire}|non)<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span>Accueil</span><img src="#CHEMIN{images/MDPHmini.png}" alt="Place-Handicap" height="42px"></a>]
 </div>
 </header>
