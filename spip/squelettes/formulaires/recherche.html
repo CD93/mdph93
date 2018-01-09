@@ -1,6 +1,9 @@
-<form method="get" action="[(#ENV{action})]" id="form_question">
+<div class="formulaire_spip formulaire_recherche[ (#ENV{class})]" id="formulaire_recherche">
+<form action="[(#ENV{action})]" method="get" id="form_question"><div class="editer-groupe">
 	[(#ENV{action}|form_hidden)]
+	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
 	<label for="message">Ma question</label>
-	<textarea name="recherche" id="message" type="search">[(#ENV{recherche})]</textarea>
-	<button id="sendbutton" type="submit" class="btnviolet">envoyer</button>
-</form>
+	<input type="[(#HTML5|?{search,text})]" class="search text" size="50" name="recherche" id="message"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"
+	/><input type="submit" class="submit btnviolet" value="envoyer" id="sendbutton" title="envoyer" />
+</div></form>
+</div>

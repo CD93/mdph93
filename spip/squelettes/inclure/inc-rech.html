@@ -14,21 +14,23 @@
         ]
       </BOUCLE_art_source2>
   </BOUCLE_rubniv>
-  [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
-    #SET{existe,"existe"}
-    #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
-    [(#ID_ARTICLE|=={#GET{source}}|non)
-      [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|oui)
-        #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}}
+  [(#POINTS|>{2}|oui)
+    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
+      #SET{existe,"existe"}
+      #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
+      [(#ID_ARTICLE|=={#GET{source}}|non)
+        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|oui)
+          #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}}
+        ]
+        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|non)
+          #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}
+        ]
       ]
-      [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|non)
-        #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}
-      ]
+      #SET{source,#GET{source}}
+      #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
     ]
-    #SET{source,#GET{source}}
-    #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
+    #SET{resultats, #GET{resultats}|array_merge{#ARRAY{artsrc#GET{source},#ARRAY{articlesource,#GET{source},article,#GET{article},articles,#GET{articles},points,#GET{points}}}}}
   ]
-  #SET{resultats, #GET{resultats}|array_merge{#ARRAY{artsrc#GET{source},#ARRAY{articlesource,#GET{source},article,#GET{article},articles,#GET{articles},points,#GET{points}}}}}
 </BOUCLE_recherchebrute>
 </B_recherchebrute>
 

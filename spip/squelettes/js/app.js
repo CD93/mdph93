@@ -34,13 +34,13 @@ require(['domReady'], function (domReady) {
 				}
 			} else {
 				$('#menu_ferme').hide();
-				$("#nav-collapse").css("left","-280px");
+				$("#nav-collapse").css("left","-18.6em");
 			}
 			$('#nav-toggle').click(function(e) {
 				e.preventDefault();
 				cookie.set('menuouvert', 'oui');
 				console.log(cookie.get('menuouvert'));
-				$("#nav-collapse").css("left","0px");
+				$("#nav-collapse").css("left","0");
 				var offsets = $('#main').offset();
 				var left = offsets.left;
 				decal = 0;
