@@ -1,0 +1,38 @@
+<footer role="contentinfo" id="footer">
+	<ul>
+		<li><a href="#">plan du site</a></li>
+		<li><a href="#">accessibilité</a></li>
+		<li><a href="#">mentions légales</a></li>
+		<li><a href="#">contact</a></li>
+	</ul>
+</footer>
+<script data-main="#CHEMIN{js/app.js}" src="#CHEMIN{js/require.js}" async></script>
+<!-- Visites -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push([function() {
+    var self = this;
+    function getOriginalVisitorCookieTimeout() {
+    var now = new Date(),
+    nowTs = Math.round(now.getTime() / 1000),
+    visitorInfo = self.getVisitorInfo();
+    var createTs = parseInt(visitorInfo[2]);
+    var cookieTimeout = 33696000; // 13 mois en secondes
+    var originalTimeout = createTs + cookieTimeout - nowTs;
+    return originalTimeout;
+    }
+    this.setVisitorCookieTimeout( getOriginalVisitorCookieTimeout() );
+  }]);
+  _paq.push(["setDomains", ["*.demain.place-handicap.fr","*.demain.place-handicap.fr"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//visites.seinesaintdenis.fr/";
+    _paq.push(['setTrackerUrl', u+'visite.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'visite.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//visites.seinesaintdenis.fr/visite.php?idsite=14" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->

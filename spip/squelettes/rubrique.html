@@ -1,5 +1,5 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-<!doctype html>   
+<!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
@@ -34,16 +34,7 @@
 [(#PROFONDEUR|>{0}|?{' ',''})
 <INCLURE{fond=inclure/nav_niv2}{env}/>
 ]
-
-<footer role="contentinfo" id="footer">
-	<ul>
-		<li><a href="#">plan du site</a></li>
-		<li><a href="#">accessibilité</a></li>
-		<li><a href="#">mentions légales</a></li>
-		<li><a href="#">contact</a></li>
-	</ul>
-</footer>
-<script data-main="#CHEMIN{js/app.js}" src="#CHEMIN{js/require.js}" async></script>
+<INCLURE{fond=inclure/inc-footer}/>
 </body>
 </html>
 </BOUCLE_rubrique>
