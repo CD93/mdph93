@@ -1,4 +1,3 @@
-formulaire
 <div class="formulaire_spip formulaire_avis_utilisateur ajax" id="formulaire_avis_utilisateur#ENV{id}">
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
@@ -11,30 +10,76 @@ formulaire
 	<fieldset class="previsu">
 		<legend><:previsualisation:></legend>
 		<div>
-			<div><strong>#ENV{sujet_message_auteur}</strong> - <em>#ENV{email_message_auteur}</em></div>
-			<div>[(#ENV{texte_message_auteur}|nl2br)]</div>
+			[<div><strong>(#ENV{avis_navigation}|?{"oui</strong>, <em>la navigation vous a parue facile.","non</strong>, <em>la navigation ne vous a pas parue facile."})</em></div>]
+			[<div><strong>(#ENV{avis_navigation}|?{"oui</strong>, <em>le site est accessible a votre handicap.","non"})</em></div>]
+			[<div><strong>(#ENV{avis_navigation}|?{"oui</strong>, <em>la mise en page du site facilite la lecture.","non"})</em></div>]
+			[<div><strong>(#ENV{avis_navigation}|?{"oui</strong>, <em>le design du site vous plait.","non"})</em></div>]
+
+			<div>[(#ENV{avis_texte}|nl2br)]</div>
 		</div>
 		<p class="boutons"><input type="submit" class="submit" name="confirmer" value="<:form_prop_confirmer_envoi:>" /></p>
 	</fieldset>
 	]
 	[(#REM) Sinon, formulaire normal ]
 	<fieldset>
-		<legend><:envoyer_message:></legend>
+		<legend>Navigation :</legend>
 		<div class="editer-groupe">
-			<div class="editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]">
-				<label for="email_message_auteur#ENV{id}"><:entree_adresse_email:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
-				<input[ (#HTML5|?{required="required" type="email" class="text email",type="text" class="text"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" size="30" />
+			<div class="editer saisie_avis_navigation obligatoire[ (#ENV*{erreurs}|table_valeur{avis_navigation}|oui)erreur]">
+				<label for="avis_navigation#ENV{id}">La navigation vous a t'elle parue facile ?</label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_navigation})</span>]
+				<label for="avis_navigation#ENV{id}_oui">oui</label>
+        <input type="radio" value="oui" checked="[(#ENV{avis_navigation}|=={oui}|?{checked,''})]" name="avis_navigation" id="avis_navigation#ENV{id}_oui" />
+				<label for="avis_navigation#ENV{id}_non">non</label>
+				<input type="radio" value="non" checked="[(#ENV{avis_navigation}|=={non}|?{checked,''})]" name="avis_navigation" id="avis_navigation#ENV{id}_non" />
 			</div>
-			<div class="editer saisie_sujet_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]">
-				<label for="sujet_message_auteur#ENV{id}"><:form_prop_sujet:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{sujet_message_auteur})</span>]
-				<input type="text" class="text" name="sujet_message_auteur" id="sujet_message_auteur#ENV{id}" value="#ENV{sujet_message_auteur}" size="30"[(#HTML5) required="required"] />
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Accessibilité :</legend>
+		<div class="editer-groupe">
+			<div class="editer saisie_avis_accessibilite obligatoire[ (#ENV*{erreurs}|table_valeur{avis_accessibilite}|oui)erreur]">
+				<label for="avis_accessibilite#ENV{id}">Ce site est-il accessible à votre handicap ?</label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_accessibilite})</span>]
+				<label for="avis_accessibilite#ENV{id}_oui">oui</label>
+				<input type="radio" value="oui" checked="[(#ENV{avis_accessibilite}|=={oui}|?{checked,''})]" name="avis_accessibilite" id="avis_accessibilite#ENV{id}_oui" />
+				<label for="avis_accessibilite#ENV{id}_non">non</label>
+				<input type="radio" value="non" checked="[(#ENV{avis_accessibilite}|=={non}|?{checked,''})]" name="avis_accessibilite" id="avis_accessibilite#ENV{id}_non" />
 			</div>
-			<div class="editer saisie_texte_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]">
-				<label for="texte_message_auteur#ENV{id}"><:info_texte_message:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
-				<textarea name="texte_message_auteur" id="texte_message_auteur#ENV{id}" rows="10" cols="60"[(#HTML5) required="required"]>#ENV{texte_message_auteur}</textarea>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Présentation :</legend>
+		<div class="editer-groupe">
+			<div class="editer saisie_avis_presentation obligatoire[ (#ENV*{erreurs}|table_valeur{avis_presentation}|oui)erreur]">
+				<label for="avis_presentation#ENV{id}">Est-ce que la mise en page du site facilite la lecture ? (ex : titres, paragraphes…)</label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_presentation})</span>]
+				<label for="avis_presentation#ENV{id}_oui">oui</label>
+				<input type="radio" value="oui" checked="[(#ENV{avis_presentation}|=={oui}|?{checked,''})]" name="avis_presentation" id="avis_presentation#ENV{id}_oui" />
+				<label for="avis_presentation#ENV{id}_non">non</label>
+				<input type="radio" value="non" checked="[(#ENV{avis_presentation}|=={non}|?{checked,''})]" name="avis_presentation" id="avis_presentation#ENV{id}_non" />
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Esthétique :</legend>
+		<div class="editer-groupe">
+			<div class="editer saisie_avis_esthetique obligatoire[ (#ENV*{erreurs}|table_valeur{avis_esthetique}|oui)erreur]">
+				<label for="avis_esthetique#ENV{id}">Le design du site vous plait-il ? (forme, couleurs…)</label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_esthetique})</span>]
+				<label for="avis_esthetique#ENV{id}_oui">oui</label>
+				<input type="radio" value="oui" checked="[(#ENV{avis_esthetique}|=={oui}|?{checked,''})]" name="avis_esthetique" id="avis_esthetique#ENV{id}_oui" />
+				<label for="avis_esthetique#ENV{id}_non">non</label>
+				<input type="radio" value="non" checked="[(#ENV{avis_esthetique}|=={non}|?{checked,''})]" name="avis_esthetique" id="avis_esthetique#ENV{id}_non" />
+			</div>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Vous avez un avis ? des conseils ?</legend>
+		<div class="editer-groupe">
+			<div class="editer saisie_avis_texte obligatoire[ (#ENV*{erreurs}|table_valeur{avis_texte}|oui)erreur]">
+				<label for="avis_texte#ENV{id}"><:info_texte_message:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_texte})</span>]
+				<textarea name="avis_texte" id="avis_texte#ENV{id}" rows="10" cols="45"[(#HTML5) required="required"]>#ENV{avis_texte}</textarea>
 			</div>
 		</div>
 	</fieldset>
