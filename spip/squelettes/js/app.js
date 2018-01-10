@@ -1,24 +1,9 @@
-requirejs.config({
-    //By default load any module IDs from js/lib
-    baseUrl: 'squelettes/js',
-    //except, if the module ID starts with "app",
-    //load it from the js/app directory. paths
-    //config is relative to the baseUrl, and
-    //never includes a ".js" extension since
-    //the paths config could be for a directory.
-    paths: {
-        jquery: 'jquery.3.2.1.min',
-        cookie: 'js.cookie'
-    }
-});
-require(['domReady'], function (domReady) {
-	domReady(function () {
-		require(['jquery','cookie'], function ($, cookie) {
+
 			var decal;
 			$(".paragraphe").css("display","none");
       $(".nav_rub_second").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
-			if(cookie.get('menuouvert')=='oui'){
+			if(Cookies.get('menuouvert')=='oui'){
         $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
         $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
 				if($( document ).width() > 800) {
@@ -38,8 +23,8 @@ require(['domReady'], function (domReady) {
 			}
 			$('#nav-toggle').click(function(e) {
 				e.preventDefault();
-				cookie.set('menuouvert', 'oui');
-				console.log(cookie.get('menuouvert'));
+				Cookies.set('menuouvert', 'oui');
+				console.log(Cookies.get('menuouvert'));
 				$("#nav-collapse").css("left","0px");
 				var offsets = $('#main').offset();
 				var left = offsets.left;
@@ -55,8 +40,8 @@ require(['domReady'], function (domReady) {
 			});
 			$('#fermer_menu').click(function(e) {
 				e.preventDefault();
-				cookie.set('menuouvert', 'non');
-				console.log(cookie.get('menuouvert'));
+				Cookies.set('menuouvert', 'non');
+				console.log(Cookies.get('menuouvert'));
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
@@ -156,6 +141,3 @@ require(['domReady'], function (domReady) {
            //console.log(windowHeight+" "+currentScroll+" "+ariane.className+" "+ariane.offsetHeight);
       }
       addEventListener("scroll", scrolled, false);
-		});
-	});
-});
