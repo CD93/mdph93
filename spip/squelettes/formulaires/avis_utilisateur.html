@@ -22,7 +22,7 @@
 	]
 	[(#REM) Sinon, formulaire normal ]
 	<fieldset>
-		<legend>Navigation :</legend>
+		<legend>Navigation</legend>
 		<div class="editer-groupe">
 			<div class="editer saisie_avis_navigation[ (#ENV*{erreurs}|table_valeur{avis_navigation}|oui)erreur]">
 				<label for="avis_navigation#ENV{id}">La navigation vous a t'elle parue facile ?</label>
@@ -77,9 +77,8 @@
 		<legend>Vous avez un avis ? des conseils ?</legend>
 		<div class="editer-groupe">
 			<div class="editer saisie_avis_texte[ (#ENV*{erreurs}|table_valeur{avis_texte}|oui)erreur]">
-				<label for="avis_texte#ENV{id}"><:info_texte_message:> <:info_obligatoire_02:></label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{avis_texte})</span>]
-				<textarea name="avis_texte" id="avis_texte#ENV{id}" rows="10" cols="45"[(#HTML5) required="required"]>#ENV{avis_texte}</textarea>
+				<textarea name="avis_texte" id="avis_texte#ENV{id}" rows="10" cols="45">#ENV{avis_texte}</textarea>
 			</div>
 		</div>
 	</fieldset>

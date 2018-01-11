@@ -814,3 +814,22 @@ em {
           hyphens: none;
           background-color: rgba(255, 255, 255, 0.6);
           font-family: arial; } }
+
+#sondage_form fieldset {
+  border: 1px solid #C8C12B;
+  padding: 10px;
+  background-color: #fff;
+  margin: 10px 0; }
+
+#sondage_form legend {
+  font-family: robotocondensedbold;
+  font-size: 1.2em;
+  background-color: #fff;
+  padding: 5px; }
+
+#sondage_form input {
+  display: block; }
+
+#sondage_form label {
+  display: block;
+  font-weight: bold; }

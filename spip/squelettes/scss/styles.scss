@@ -932,3 +932,24 @@ em {
 		}
 	}
 }
+#sondage_form {
+  fieldset {
+    border: 1px solid #C8C12B;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px 0;
+  }
+  legend {
+    font-family: robotocondensedbold;
+    font-size: 1.2em;
+    background-color: #fff;
+    padding: 5px;
+  }
+  input {
+    display: block;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+  }
+}
