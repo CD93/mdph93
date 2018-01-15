@@ -933,6 +933,7 @@ em {
 	}
 }
 #sondage_form {
+  margin-top: 2em;
   fieldset {
     border: 1px solid #C8C12B;
     padding: 10px;
@@ -945,11 +946,80 @@ em {
     background-color: #fff;
     padding: 5px;
   }
-  input {
-    display: block;
+  .avis.js input {
+	   position:absolute;
+	    left:-999%;
   }
-  label {
-    display: block;
-    font-weight: bold;
+  /* Effet lorsque une note est cochée */
+  .avis .choix input.note-checked {
+    font-weight:bold;
   }
+  /* Effet lorsque une note est tabulée au clavier */
+  .avis.js .choix.note-focus {
+	   outline:1px dotted #000;
+  }
+  .choix {
+    float: left;
+    min-width:20px;
+	  min-height:20px;
+    margin-left: 20px;
+    label {
+      display:block;
+    	text-align:center;
+    	line-height:20px;
+      font-size: 0.8em;
+    	background:url(../images/etoiles.gif) center top no-repeat;
+    	cursor:pointer;
+    }
+  }
+  .choix.note-off label {
+     background-position: center -60px;
+  }
+  .boutons input.submit {
+    	display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	font-family: 'robotocondensedbold', sans-serif;
+    	font-size: 1em;
+    	color: #5B3160;
+    	line-height: 1.2em;
+    	margin: 0.6em 1em 0.3em 1em;
+    	text-align: center;
+  }
+  .boutons input.submit:hover, .boutons input.submit:focus {
+    color: #C8C12B;
+  }
+  h2 button{
+		width: 100%;
+		text-align: left;
+		font-family: 'robotocondensedbold';
+		font-size: 1em;
+		color: #5c3261;
+		display: inline;
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+		padding: 0.5em 30px 0.5em 30px;
+		border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+		//border-top: none;
+		margin-bottom: -1px;
+		border-radius: 0;
+	}
+
+	h2:first-child button{
+		border: none;
+	}
+	button.btn-collapse {
+		padding-right: 2em;
+	}
+	button.btn-collapse-up{
+		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;
+	}
+	button.btn-collapse-down{
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+	}
+	h2 button:hover, h2 button:focus, h2 button:active {
+		background-color: #EFEEC6 right center no-repeat;
+		text-decoration: underline;
+
+	}
 }

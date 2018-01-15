@@ -64,7 +64,7 @@ require(['domReady'], function (domReady) {
         $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
 			});
-			$("h2 button").click(function(e) {
+			$("#main article h2 button").click(function(e) {
 				$(this).toggleClass( "active" ).parent().next('div').slideToggle(300);
 				if ($(this).hasClass("active")) {
 					$(this).css("background-image","url(squelettes/images/fhaut.png)");
@@ -156,6 +156,87 @@ require(['domReady'], function (domReady) {
            //console.log(windowHeight+" "+currentScroll+" "+ariane.className+" "+ariane.offsetHeight);
       }
       addEventListener("scroll", scrolled, false);
+
+      //sondage formulaire avis formulaire_avis_utilisateur
+      // On ajoute la classe "js" à la liste pour mettre en place par la suite du code CSS uniquement dans le cas où le Javascript est activé
+	     $(".avis").addClass("js");
+      // On passe chaque note à l'état grisé par défaut
+      	$(".avis div.choix").addClass("note-off");
+      	// Au survol de chaque note à la souris
+      	$(".avis div.choix").mouseover(function() {
+      		// On passe les notes supérieures à l'état inactif (par défaut)
+      		$(this).nextAll("div").addClass("note-off");
+      		// On passe les notes inférieures à l'état actif
+      		$(this).prevAll("div").removeClass("note-off");
+      		// On passe la note survolée à l'état actif (par défaut)
+      		$(this).removeClass("note-off");
+      	});
+      	// Lorsque l'on sort du sytème de notation à la souris
+      	$(".avis").mouseout(function() {
+      		// On passe toutes les notes à l'état inactif
+      		$(this).children("div").addClass("note-off");
+      		// On simule (trigger) un mouseover sur la note cochée s'il y a lieu
+      		$(this).find("div input:checked").parent("div").trigger("mouseover");
+      	});
+        // au clavier
+        $(".avis input")
+        	// Lorsque le focus est sur un bouton radio
+        	.focus(function() {
+        		// On passe les notes supérieures à l'état inactif (par défaut)
+        		$(this).parent("div").nextAll("div").addClass("note-off");
+        		// On passe les notes inférieures à l'état actif
+        		$(this).parent("div").prevAll("div").removeClass("note-off");
+        		// On passe la note du focus à l'état actif (par défaut)
+        		$(this).parent("div").removeClass("note-off");
+        	})
+        	// Lorsque l'on sort du sytème de notation au clavier
+        	.blur(function() {
+        		// Si il n'y a pas de case cochée
+        		if($(this).parents(".avis").find("div input:checked").length == 0) {
+        			// On passe toutes les notes à l'état inactif
+        			$(this).parents(".avis").find("div").addClass("note-off");
+        		}
+        	});
+          $(".avis input")
+          	// Lorsque le focus est sur un bouton radio
+          	.focus(function() {
+          		// On supprime les classes de focus
+          		$(this).parents(".avis").find("div").removeClass("note-focus");
+          		// On applique la classe de focus sur l'item tabulé
+          		$(this).parent("div").addClass("note-focus");
+          		// [...] cf. code précédent
+          	})
+          	// Lorsque l'on sort du sytème de notation au clavier
+          	.blur(function() {
+          		// On supprime les classes de focus
+          		$(this).parents(".avis").find("div").removeClass("note-focus");
+          		// [...] cf. code précédent
+          	})
+          	// Lorsque la note est cochée
+          	.click(function() {
+          		// On supprime les classes de note cochée
+          		$(this).parents(".avis").find("div").removeClass("note-checked");
+          		// On applique la classe de note cochée sur l'item choisi
+          		$(this).parent("div").addClass("note-checked");
+          	});
+            // On simule un survol souris des boutons cochés par défaut
+            $(".avis input:checked").parent("div").trigger("mouseover");
+            // On simule un click souris des boutons cochés
+            $(".avis input:checked").trigger("click");
+            $("#sondage_form h2 button").attr('aria-expanded','false');
+            $("#sondage_form h2 button").removeClass("active");
+            $("#sondage_form > div").hide();
+            $("#sondage_form h2 button").click(function(e) {
+              $(this).toggleClass( "active" ).parent().next('div').slideToggle(300);
+              if ($(this).hasClass("active")) {
+                $(this).css("background-image","url(squelettes/images/fhaut.png)");
+                $(this).attr('aria-expanded','true');
+              }
+              else {
+                $(this).css("background-image","url(squelettes/images/fbas.png)");
+                $(this).attr('aria-expanded','false');
+              }
+            });
 		});
 	});
 });

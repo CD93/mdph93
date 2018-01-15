@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* --------------------------------------------------------------
 
    reset.css
@@ -815,21 +816,74 @@ em {
           background-color: rgba(255, 255, 255, 0.6);
           font-family: arial; } }
 
-#sondage_form fieldset {
-  border: 1px solid #C8C12B;
-  padding: 10px;
-  background-color: #fff;
-  margin: 10px 0; }
-
-#sondage_form legend {
-  font-family: robotocondensedbold;
-  font-size: 1.2em;
-  background-color: #fff;
-  padding: 5px; }
-
-#sondage_form input {
-  display: block; }
-
-#sondage_form label {
-  display: block;
-  font-weight: bold; }
+#sondage_form {
+  margin-top: 2em;
+  /* Effet lorsque une note est cochée */
+  /* Effet lorsque une note est tabulée au clavier */ }
+  #sondage_form fieldset {
+    border: 1px solid #C8C12B;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px 0; }
+  #sondage_form legend {
+    font-family: robotocondensedbold;
+    font-size: 1.2em;
+    background-color: #fff;
+    padding: 5px; }
+  #sondage_form .avis.js input {
+    position: absolute;
+    left: -999%; }
+  #sondage_form .avis .choix input.note-checked {
+    font-weight: bold; }
+  #sondage_form .avis.js .choix.note-focus {
+    outline: 1px dotted #000; }
+  #sondage_form .choix {
+    float: left;
+    min-width: 20px;
+    min-height: 20px;
+    margin-left: 20px; }
+    #sondage_form .choix label {
+      display: block;
+      text-align: center;
+      line-height: 20px;
+      font-size: 0.8em;
+      background: url(../images/etoiles.gif) center top no-repeat;
+      cursor: pointer; }
+  #sondage_form .choix.note-off label {
+    background-position: center -60px; }
+  #sondage_form .boutons input.submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'robotocondensedbold', sans-serif;
+    font-size: 1em;
+    color: #5B3160;
+    line-height: 1.2em;
+    margin: 0.6em 1em 0.3em 1em;
+    text-align: center; }
+  #sondage_form .boutons input.submit:hover, #sondage_form .boutons input.submit:focus {
+    color: #C8C12B; }
+  #sondage_form h2 button {
+    width: 100%;
+    text-align: left;
+    font-family: 'robotocondensedbold';
+    font-size: 1em;
+    color: #5c3261;
+    display: inline;
+    background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+    padding: 0.5em 30px 0.5em 30px;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    margin-bottom: -1px;
+    border-radius: 0; }
+  #sondage_form h2:first-child button {
+    border: none; }
+  #sondage_form button.btn-collapse {
+    padding-right: 2em; }
+  #sondage_form button.btn-collapse-up {
+    background: #FFFFFF url(../images/fhaut.png) right center no-repeat; }
+  #sondage_form button.btn-collapse-down {
+    background: #FFFFFF url(../images/fbas.png) right center no-repeat; }
+  #sondage_form h2 button:hover, #sondage_form h2 button:focus, #sondage_form h2 button:active {
+    background-color: #EFEEC6 right center no-repeat;
+    text-decoration: underline; }
