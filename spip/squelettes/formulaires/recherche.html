@@ -3,7 +3,7 @@
 	[(#ENV{action}|form_hidden)]
 	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
 	<label for="message">Ma question</label>
-	<input type="[(#HTML5|?{search,text})]" class="search text" size="50" name="recherche" id="message"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"
+	<input type="[(#HTML5|?{search,text})]" class="search text" size="50" name="recherche" id="message"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off" min="3" placeholder="comment venir à la MDPH ?"
 	/><input type="submit" class="submit btnviolet" value="envoyer" id="sendbutton" title="envoyer" />
 </div></form>
 </div>
