@@ -326,7 +326,7 @@ header .entete {
   position: fixed;
   width: 100%;
   background-color: #d4cb13;
-  min-height: 3.3em;
+  min-height: 3em;
   z-index: 2;
   align-items: center; }
 
@@ -356,7 +356,7 @@ a.logoMDPHmin {
   #nav-toggle span {
     margin-left: 0.5em;
     position: relative;
-    bottom: 0.3em; }
+    bottom: 0.35em; }
 
 #nav-toggle:focus, #nav-toggle:hover {
   text-decoration: underline; }
