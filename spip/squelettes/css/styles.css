@@ -328,30 +328,35 @@ header .entete {
   background-color: #d4cb13;
   min-height: 3.3em;
   z-index: 2;
-  display: flex;
-  flex-direction: row-reverse;
   align-items: center; }
 
+header.sommaire .entete {
+  position: absolute;
+  float: left;
+  width: auto;
+  left: 0px;
+  background-color: transparent; }
+
 a.logoMDPHmin {
-  padding: 0.3em 1em;
+  padding: 0.3em;
   color: #4a4a4a;
+  float: right;
   display: flex;
   align-items: center; }
   a.logoMDPHmin span {
-    margin-right: 0.3em; }
+    margin-right: 0.5em; }
 
 #nav-toggle {
-  position: absolute;
+  position: relative;
   color: #4a4a4a;
-  top: 0.8em;
-  left: 0.8em;
-  display: flex;
+  padding: 0.7em 0 0 0.3em;
+  left: 0;
+  float: left;
   align-items: center; }
   #nav-toggle span {
-    margin-left: 0.3em; }
-
-#nav-toggle span {
-  margin-left: 0.5em; }
+    margin-left: 0.5em;
+    position: relative;
+    bottom: 0.3em; }
 
 #nav-toggle:focus, #nav-toggle:hover {
   text-decoration: underline; }
@@ -359,13 +364,13 @@ a.logoMDPHmin {
 #fermer_menu {
   position: relative;
   color: #FFFFFF;
-  display: flex;
   align-items: center;
-  padding: 0.5em;
+  padding: 0.3em 0.3em;
   float: right; }
-
-#fermer_menu span {
-  margin-right: 0.5em; }
+  #fermer_menu span {
+    margin-right: 0.5em;
+    bottom: 0.2em;
+    position: relative; }
 
 #fermer_menu:hover, #fermer_menu:focus {
   color: #D0C813;
