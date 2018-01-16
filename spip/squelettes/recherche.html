@@ -37,13 +37,20 @@
 	#SET{recherche,#ENV{recherche}}
 	</BOUCLE_rechercheform>
 		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE} />
-	[(#GET{recherche}|non)
-		[(#REM)<h2>Il n'y a pas de réponse à votre recherche</h2>
-			Voulez vous essayer avec [(#RECHERCHE|explode{" "}|foreach{modelecouperliste})]
-		]
+	[(#GET{recherche}|non|et{#RECHERCHE|strlen|>{3}})
 		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim} />
 	]
+	[(#RECHERCHE|strlen|>{3}|oui)
+		<div class="btnaction">
+			<a class="question" id="btnpartage" href="#">
+			<img src="#CHEMIN{images/icon-message@2x.png}" alt="" height="40px" width="40px">
+			Poser une question
+			</a>
+		</div>
+		<p id="lienpartage">formulaire question</p>
+	]
 	<//B_recherche>
+
 </main>
 
 <INCLURE{fond=inclure/inc-footer}/>
