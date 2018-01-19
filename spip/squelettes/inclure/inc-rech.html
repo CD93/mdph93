@@ -42,15 +42,13 @@
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li class="niv1">
       [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
-      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="font-size:0.5em;font-weight:200;margin-left:0.5em;vertical-align:top;">#VALEUR{points}pts</em></a>
+      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;">#VALEUR{points}pts</em></a>
       <div class="rechprinc">#TITRE</div>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
-      <div class="sousrech">
-        <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
-      </div>
+      <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
       ]
       [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
-      <a href='#URL_ARTICLE'>#TITRE<em style="font-size:0.5em;font-weight:200;margin-left:0.5em;vertical-align:top">#VALEUR{points}pts</em></a>
+      <a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;">#VALEUR{points}pts</em></a>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
       ]
     </li>
