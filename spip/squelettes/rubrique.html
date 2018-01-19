@@ -28,12 +28,7 @@
 </head>
 <body>
 <INCLURE{fond=inclure/header_menu}/>
-[(#PROFONDEUR|=={0}|?{' ',''})
-<INCLURE{fond=inclure/nav_niv1}{env}/>
-]
-[(#PROFONDEUR|>{0}|?{' ',''})
-<INCLURE{fond=inclure/nav_niv2}{env}/>
-]
+<INCLURE{fond=inclure/nav_niv}{env}/>
 <INCLURE{fond=inclure/inc-footer}/>
 </body>
 </html>

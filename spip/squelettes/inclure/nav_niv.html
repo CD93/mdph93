@@ -2,16 +2,16 @@
 <main role="main" class="conteneur" id="main">
 <div id="minifil"><a href="#URL_SITE_SPIP">Accueil</a> > <a href="#URL_RUBRIQUE">#TITRE</a></div>
 <div id="fil_ariane">
-<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+	<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
 	<div class="chemin">
 		<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#TITRE</h1>
 	</div>
-
 </div>
+
 	<nav role="navigation" aria-label="Menu de la rubrique">
 		<ul class="nav_rub">
 		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}{titre !==^[0-9]. Dossier }>
-			<li><button id="titre#ID_RUBRIQUE" aria-expanded="false" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
+			<li><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
 					<ul class="nav_rub_second">
 					<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
 						<li><a href="#URL_ARTICLE">#TITRE</a></li>
@@ -23,7 +23,20 @@
 			<li><a href="#URL_ARTICLE">#TITRE</a></li>
 		</BOUCLE_listeart>
 		</ul>
+		</B_liste>
+			<BOUCLE_liste2(RUBRIQUES){id_rubrique}{par num titre}{titre !==^[0-9]. Dossier }>
+				<li><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
+						<ul class="nav_rub_second">
+						<BOUCLE_articles2(ARTICLES){id_rubrique}{par num titre}>
+							<li><a href="#URL_ARTICLE">#TITRE</a></li>
+						</BOUCLE_articles2>
+						</ul>
+				</li>
+			</BOUCLE_liste2>
+		<//B_liste>
+
 	</nav>
+
 	<div role="search" id="search">
 		<a href="#URL_PAGE{recherche}" class="question">
 		<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">

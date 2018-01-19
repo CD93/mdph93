@@ -16,7 +16,6 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
 			var decal;
 			$(".paragraphe").css("display","none");
-      $(".nav_rub_second").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
 			if(cookie.get('menuouvert')=='oui'){
         $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
@@ -76,6 +75,10 @@ require(['domReady'], function (domReady) {
 				}
 				$(".pliage button.btn-collapse-up").show();
 			});
+      // on déplie les accordéons pour les pages rubriques
+      $(".nav_rub_second").show(250);
+      $("button.titrerub").attr('aria-expanded','true');
+      $("button.titrerub").css("background-image","url(squelettes/images/fhaut.png)");
       $("button.titrerub").click(function(e) {
 				$(this).toggleClass( "active" ).next('ul').slideToggle(300);
 				if ($(this).hasClass("active")) {
