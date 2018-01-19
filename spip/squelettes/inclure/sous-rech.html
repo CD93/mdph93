@@ -1,10 +1,12 @@
 <B_article>
-<ul class="pararech">
-<BOUCLE_article(ARTICLES) {id_article IN #ARTICLES|explode{","}}{0,5}>
-<li>
-  <a href='#URL_ARTICLE{#ARTICLESOURCE}#titre#ID_ARTICLE'>#TITRE</a>
-  [<div class="texte">(#CHAPO|?{#CHAPO|couper{60}, #TEXTE|couper{60}})</div>]
-</li>
-</BOUCLE_article>
-</ul>
+<div class="sousrech">
+  <ul class="pararech">
+  <BOUCLE_article(ARTICLES) {id_article IN #ARTICLES|explode{","}}{0,5}>
+  <li>
+    <a href='#URL_ARTICLE{#ARTICLESOURCE}#titre#ID_ARTICLE'>#TITRE</a>
+    [<div class="texte">(#CHAPO|?{#CHAPO|couper{60}, #TEXTE|couper{60}})</div>]
+  </li>
+  </BOUCLE_article>
+  </ul>
+</div>
 </B_article>
