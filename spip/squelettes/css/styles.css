@@ -410,7 +410,8 @@ a.logoMDPHmin {
       display: flex;
       align-items: center; }
       #nav-collapse ul li a img {
-        margin-right: 0.5em; }
+        margin-right: 0.5em;
+        display: inline-block; }
     #nav-collapse ul li a:hover, #nav-collapse ul li a:focus {
       color: #D0C813;
       text-decoration: underline; }
@@ -674,7 +675,7 @@ ul.liste_reponse {
       padding: 0.4em 0.4em 0.2em 0.3em; }
   ul.liste_reponse li em a {
     font-family: 'robotoregular', sans-serif;
-    display: inline;
+    display: inline-block;
     font-size: 1.1em; }
   ul.liste_reponse li .btnblanc {
     background: #fff;
@@ -789,7 +790,7 @@ em {
       font-family: 'robotocondensedbold';
       font-size: 1em;
       color: #5c3261;
-      display: inline;
+      display: inline-block;
       background: #FFFFFF url(../images/fbas.png) right center no-repeat;
       padding: 0.5em 30px 0.5em 30px;
       border-bottom: 1px solid #000000;
@@ -822,6 +823,7 @@ em {
           font-family: arial; } }
 
 #sondage_form {
+  display: inline-block;
   margin-top: 2em;
   /* Effet lorsque une note est cochée */
   /* Effet lorsque une note est tabulée au clavier */ }
@@ -843,7 +845,7 @@ em {
   #sondage_form .avis.js .choix.note-focus {
     outline: 1px dotted #000; }
   #sondage_form .choix {
-    float: left;
+    display: inline-block;
     min-width: 20px;
     min-height: 20px;
     margin-left: 20px; }
@@ -874,7 +876,7 @@ em {
     font-family: 'robotocondensedbold';
     font-size: 1em;
     color: #5c3261;
-    display: inline;
+    display: inline-block;
     background: #FFFFFF url(../images/fbas.png) right center no-repeat;
     padding: 0.5em 30px 0.5em 30px;
     border-bottom: 1px solid #000000;
