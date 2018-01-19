@@ -39,8 +39,8 @@
 	<a href="#INFO_URL{rubrique,#ID_SECTEUR}">#INFO_TITRE{rubrique,#ID_SECTEUR}</a>
 		> <a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a> > #TITRE</div>
 	]
-	<div id="fil_ariane" class="">
-
+	accueil#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE} > #ID_PARENT > #ID_RUBRIQUE 
+	<div id="fil_ariane">
 		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
 
 		<div class="chemin">
@@ -49,7 +49,9 @@
 			<a href="#URL_RUBRIQUE" class="petites_rub">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>
 			]
 		</div>
+
 	</div>
+
 	<article>
 		<header>
 			#SET{liste,#ARRAY}
@@ -70,11 +72,11 @@
 		<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">
 		Rechercher
 		</a>
-		<a class="question" id="btnpartage" href="#">
+		<button type="button" class="question" id="btnpartage">
 		<img src="#CHEMIN{images/partager@2x.png}" alt="" height="40px" width="40px">
 		Partager <br>
 		cette information
-		</a>
+	</button>
 	</div>
 	<p id="lienpartage">
 		<a class="google" alt="Partagez sur Google+" href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]">Google+</a>
