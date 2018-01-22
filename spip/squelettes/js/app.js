@@ -76,11 +76,11 @@ require(['domReady'], function (domReady) {
 				$(".pliage button.btn-collapse-up").show();
 			});
       // on déplie les accordéons pour les pages rubriques
-      $(".nav_rub_second").show(250);
-      $("button.titrerub").attr('aria-expanded','true');
-      $("button.titrerub").css("background-image","url(squelettes/images/fhaut.png)");
-      $("button.titrerub").click(function(e) {
-				$(this).toggleClass( "active" ).next('ul').slideToggle(300);
+      $("ul.nav_rub_second").hide(250);
+      $("h2 button.titrerub").attr('aria-expanded','false');
+      $("h2 button.titrerub").css("background-image","url(squelettes/images/fbas.png)");
+      $("h2 button.titrerub").click(function(e) {
+				$(this).toggleClass( "active" ).parent().next('ul').slideToggle(300);
 				if ($(this).hasClass("active")) {
 					$(this).css("background-image","url(squelettes/images/fhaut.png)");
 					$(this).attr('aria-expanded','true');
@@ -96,6 +96,10 @@ require(['domReady'], function (domReady) {
 				$('.titrepara').css("background-image","url(squelettes/images/fhaut.png)");
 				$('.titrepara').attr('aria-expanded','true');
 				$('.titrepara').addClass( "active" );
+        $('ul.nav_rub_second').slideDown(300);
+				$('.titrerub').css("background-image","url(squelettes/images/fhaut.png)");
+				$('.titrerub').attr('aria-expanded','true');
+				$('.titrerub').addClass( "active" );
 				$(".pliage button.btn-collapse-up").show();
 				$(this).hide();
 			});
@@ -104,6 +108,10 @@ require(['domReady'], function (domReady) {
 				$('.titrepara').css("background-image","url(squelettes/images/fbas.png)");
 				$('.titrepara').attr('aria-expanded','false');
 				$('.titrepara').removeClass( "active" );
+        $('ul.nav_rub_second').slideUp(300);
+				$('.titrerub').css("background-image","url(squelettes/images/fbas.png)");
+				$('.titrerub').attr('aria-expanded','false');
+				$('.titrerub').removeClass( "active" );
 				$(".pliage button.btn-collapse-down").show();
 				$(this).hide();
 			});
@@ -111,6 +119,7 @@ require(['domReady'], function (domReady) {
       if (window.location.hash) {
         var ancre=$("h2 button"+window.location.hash);
         ancre.addClass( "active" ).parent().next('div').slideToggle(300);
+        ancre.addClass( "active" ).parent().next('ul').slideToggle(300);
         ancre.css("background-image","url(squelettes/images/fhaut.png)");
         ancre.attr('aria-expanded','true');
         $(".pliage button.btn-collapse-up").show();

@@ -622,23 +622,6 @@ footer {
 .nav_rub {
 	width: 100%;
 	margin: 0.6em 0;
-	li button {
-		display: block;
-		font-family: 'robotocondensedbold', sans-serif;
-		font-size: 1.4em;
-		color: #613665;
-		line-height: 1.5em;
-		padding: 0.6em 1em;
-    background: #FFFFFF url(../images/fbas.png) left center no-repeat;
-    padding-left: 2.6em;
-    margin-left: 1em;
-	}
-	li button:hover, li button:focus {
-		color: #d4cb13;
-	}
-	@media screen and (min-width: $break-menu) {
-		//min-width: $break-menu - 6.6em;
-	}
 }
 .nav_rub_second {
 	padding: 0.3em 1em;
@@ -651,12 +634,12 @@ footer {
 		color: #5C3261;
 		line-height: 1.3em;
 		padding: 0.5em 0;
-		border-bottom: 0.07em solid #5C3261;
+		//border-bottom: 0.07em solid #5C3261;
 
 		@media screen and (min-width: $break-menu) {
 			min-width: $break-menu - 6.6em;
 		}
-		}
+	}
 	li a:hover, li a:focus {
 		color: #d4cb13;
 	}
@@ -841,6 +824,52 @@ em {
 
 #main {
 	max-width: 60em;
+  .pliage {
+    //border: 0.07em solid #eee;
+    padding: 0.6em 0;
+    text-align: right;
+    .btn-collapse-up {
+      display: none;
+    }
+  }
+  button.btn-collapse {
+		padding-right: 2em;
+	}
+	button.btn-collapse-up{
+		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;
+	}
+	button.btn-collapse-down{
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+	}
+	h2 button:hover, h2 button:focus, h2 button.active {
+		background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
+		text-decoration: underline;
+	}
+  h2 {
+		font-size: 1.2em;
+		color: #5c3261;
+		margin: 0;
+		padding: 0;
+	}
+	h2 button{
+		width: 100%;
+		text-align: left;
+		font-family: 'robotocondensedbold';
+		font-size: 1em;
+		color: #5c3261;
+		display: inline-block;
+		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+		padding: 0.5em 30px 0.5em 30px;
+		border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    //border-top: none;
+		margin-bottom: -1px;
+		border-radius: 0;
+	}
+
+	article h2:first-child button, ul li:first-child h2 button {
+		border-top: none;
+	}
 	article {
 	/* habillage article */
   		padding: 0.3em 0em;
@@ -872,57 +901,6 @@ em {
 			background-color: #FAFAFA; ;
 			border: 0.07em solid #ccc;
 		}
-		.pliage {
-			//border: 0.07em solid #eee;
-			padding: 0.6em 0;
-			text-align: right;
-			.btn-collapse-up {
-				display: none;
-			}
-	}
-
-	h2 {
-		font-size: 1.2em;
-		color: #5c3261;
-		margin: 0;
-		padding: 0;
-	}
-	h2 button{
-		width: 100%;
-		text-align: left;
-		font-family: 'robotocondensedbold';
-		font-size: 1em;
-		color: #5c3261;
-		display: inline-block;
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
-		padding: 0.5em 30px 0.5em 30px;
-		border-bottom: 1px solid #000000;
-    border-top: 1px solid #000000;
-
-
-		//border-top: none;
-		margin-bottom: -1px;
-		border-radius: 0;
-	}
-
-	h2:first-child button{
-		border-top: none;
-	}
-	button.btn-collapse {
-		padding-right: 2em;
-	}
-	button.btn-collapse-up{
-		background: #FFFFFF url(../images/fhaut.png) right center no-repeat;
-	}
-	button.btn-collapse-down{
-		background: #FFFFFF url(../images/fbas.png) right center no-repeat;
-	}
-
-	h2 button:hover, h2 button:focus, h2 button.active {
-		background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
-		text-decoration: underline;
-
-	}
 	sup {
 		vertical-align: super;
 		font-size:0.8em;

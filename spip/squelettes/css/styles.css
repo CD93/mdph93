@@ -567,18 +567,6 @@ footer {
 .nav_rub {
   width: 100%;
   margin: 0.6em 0; }
-  .nav_rub li button {
-    display: block;
-    font-family: 'robotocondensedbold', sans-serif;
-    font-size: 1.4em;
-    color: #613665;
-    line-height: 1.5em;
-    padding: 0.6em 1em;
-    background: #FFFFFF url(../images/fbas.png) left center no-repeat;
-    padding-left: 2.6em;
-    margin-left: 1em; }
-  .nav_rub li button:hover, .nav_rub li button:focus {
-    color: #d4cb13; }
 
 .nav_rub_second {
   padding: 0.3em 1em;
@@ -590,8 +578,7 @@ footer {
     font-size: 1.1em;
     color: #5C3261;
     line-height: 1.3em;
-    padding: 0.5em 0;
-    border-bottom: 0.07em solid #5C3261; }
+    padding: 0.5em 0; }
     @media screen and (min-width: 53em) {
       .nav_rub_second li a {
         min-width: 46.4em; } }
@@ -752,6 +739,40 @@ em {
 
 #main {
   max-width: 60em; }
+  #main .pliage {
+    padding: 0.6em 0;
+    text-align: right; }
+    #main .pliage .btn-collapse-up {
+      display: none; }
+  #main button.btn-collapse {
+    padding-right: 2em; }
+  #main button.btn-collapse-up {
+    background: #FFFFFF url(../images/fhaut.png) right center no-repeat; }
+  #main button.btn-collapse-down {
+    background: #FFFFFF url(../images/fbas.png) right center no-repeat; }
+  #main h2 button:hover, #main h2 button:focus, #main h2 button.active {
+    background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
+    text-decoration: underline; }
+  #main h2 {
+    font-size: 1.2em;
+    color: #5c3261;
+    margin: 0;
+    padding: 0; }
+  #main h2 button {
+    width: 100%;
+    text-align: left;
+    font-family: 'robotocondensedbold';
+    font-size: 1em;
+    color: #5c3261;
+    display: inline-block;
+    background: #FFFFFF url(../images/fbas.png) right center no-repeat;
+    padding: 0.5em 30px 0.5em 30px;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    margin-bottom: -1px;
+    border-radius: 0; }
+  #main article h2:first-child button, #main ul li:first-child h2 button {
+    border-top: none; }
   #main article {
     /* habillage article */
     padding: 0.3em 0em; }
@@ -774,40 +795,6 @@ em {
       margin: 1em 0;
       background-color: #FAFAFA;
       border: 0.07em solid #ccc; }
-    #main article .pliage {
-      padding: 0.6em 0;
-      text-align: right; }
-      #main article .pliage .btn-collapse-up {
-        display: none; }
-    #main article h2 {
-      font-size: 1.2em;
-      color: #5c3261;
-      margin: 0;
-      padding: 0; }
-    #main article h2 button {
-      width: 100%;
-      text-align: left;
-      font-family: 'robotocondensedbold';
-      font-size: 1em;
-      color: #5c3261;
-      display: inline-block;
-      background: #FFFFFF url(../images/fbas.png) right center no-repeat;
-      padding: 0.5em 30px 0.5em 30px;
-      border-bottom: 1px solid #000000;
-      border-top: 1px solid #000000;
-      margin-bottom: -1px;
-      border-radius: 0; }
-    #main article h2:first-child button {
-      border-top: none; }
-    #main article button.btn-collapse {
-      padding-right: 2em; }
-    #main article button.btn-collapse-up {
-      background: #FFFFFF url(../images/fhaut.png) right center no-repeat; }
-    #main article button.btn-collapse-down {
-      background: #FFFFFF url(../images/fbas.png) right center no-repeat; }
-    #main article h2 button:hover, #main article h2 button:focus, #main article h2 button.active {
-      background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
-      text-decoration: underline; }
     #main article sup {
       vertical-align: super;
       font-size: 0.8em; }
