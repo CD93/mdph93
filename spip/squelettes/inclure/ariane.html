@@ -1,0 +1,48 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{si #ID_ARTICLE|=={""}}>
+  <div class="ariane-rubrique">
+    <div id="minifil"><a href="#URL_SITE_SPIP">Accueil</a> > <a href="#URL_RUBRIQUE">#TITRE</a></div>
+  	<div id="fil_ariane">
+  		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+  		<div class="chemin">
+  			<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#TITRE</h1>
+  		</div>
+  	</div>
+  </div>
+</BOUCLE_rubrique>
+
+<BOUCLE_article(ARTICLES){id_article}>
+<div class="ariane-article">
+  <div id="minifil"><a href="#URL_SITE_SPIP">Accueil</a> >
+  [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|=={0}|?{' ',''})
+    <a href="#URL_RUBRIQUE"> #INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>  > #TITRE
+  ]
+  [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
+  <a href="#INFO_URL{rubrique,#ID_SECTEUR}">#INFO_TITRE{rubrique,#ID_SECTEUR}</a>
+    > <a href="#INFO_URL{rubrique,#ID_SECTEUR}#titre#ID_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a> > #TITRE
+  ]
+  </div>
+  <div id="fil_ariane">
+    <a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+    <div class="chemin">
+      <div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
+      [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
+      <a href="#INFO_URL{rubrique,#ID_SECTEUR}#titre#ID_RUBRIQUE" class="petites_rub">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>
+      ]
+    </div>
+  </div>
+</div>
+</BOUCLE_article>
+
+<div class="ariane-recherche">
+  <div id="minifil">
+    <a href="#URL_SITE_SPIP">Accueil</a> > Recherche
+  </div>
+  <div id="fil_ariane" class="">
+    <a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
+    <div class="chemin">
+      <h1 class="cadre"><img src="#CHEMIN{images/recherche.png}" alt="" height="33px" width="33px">Recherche</h1>
+    </div>
+  </div>
+</div>
+<//B_article>
+<//B_rubrique>

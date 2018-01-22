@@ -30,27 +30,7 @@
 <body>
 <INCLURE{fond=inclure/header_menu}/>
 <main role="main" class="conteneur surlignable" id="main">
-	<div id="minifil">
-		<a href="#URL_SITE_SPIP">Accueil</a> >
-	[(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|=={0}|?{' ',''})
-		<a href="#URL_RUBRIQUE"> #INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>  > #TITRE</div>
-	]
-	[(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
-	<a href="#INFO_URL{rubrique,#ID_SECTEUR}">#INFO_TITRE{rubrique,#ID_SECTEUR}</a>
-		> <a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a> > #TITRE</div>
-	]
-	<div id="fil_ariane">
-		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
-
-		<div class="chemin">
-			<div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
-			[(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
-			<a href="#URL_RUBRIQUE" class="petites_rub">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>
-			]
-		</div>
-
-	</div>
-
+	<INCLURE{fond=inclure/ariane}{env}/>
 	<article>
 		<header>
 			#SET{liste,#ARRAY}

@@ -28,7 +28,46 @@
 </head>
 <body>
 <INCLURE{fond=inclure/header_menu}/>
-<INCLURE{fond=inclure/nav_niv}{env}/>
+
+<main role="main" class="conteneur" id="main">
+	<INCLURE{fond=inclure/ariane}{env}/>
+	<nav role="navigation" aria-label="Menu de la rubrique">
+		<ul class="nav_rub">
+		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}{titre !==^[0-9]. Dossier }>
+			<li><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
+					<ul class="nav_rub_second">
+					<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
+						<li><a href="#URL_ARTICLE">#TITRE</a></li>
+					</BOUCLE_articles>
+					</ul>
+			</li>
+		</BOUCLE_liste>
+		<BOUCLE_listeart(ARTICLES){id_rubrique}{par num titre}>
+			<li><a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_listeart>
+		</ul>
+		</B_liste>
+			<BOUCLE_liste2(RUBRIQUES){id_rubrique}{par num titre}{titre !==^[0-9]. Dossier }>
+				<li><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button">#TITRE</button>
+						<ul class="nav_rub_second">
+						<BOUCLE_articles2(ARTICLES){id_rubrique}{par num titre}>
+							<li><a href="#URL_ARTICLE">#TITRE</a></li>
+						</BOUCLE_articles2>
+						</ul>
+				</li>
+			</BOUCLE_liste2>
+		<//B_liste>
+
+	</nav>
+
+	<div role="search" id="search">
+		<a href="#URL_PAGE{recherche}" class="question">
+		<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">
+		Rechercher
+		</a>
+	</div>
+</main>
+
 <INCLURE{fond=inclure/inc-footer}/>
 </body>
 </html>
