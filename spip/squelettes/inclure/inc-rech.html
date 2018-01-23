@@ -1,7 +1,8 @@
 
 #SET{resultats,#ARRAY}
+#SET{resultatstest,#ARRAY}
 <B_recherchebrute>
-<BOUCLE_recherchebrute(ARTICLES){recherche}{!par points}{0,20}>
+<BOUCLE_recherchebrute(ARTICLES){recherche}{!par points}{0,40}>
   #SET{source,#ID_ARTICLE}
   #SET{article,#ID_ARTICLE}
   #SET{articles,""}
@@ -14,41 +15,63 @@
         ]
       </BOUCLE_art_source2>
   </BOUCLE_rubniv>
-  [(#POINTS|>{2}|oui)
-    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui)
+
+    #SET{resultatstest, #ARRAY{article,#ID_ARTICLE,points,#POINTS,source,#GET{source}}}
+
+  [(#GET{points}|>={0}|oui)  [(#REM) test global sur les points]
+
+    [(#GET{resultats}|table_valeur{artsrc#GET{source}}|oui) [(#REM) la source existe déjà dans le tableau]
+
       #SET{existe,"existe"}
       #SET{article,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{article}}
-      [(#ID_ARTICLE|=={#GET{source}}|non)
-        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|oui)
+
+      [(#ID_ARTICLE|=={#GET{source}}|non) [(#REM) si l'article n'est pas une source]
+
+        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|oui) [(#REM) s'il y a déjà des articles dans cette source]
+
           #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{", ",#ID_ARTICLE}}
+
         ]
-        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|non)
+        [(#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|non) [(#REM) s'il n'y a pas d'article dans cette source]
+
           #SET{articles,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{articles}|concat{#ID_ARTICLE}}
+
         ]
       ]
+
       #SET{source,#GET{source}}
       #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}}
+
+      [(#ID_ARTICLE|=={#GET{source}}|oui) [(#REM) si l'article est une source]
+
+        #SET{points,#GET{resultats}|table_valeur{artsrc#GET{source}}|table_valeur{points}|plus{#POINTS}}
+
+      ]
+
     ]
+
     #SET{resultats, #GET{resultats}|array_merge{#ARRAY{artsrc#GET{source},#ARRAY{articlesource,#GET{source},article,#GET{article},articles,#GET{articles},points,#GET{points}}}}}
-  ]
+
+    [(#REM)<h3>#COMPTEUR_BOUCLE: [(#GET{resultatstest}|print_r{1})]</h3>]
+  ] [(#REM) fin du test global sur les points]
 </BOUCLE_recherchebrute>
 </B_recherchebrute>
 
 <B_recherche>
 [(#REM)<h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>]
-[(#REM)<h3>[(#GET{resultats}|print_r{1})]</h3>]
+[(#REM)<h3>[<pre>(#GET{resultats}|print_r{1})</pre>]</h3>]
 <ul class="liste_reponse surlignable">
 <BOUCLE_recherche(DATA){source tableau, #GET{resultats}}{!par points}>
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li class="niv1">
       [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
-      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;">#VALEUR{points}pts</em></a>
+      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a>
       <div class="rechprinc">#TITRE</div>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
       <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
       ]
       [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
-      <a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;">#VALEUR{points}pts</em></a>
+      <a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
       ]
     </li>
