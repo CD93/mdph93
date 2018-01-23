@@ -47,21 +47,25 @@
 		<div>#TEXTE</div>
 	</article>
 	<div class="btnaction">
-		<a id="search" role="search" href="#URL_PAGE{recherche}" class="question">
-		<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">
-		Rechercher
-		</a>
-		<button type="button" class="question" id="btnpartage">
-		<img src="#CHEMIN{images/partager@2x.png}" alt="" height="40px" width="40px">
-		Partager <br>
-		cette information
-	</button>
+		<div role="search" id="search">
+			<a href="#URL_PAGE{recherche}" class="question">
+				<img src="#CHEMIN{images/loupe_vb@2x.png}" alt="" height="40px" width="40px">
+				Rechercher
+			</a>
+		</div>
+		<div id="partage">
+			<button type="button" class="question" id="btnpartage">
+				<img src="#CHEMIN{images/partager@2x.png}" alt="" height="40px" width="40px">
+				Partager<br>cette information
+			</button>
+			<p id="lienpartage">
+				<a class="google" alt="Partagez sur Google+" href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]">Google+</a>
+				<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" target="_blank">Facebook</a>
+				<a class="twitter" data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" alt="Partagez sur Twitter" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" target="_blank">Twitter</a>
+			</p>
+		</div>
 	</div>
-	<p id="lienpartage">
-		<a class="google" alt="Partagez sur Google+" href="https://plus.google.com/share?url=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]">Google+</a>
-		<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" target="_blank">Facebook</a>
-		<a class="twitter" data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" alt="Partagez sur Twitter" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" target="_blank">Twitter</a>
-	</p>
+
 </main>
 <INCLURE{fond=inclure/inc-footer}/>
 </body>
