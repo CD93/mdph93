@@ -790,7 +790,9 @@ em {
     #main article a:hover, #main article a:focus {
       color: #448040; }
     #main article h3 {
-      font-family: 'robotocondensedbold', sans-serif; }
+      font-family: 'robotocondensedbold', sans-serif;
+      margin: 2em 0 1em 0;
+      font-size: 1.2em; }
     #main article .texteencadre-spip {
       padding: 0.5em 1em;
       margin: 1em 0;
