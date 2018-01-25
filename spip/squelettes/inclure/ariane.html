@@ -1,6 +1,6 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}{si #ID_ARTICLE|=={""}}>
   <div class="ariane-rubrique">
-    <div id="minifil"><a href="#URL_SITE_SPIP">Accueil</a> > <a href="#URL_RUBRIQUE">#TITRE</a></div>
+    <div id="minifil"><span class="lienaccueil"><a href="#URL_SITE_SPIP">Accueil</a> > </span><a href="#URL_RUBRIQUE">#TITRE</a></div>
   	<div id="fil_ariane">
   		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="170px" height="auto"></a>
   		<div class="chemin">
@@ -12,7 +12,7 @@
 
 <BOUCLE_article(ARTICLES){id_article}>
 <div class="ariane-article">
-  <div id="minifil"><a href="#URL_SITE_SPIP">Accueil</a> >
+  <div id="minifil"><span class="lienaccueil"><a href="#URL_SITE_SPIP">Accueil</a> ></span>
   [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|=={0}|?{' ',''})
     <a href="#URL_RUBRIQUE"> #INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>  > #TITRE
   ]

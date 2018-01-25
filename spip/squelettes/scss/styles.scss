@@ -779,8 +779,26 @@ footer {
 	padding: 0.2em;
   margin-top: 0.5em;
 	@media screen and (max-width: $break-menu) {
-		display:none;
-		}
+    position:fixed;
+    padding: 0.7em 0 0 0.3em;
+    margin: 0 7em;
+    top:0;
+    z-index: 2;
+    .lienaccueil {
+      display:none;
+    }
+	}
+}
+
+#minifil.fix-titre {
+  position:fixed;
+	padding: 0.7em 0 0 0.3em;
+  margin: 0 7em;
+  top:0;
+  z-index: 2;
+  .lienaccueil {
+    display:none;
+  }
 }
 
 #fil_ariane {

@@ -14,6 +14,7 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
+
 			var decal;
 			$(".paragraphe").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
@@ -159,15 +160,15 @@ require(['domReady'], function (domReady) {
 			      };
 			    });
 			};
-      //fixer fil d'ariane
-      var ariane = $("#minifil");
-      function scrolled(){
-	         var windowHeight = document.body.clientHeight,
-		       currentScroll = document.body.scrollTop || document.documentElement.scrollTop;
-	         ariane.className = (currentScroll >= windowHeight - ariane.offsetHeight) ? "fixed" : "";
-           //console.log(windowHeight+" "+currentScroll+" "+ariane.className+" "+ariane.offsetHeight);
-      }
-      addEventListener("scroll", scrolled, false);
+      // fixer fil d'ariane
+      // on fixe le titre de la page
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 43) {
+          $("#minifil").addClass("fix-titre");
+        } else {
+          $("#minifil").removeClass("fix-titre");
+        }
+      });
 
       //sondage formulaire avis formulaire_avis_utilisateur
       // On ajoute la classe "js" à la liste pour mettre en place par la suite du code CSS uniquement dans le cas où le Javascript est activé
@@ -249,6 +250,6 @@ require(['domReady'], function (domReady) {
                 $(this).attr('aria-expanded','false');
               }
             });
-		});
+    });
 	});
 });
