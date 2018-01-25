@@ -316,7 +316,8 @@ h1.logoMDPH img {
   padding: 2.4em 1em 0.07em 1em; }
   @media screen and (max-width: 53em) {
     h1.logoMDPH img {
-      max-width: 18.6em; } }
+      max-width: 275px;
+      padding: 0 1em 0.07em 1em; } }
 
 @media screen and (max-width: 53em) {
   #fil_ariane .logoMDPH {
@@ -780,30 +781,47 @@ em {
     #main article p {
       margin: 0;
       padding: 0; }
+    #main article ol {
+      margin: 1.2em 2em; }
+      #main article ol li {
+        list-style-type: decimal; }
     #main article ul {
       margin: 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
+        #main article ul li ul {
+          margin: 0.4em 0.8em; }
+          #main article ul li ul li {
+            list-style-type: circle; }
     #main article a {
-      color: #3c3468;
+      color: #008080;
       text-decoration: underline; }
     #main article a:hover, #main article a:focus {
-      color: #448040; }
+      color: #9C8512; }
+    #main article h3:first-child {
+      margin-top: O; }
     #main article h3 {
       font-family: 'robotocondensedbold', sans-serif;
-      margin: 2em 0 1em 0;
+      margin: 1.5em 0 0.5em 0;
       font-size: 1.2em; }
+    #main article h4, #main article h5, #main article h6 {
+      font-family: 'robotocondensedbold', sans-serif;
+      margin-top: 0.3em;
+      font-size: 1.1em; }
     #main article .texteencadre-spip {
       padding: 0.5em 1em;
       margin: 1em 0;
-      background-color: #FAFAFA;
-      border: 0.07em solid #ccc; }
+      background-color: #E4F2F2; }
+      #main article .texteencadre-spip h3 {
+        margin-top: 0.5em; }
     #main article sup {
       vertical-align: super;
       font-size: 0.8em; }
     #main article div.paragraphe {
+      margin-top: 1em;
       padding: 0.6em 30px 1em 30px;
-      text-align: justify;
+      word-wrap: normal;
+      hyphens: manual;
       line-height: 1.35em;
       font-size: 1em; }
       @media screen and (min-width: 53em) {

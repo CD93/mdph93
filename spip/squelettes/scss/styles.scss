@@ -337,7 +337,8 @@ h1.logoMDPH img {
 	max-width: 350px;
 	padding: 2.4em 1em 0.07em 1em;
 	@media screen and (max-width: $break-menu) {
-		max-width: 18.6em;
+		max-width: 275px;
+    padding: 0 1em 0.07em 1em;
 	}
 }
 @media screen and (max-width: $break-menu) {
@@ -878,29 +879,51 @@ em {
 				margin: 0;
 				padding: 0;
 			}
+    ol {margin: 1.2em 2em;
+      li {
+        list-style-type:decimal;
+      }
+    }
 		ul {
 			margin: 1.2em 2em;
 			li {
 				list-style-type: square;
+        ul {
+          margin: 0.4em 0.8em;
+          li {
+            list-style-type: circle;
+          }
+        }
 			}
 		}
 		a {
-			color: #3c3468;
+			color: #008080;
 			text-decoration: underline;
 		}
 		a:hover,a:focus {
-			color: #448040;
+			color: #9C8512;
 		}
+    h3:first-child {
+      margin-top: O;
+    }
     h3 {
       font-family: 'robotocondensedbold', sans-serif;
-      margin: 2em 0 1em 0;
+      margin: 1.5em 0 0.5em 0;
       font-size: 1.2em;
+    }
+    h4,h5,h6 {
+      font-family: 'robotocondensedbold', sans-serif;
+      margin-top: 0.3em;
+      font-size: 1.1em;
     }
 		.texteencadre-spip {
 			padding: 0.5em 1em;
 			margin: 1em 0;
-			background-color: #FAFAFA; ;
-			border: 0.07em solid #ccc;
+			background-color: #E4F2F2;
+			//border: 0.07em solid #ccc;
+      h3 {
+        margin-top:0.5em;
+      }
 		}
 	sup {
 		vertical-align: super;
@@ -913,8 +936,11 @@ em {
 			background-color: rgba(255, 255, 255, 0.6);
 			font-family: arial;
 		}
+    margin-top: 1em;
 		padding: 0.6em 30px 1em 30px;
-		text-align: justify;
+    word-wrap : normal;
+  	hyphens:manual ;
+		//text-align: justify;
 		line-height: 1.35em;
 		font-size: 1em;
 		}
