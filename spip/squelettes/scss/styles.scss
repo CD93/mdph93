@@ -896,6 +896,18 @@ em {
         }
 			}
 		}
+    ul.test {
+      list-style-type: none;
+      li:before {
+        content: "\2022";
+    	  margin-right: 10px;
+    	  color: #CCC;
+      }
+      li {
+        color: #000;
+        list-style-type: none;
+      }
+    }
 		a {
 			color: #008080;
 			text-decoration: underline;

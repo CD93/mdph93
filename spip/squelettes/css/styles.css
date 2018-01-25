@@ -793,6 +793,15 @@ em {
           margin: 0.4em 0.8em; }
           #main article ul li ul li {
             list-style-type: circle; }
+    #main article ul.test {
+      list-style-type: none; }
+      #main article ul.test li:before {
+        content: "\2022";
+        margin-right: 10px;
+        color: #CCC; }
+      #main article ul.test li {
+        color: #000;
+        list-style-type: none; }
     #main article a {
       color: #008080;
       text-decoration: underline; }
