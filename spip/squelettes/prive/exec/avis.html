@@ -1,0 +1,60 @@
+#SET{navigation,0}
+#SET{accessibilite,0}
+#SET{presentation,0}
+#SET{esthetique,0}
+<B_avis>
+<table width="100%" class="spip liste">
+  <thead>
+    <tr>
+      <th width="100px">date</th>
+      <th width="10px">navigation</th>
+      <th width="10px">accessibilité</th>
+      <th width="10px">presentation</th>
+      <th width="10px">esthétique</th>
+      <th>commentaire</th>
+      <th width="5px">id</th>
+      <th width="5px">id_form</th>
+    </tr>
+  </thead>
+  <tbody>
+<BOUCLE_avis(avis_site){!par date}>
+  #SET{navigation,#GET{navigation}|plus{#NAVIGATION}}
+  #SET{accessibilite,#GET{accessibilite}|plus{#ACCESSIBILITE}}
+  #SET{presentation,#GET{presentation}|plus{#PRESENTATION}}
+  #SET{esthetique,#GET{esthetique}|plus{#ESTHETIQUE}}
+    <tr>
+      <td>[(#DATE|affdate_jourcourt)]</td>
+      <td>#NAVIGATION</td>
+      <td>#ACCESSIBILITE</td>
+      <td>#PRESENTATION</td>
+      <td>#ESTHETIQUE</td>
+      <td>#TEXTE</td>
+      <td>#ID</td>
+      <td>#ID_FORM</td>
+    </tr>
+</BOUCLE_avis>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td/>
+      <td>navigation</td>
+      <td>accessibilité</td>
+      <td>presentation</td>
+      <td>esthétique</td>
+      <td/>
+      <td/>
+      <td/>
+    </tr>
+    <tr>
+      <td></td>
+      <td>[(#GET{navigation}|div{#GRAND_TOTAL}|round{1})]</td>
+      <td>[(#GET{accessibilite}|div{#GRAND_TOTAL}|round{1})]</td>
+      <td>[(#GET{presentation}|div{#GRAND_TOTAL}|round{1})]</td>
+      <td>[(#GET{esthetique}|div{#GRAND_TOTAL}|round{1})]</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
+</B_avis>
