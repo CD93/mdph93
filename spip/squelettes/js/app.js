@@ -163,10 +163,10 @@ require(['domReady'], function (domReady) {
       // fixer fil d'ariane
       // on fixe le titre de la page
       $(window).scroll(function() {
-        if ($(this).scrollTop() > 43) {
-          $("#minifil").addClass("fix-titre");
+        if ($(this).scrollTop() > 163.2) {
+          $("article header .titre, article header .chapo").addClass("fix-titre");
         } else {
-          $("#minifil").removeClass("fix-titre");
+          $("article header .titre, article header .chapo").removeClass("fix-titre");
         }
       });
 

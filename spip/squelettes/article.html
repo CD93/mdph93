@@ -36,7 +36,9 @@
 			<BOUCLE_rub(RUBRIQUES){id_parent}>
 					#SET{liste, #GET{liste}|push{#RANG}}
 			</BOUCLE_rub>
-			<h1>#TITRE</h1>
+			<div class="titre">
+				<h1>#TITRE</h1>
+			</div>
 			<div class="chapo">#CHAPO</div>
 			[(#GET{liste}|find{#RANG}|oui)
 			<div class="pliage"><button class="btn-collapse btn-collapse-up" type="button">Tout replier</button>

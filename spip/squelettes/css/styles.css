@@ -220,12 +220,12 @@ h1 {
   max-width: 100%;
   color: #613665;
   margin: 0.5em 0; }
-  @media screen and (max-width: 53em) {
+  @media screen and (max-width: 800px) {
     h1 {
       font-size: 1.5em;
       margin-top: 1em; } }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 800px) {
   body {
     background: transparent url("../images/fond_ecran.png") no-repeat center fixed;
     background-size: cover; } }
@@ -247,7 +247,7 @@ div.direct a:focus {
   color: #fff;
   top: 0.6em;
   min-height: 2em; }
-  @media screen and (min-width: 53em) {
+  @media screen and (min-width: 800px) {
     div.direct a:focus {
       left: 18em; } }
 
@@ -273,18 +273,15 @@ div.direct a:focus {
   transition: all .20s ease-in;
   position: relative;
   left: 0;
-  margin: 2em auto; }
-  @media screen and (max-width: 53em) {
+  margin: 0 auto; }
+  @media screen and (max-width: 800px) {
     #main.conteneur {
       margin: 0.3em 0;
       padding: 0; } }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 800px) {
   #main.sommaire {
     margin: 0 auto; } }
-
-article header {
-  margin: 0 30px; }
 
 header.conteneur {
   display: flex;
@@ -293,12 +290,12 @@ header.conteneur {
 .conteneur {
   display: flex;
   flex-direction: column;
-  padding-bottom: 2.4em;
+  padding-bottom: 3em;
   background-color: rgba(255, 255, 255, 0.8); }
-  @media screen and (min-width: 53em) {
+  @media screen and (min-width: 800px) {
     .conteneur {
       max-width: 53em; } }
-  @media screen and (min-width: 53em) {
+  @media screen and (min-width: 800px) {
     .conteneur {
       display: block; } }
 
@@ -306,7 +303,7 @@ header.conteneur {
   display: flex;
   background: none;
   align-items: center; }
-  @media screen and (min-width: 53em) {
+  @media screen and (min-width: 800px) {
     .conteneur.sommaire {
       margin: 0 auto; } }
 
@@ -314,12 +311,12 @@ h1.logoMDPH img {
   width: 100%;
   max-width: 350px;
   padding: 2.4em 1em 0.07em 1em; }
-  @media screen and (max-width: 53em) {
+  @media screen and (max-width: 800px) {
     h1.logoMDPH img {
       max-width: 275px;
       padding: 0 1em 0.07em 1em; } }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 800px) {
   #fil_ariane .logoMDPH {
     display: none; } }
 
@@ -332,14 +329,14 @@ header .entete {
   align-items: center; }
 
 header.sommaire .entete {
-  position: absolute;
+  position: fixed;
   float: left;
   width: auto;
   left: 0px;
   background-color: transparent; }
 
 a.logoMDPHmin {
-  padding: 0.3em;
+  padding: 0.3em 0.3em 0 0;
   color: #4a4a4a;
   float: right;
   display: flex;
@@ -443,7 +440,7 @@ a.logoMDPHmin {
   margin: 0.3em 0; }
   .menu_central li a img {
     margin: 0 2em; }
-    @media screen and (max-width: 24em) {
+    @media screen and (max-width: 360px) {
       .menu_central li a img {
         margin: 0 1.4em; } }
 
@@ -580,9 +577,9 @@ footer {
     color: #5C3261;
     line-height: 1.3em;
     padding: 0.5em 0; }
-    @media screen and (min-width: 53em) {
+    @media screen and (min-width: 800px) {
       .nav_rub_second li a {
-        min-width: 46.4em; } }
+        min-width: 700px; } }
   .nav_rub_second li a:hover, .nav_rub_second li a:focus {
     color: #d4cb13; }
 
@@ -696,26 +693,9 @@ a.btnviolet {
   background: #1c0f1e; }
 
 #minifil {
-  padding: 0.2em;
-  margin-top: 0.5em; }
-  @media screen and (max-width: 53em) {
-    #minifil {
-      position: fixed;
-      padding: 0.7em 0 0 0.3em;
-      margin: 0 7em;
-      top: 0;
-      z-index: 2; }
-      #minifil .lienaccueil {
-        display: none; } }
-
-#minifil.fix-titre {
-  position: fixed;
-  padding: 0.7em 0 0 0.3em;
-  margin: 0 7em;
-  top: 0;
-  z-index: 2; }
-  #minifil.fix-titre .lienaccueil {
-    display: none; }
+  padding: 0 30px;
+  background-color: #FFF;
+  width: 100%; }
 
 #fil_ariane {
   background-color: #F3F3F3;
@@ -725,7 +705,10 @@ a.btnviolet {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between; }
-  @media screen and (max-width: 53em) {
+  #fil_ariane .logoMDPH img {
+    width: 100%;
+    height: 8em; }
+  @media screen and (max-width: 800px) {
     #fil_ariane {
       flex-direction: row;
       margin-top: 0.4em; } }
@@ -792,7 +775,36 @@ em {
     border-top: none; }
   #main article {
     /* habillage article */
-    padding: 0.3em 0em; }
+    padding: 0em 0em;
+    position: relative; }
+    #main article header {
+      position: relative;
+      width: 100%; }
+      #main article header .titre {
+        position: relative;
+        z-index: 3; }
+      #main article header .titre.fix-titre {
+        top: 0.3em;
+        width: 100%;
+        position: fixed; }
+        @media screen and (max-width: 800px) {
+          #main article header .titre.fix-titre {
+            display: none; } }
+        @media screen and (max-width: 1150px) {
+          #main article header .titre.fix-titre {
+            margin-left: 100px; }
+            #main article header .titre.fix-titre h1 {
+              margin-left: 0; } }
+        #main article header .titre.fix-titre h1 {
+          width: 100%; }
+      #main article header h1 {
+        margin: 0 30px 0.5em;
+        position: relative;
+        z-index: 3; }
+      #main article header .chapo {
+        margin: 0 30px 0.5em; }
+      #main article header .chapo.fix-titre {
+        margin: 2.3em 30px 0.5em; }
     #main article p {
       margin: 0;
       padding: 0; }
@@ -848,7 +860,7 @@ em {
       hyphens: manual;
       line-height: 1.35em;
       font-size: 1em; }
-      @media screen and (min-width: 53em) {
+      @media screen and (min-width: 800px) {
         #main article div.paragraphe {
           hyphens: none;
           background-color: rgba(255, 255, 255, 0.6);
