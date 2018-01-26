@@ -6,6 +6,13 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="manifest" href="#CHEMIN{manifest.json}">
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+		           .register('sw.js')
+		           .then(function() { console.log('Service Worker Registered'); });
+	}
+	</script>
 	[(#REM)
 	<style>
 		<INCLURE{fond=css/recherche.css}/>

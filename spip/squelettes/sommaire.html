@@ -7,6 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="manifest" href="#CHEMIN{manifest.json}">
 	<link rel="stylesheet" href="#CHEMIN{css/styles.css}" type="text/css">
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+		           .register('sw.js')
+		           .then(function() { console.log('Service Worker Registered'); });
+	}
+	</script>
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
 	<![endif]-->
