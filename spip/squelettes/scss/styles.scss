@@ -559,7 +559,7 @@ footer {
 #main_bloc, #main {
 
 	p {
-		padding: 0.6em;
+		padding: 0.6em 30px;
 
 	}
 	header h3 {
@@ -847,6 +847,10 @@ em {
 		text-decoration: underline;
     cursor: pointer;
 	}
+  h1 {
+    padding-left: 30px;
+    margin:0;
+  }
   h2 {
 		font-size: 1.2em;
 		color: #5c3261;

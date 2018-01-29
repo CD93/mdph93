@@ -511,7 +511,7 @@ footer {
       color: #C8C12B; }
 
 #main_bloc p, #main p {
-  padding: 0.6em; }
+  padding: 0.6em 30px; }
 
 #main_bloc header h3, #main header h3 {
   font-family: 'robotoregular';
@@ -753,6 +753,9 @@ em {
     background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
     text-decoration: underline;
     cursor: pointer; }
+  #main h1 {
+    padding-left: 30px;
+    margin: 0; }
   #main h2 {
     font-size: 1.2em;
     color: #5c3261;
