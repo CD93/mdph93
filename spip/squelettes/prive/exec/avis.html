@@ -20,7 +20,7 @@
   <tbody>
 <BOUCLE_avis(avis_site){!par date}>
   #SET{total,#GET{#NAVIGATION}|plus{#ACCESSIBILITE}|plus{#PRESENTATION}|plus{#ESTHETIQUE}}
-  [(#GET{total}|!={0}|oui)
+  [(#GET{total}|=={0}|ou{#GET{total}|=={20}}|et{#TEXTE|=={""}}|non)
   #SET{navigation,#GET{navigation}|plus{#NAVIGATION}}
   #SET{accessibilite,#GET{accessibilite}|plus{#ACCESSIBILITE}}
   #SET{presentation,#GET{presentation}|plus{#PRESENTATION}}
@@ -81,7 +81,7 @@
   <tbody>
 <BOUCLE_avis_non_significatif(avis_site){!par date}>
   #SET{total,#GET{#NAVIGATION}|plus{#ACCESSIBILITE}|plus{#PRESENTATION}|plus{#ESTHETIQUE}}
-  [(#GET{total}|!={0}|non)
+  [(#GET{total}|=={0}|ou{#GET{total}|=={20}}|et{#TEXTE|=={""}}|oui)
     <tr>
       <td>[(#DATE|affdate_jourcourt)]</td>
       <td>#NAVIGATION</td>
