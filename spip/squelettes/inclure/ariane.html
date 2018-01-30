@@ -2,7 +2,7 @@
   <div class="ariane-rubrique">
     <div id="minifil"><span class="lienaccueil"><a href="#URL_SITE_SPIP">Accueil</a> > </span><a href="#URL_RUBRIQUE">#TITRE</a></div>
   	<div id="fil_ariane">
-  		<a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="100%" height="auto"></a>
+      <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
   		<div class="chemin">
   			<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#TITRE</h1>
   		</div>
@@ -22,7 +22,7 @@
   ]
   </div>
   <div id="fil_ariane">
-    <a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="100%" height="auto"></a>
+    <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
     <div class="chemin">
       <div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
       [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
@@ -38,7 +38,7 @@
     <a href="#URL_SITE_SPIP">Accueil</a> > Recherche
   </div>
   <div id="fil_ariane" class="">
-    <a href="#URL_SITE_SPIP" class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis" width="100%" height="auto"></a>
+    <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
     <div class="chemin">
       <h1 class="cadre"><img src="#CHEMIN{images/recherche.png}" alt="" height="33px" width="33px">Recherche</h1>
     </div>

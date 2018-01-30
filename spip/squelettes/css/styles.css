@@ -386,18 +386,11 @@ a.logoMDPHmin {
   /* dialog bg: */
   box-shadow: 0 0 0.6em 0 rgba(0, 0, 0, 0.22), 0 0.6em 0.6em 0 rgba(0, 0, 0, 0.3); }
   #nav-collapse .titre_menu {
-    font-family: 'robotocondensedbold';
-    font-size: 1.25em;
-    color: #fff;
-    line-height: 1.25em;
-    margin: 2.4em 1.3em 1em 1.3em;
-    padding-bottom: 0.6em;
-    border-bottom: 0.07em solid #fff; }
-  #nav-collapse hr {
-    margin: 0 1.3em;
+    margin: 1.5em 1.3em;
     border: none;
-    border-top: 0.07em solid #fff;
-    height: 0.07em; }
+    border-top: 0.07em solid #fff; }
+  #nav-collapse .titre_menu.premier {
+    margin-top: 3em; }
   #nav-collapse ul li {
     list-style-type: none;
     margin: 1.3em; }
