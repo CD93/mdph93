@@ -49,7 +49,7 @@ gulp.task('images', function(){
 });
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: "http://parcsinfo:80"
+    proxy: "http://mdph:80"
   })
 });
 gulp.task('autoprefixer',function() {
