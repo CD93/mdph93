@@ -1,10 +1,11 @@
 <footer role="contentinfo" id="footer">
+	<B_article>
 	<ul>
-		<li><a href="plan.html">plan du site</a></li>
-		<li><a href="accessibilite.html">accessibilité</a></li>
-		<li><a href="mentionslegales.html">mentions légales</a></li>
-		<li><a href="contact.html">contact</a></li>
+		<BOUCLE_article(ARTICLES){id_rubrique=58}>
+		<li><a href="#URL_ARTICLE">#TITRE</a><span class='separateur'>-</span></li>
+		</BOUCLE_article>
 	</ul>
+	</B_article>
 </footer>
 <script data-main="#CHEMIN{js/app.js}" src="#CHEMIN{js/require.js}" async></script>
 <!-- Visites -->
