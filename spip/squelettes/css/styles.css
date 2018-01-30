@@ -500,10 +500,8 @@ footer {
       padding: 0 0.5em;
       content: " \2212 ";
       color: #FFF; }
-    footer ul li:first-child span {
-      content: normal;
-      content: "";
-      /* pour Safari */ }
+    footer ul li span.dernier {
+      display: none; }
     footer ul li a:hover, footer ul li a:focus {
       color: #C8C12B; }
 

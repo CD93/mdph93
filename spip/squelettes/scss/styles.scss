@@ -542,9 +542,8 @@ footer {
 			content: " \2212 ";
 			color:  #FFF;
 		}
-		li:first-child span {
-		  content: normal;
-		  content: ""; /* pour Safari */
+		li span.dernier {
+		  display:none;
 		}
 		li a:hover, li a:focus {
 			color: #C8C12B;
