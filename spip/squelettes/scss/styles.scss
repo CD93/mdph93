@@ -581,7 +581,7 @@ footer {
 		text-align: center;
 		padding: 0.6em 0.6em 0.6em 0;
 		border-radius: 20px;
-		margin: 0.3em;
+		margin: 0em;
 		img {
 			margin: 0 1em;
 					}
@@ -847,8 +847,11 @@ em {
 		text-decoration: underline;
     cursor: pointer;
 	}
-  h1 {
+  .cartouche h1 {
     padding-left: 30px;
+  }
+  h1 {
+    padding-left: 0;
     margin:0;
   }
   h2 {
