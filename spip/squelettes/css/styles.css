@@ -561,11 +561,11 @@ footer {
   width: 100%;
   margin: 0.6em 0; }
 
-.nav_rub_second {
+.nav_rub_second, .nav_rub_second_visible {
   padding: 0.3em 1em 0.3em 0;
   margin-left: 2.6em;
   margin-bottom: 1.4em; }
-  .nav_rub_second li a {
+  .nav_rub_second li a, .nav_rub_second_visible li a {
     display: block;
     font-family: 'robotocondensedbold', sans-serif;
     font-size: 1.1em;
@@ -573,9 +573,9 @@ footer {
     line-height: 1.3em;
     padding: 0.5em 0; }
     @media screen and (min-width: 800px) {
-      .nav_rub_second li a {
+      .nav_rub_second li a, .nav_rub_second_visible li a {
         min-width: 700px; } }
-  .nav_rub_second li a:hover, .nav_rub_second li a:focus {
+  .nav_rub_second li a:hover, .nav_rub_second li a:focus, .nav_rub_second_visible li a:hover, .nav_rub_second_visible li a:focus {
     color: #d4cb13; }
 
 .rechercher {
@@ -858,7 +858,7 @@ em {
     #main article sup {
       vertical-align: super;
       font-size: 0.8em; }
-    #main article div.paragraphe {
+    #main article div.paragraphe, #main article div.paragraphe_seul {
       margin-top: 1em;
       padding: 0.6em 30px 1em 30px;
       word-wrap: normal;
@@ -866,10 +866,12 @@ em {
       line-height: 1.35em;
       font-size: 1em; }
       @media screen and (min-width: 800px) {
-        #main article div.paragraphe {
+        #main article div.paragraphe, #main article div.paragraphe_seul {
           hyphens: none;
           background-color: rgba(255, 255, 255, 0.6);
           font-family: arial; } }
+  #main div.paragraphe_seul p {
+    margin-bottom: 1em; }
 
 #sondage_form {
   display: inline-block;

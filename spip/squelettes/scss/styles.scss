@@ -617,7 +617,7 @@ footer {
 	width: 100%;
 	margin: 0.6em 0;
 }
-.nav_rub_second {
+.nav_rub_second,.nav_rub_second_visible {
 	padding: 0.3em 1em 0.3em 0;
   margin-left: 2.6em;
   margin-bottom: 1.4em;
@@ -970,7 +970,7 @@ em {
     }
     blockquote {
       h3 {
-      
+
         font-size: 1.3em;
         text-transform: uppercase;
       }
@@ -991,7 +991,7 @@ em {
 		vertical-align: super;
 		font-size:0.8em;
 	}
-	div.paragraphe {
+	div.paragraphe, div.paragraphe_seul {
 		@media screen and (min-width: $break-menu) {
 			//max-width: 53em;
 			hyphens : none;
@@ -1007,6 +1007,9 @@ em {
 		font-size: 1em;
 		}
 	}
+  div.paragraphe_seul p {
+    margin-bottom: 1em;
+  }
 }
 #sondage_form {
   display: inline-block;
