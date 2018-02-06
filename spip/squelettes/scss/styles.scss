@@ -773,7 +773,7 @@ footer {
 	}
 
 #minifil {
-  padding: 0 30px;
+  padding: 0.5em 30px;
   background-color: #FFF;
   width: 100%;
   @media screen and (max-width: $break-menu) {
@@ -968,6 +968,16 @@ em {
       font-family: 'robotocondensedbold', sans-serif;
       margin-top: 0.3em;
       font-size: 1.1em;
+    }
+    blockquote {
+      h3 {
+      
+        font-size: 1.3em;
+        text-transform: uppercase;
+      }
+      h2 button{
+        background-color: #E4F2F2;
+      }
     }
 		.texteencadre-spip {
 			padding: 0.5em 1em;

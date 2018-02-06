@@ -693,7 +693,7 @@ a.btnviolet {
   background: #1c0f1e; }
 
 #minifil {
-  padding: 0 30px;
+  padding: 0.5em 30px;
   background-color: #FFF;
   width: 100%; }
 
@@ -847,6 +847,11 @@ em {
       font-family: 'robotocondensedbold', sans-serif;
       margin-top: 0.3em;
       font-size: 1.1em; }
+    #main article blockquote h3 {
+      font-size: 1.3em;
+      text-transform: uppercase; }
+    #main article blockquote h2 button {
+      background-color: #E4F2F2; }
     #main article .texteencadre-spip {
       padding: 0.5em 1em;
       margin: 1em 0;
