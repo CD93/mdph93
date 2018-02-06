@@ -388,7 +388,7 @@ header .entete{
 	position: relative;
 	color: #FFFFFF;
 	align-items: center;
-	padding: 0.3em 0.3em ;
+	padding: 0.3em 0.3em;
 	float: right;
   span {
     margin-right: 0.5em;
@@ -415,21 +415,13 @@ header .entete{
 	box-shadow: 0 0 0.6em 0 rgba(0,0,0,0.22), 0 0.6em 0.6em 0 rgba(0,0,0,0.30);
 
 	.titre_menu {
-		font-family: 'robotocondensedbold';
-		font-size: 1.25em;
-		color: #fff;
-		line-height: 1.25em;
-		margin: 2.4em 1.3em 1em 1.3em;
-		padding-bottom: 0.6em;
-		border-bottom: 0.07em solid #fff;
-	}
-	hr {
-		margin: 0 1.3em;
+		margin: 1.5em 1.3em;
 		border: none;
 		border-top: 0.07em solid #fff;
-		height: 0.07em;
 	}
-
+.titre_menu.premier {
+    margin-top:3em;
+}
 	ul li {
 		list-style-type: none;
 		margin: 1.3em;
@@ -534,20 +526,24 @@ footer {
 	ul {
 		display: flex;
 		align-items: center;
+    li {
+      padding: 0.75em 0;
+    }
 		li a {
-			display: flex;
 			color: #FFF;
 			align-items: stretch;
 			justify-content : center;
 			margin: 1em 0;
 		}
-		li a:before {
-				content: " \2212 ";
-				color:  #FFF;
+		li span {
+      align-items: stretch;
+      justify-content : center;
+      padding: 0 0.5em;
+			content: " \2212 ";
+			color:  #FFF;
 		}
-		li:first-child a:before {
-		  content: normal;
-		  content: ""; /* pour Safari */
+		li span.dernier {
+		  display:none;
 		}
 		li a:hover, li a:focus {
 			color: #C8C12B;
@@ -581,7 +577,7 @@ footer {
 		text-align: center;
 		padding: 0.6em 0.6em 0.6em 0;
 		border-radius: 20px;
-		margin: 0.3em;
+		margin: 0em;
 		img {
 			margin: 0 1em;
 					}
@@ -622,7 +618,7 @@ footer {
 	margin: 0.6em 0;
 }
 .nav_rub_second {
-	padding: 0.3em 1em;
+	padding: 0.3em 1em 0.3em 0;
   margin-left: 2.6em;
   margin-bottom: 1.4em;
 	li a {
@@ -847,8 +843,11 @@ em {
 		text-decoration: underline;
     cursor: pointer;
 	}
-  h1 {
+  .cartouche h1 {
     padding-left: 30px;
+  }
+  h1 {
+    padding-left: 0;
     margin:0;
   }
   h2 {

@@ -386,18 +386,11 @@ a.logoMDPHmin {
   /* dialog bg: */
   box-shadow: 0 0 0.6em 0 rgba(0, 0, 0, 0.22), 0 0.6em 0.6em 0 rgba(0, 0, 0, 0.3); }
   #nav-collapse .titre_menu {
-    font-family: 'robotocondensedbold';
-    font-size: 1.25em;
-    color: #fff;
-    line-height: 1.25em;
-    margin: 2.4em 1.3em 1em 1.3em;
-    padding-bottom: 0.6em;
-    border-bottom: 0.07em solid #fff; }
-  #nav-collapse hr {
-    margin: 0 1.3em;
+    margin: 1.5em 1.3em;
     border: none;
-    border-top: 0.07em solid #fff;
-    height: 0.07em; }
+    border-top: 0.07em solid #fff; }
+  #nav-collapse .titre_menu.premier {
+    margin-top: 3em; }
   #nav-collapse ul li {
     list-style-type: none;
     margin: 1.3em; }
@@ -494,19 +487,21 @@ footer {
   footer ul {
     display: flex;
     align-items: center; }
+    footer ul li {
+      padding: 0.75em 0; }
     footer ul li a {
-      display: flex;
       color: #FFF;
       align-items: stretch;
       justify-content: center;
       margin: 1em 0; }
-    footer ul li a:before {
+    footer ul li span {
+      align-items: stretch;
+      justify-content: center;
+      padding: 0 0.5em;
       content: " \2212 ";
       color: #FFF; }
-    footer ul li:first-child a:before {
-      content: normal;
-      content: "";
-      /* pour Safari */ }
+    footer ul li span.dernier {
+      display: none; }
     footer ul li a:hover, footer ul li a:focus {
       color: #C8C12B; }
 
@@ -532,7 +527,7 @@ footer {
   text-align: center;
   padding: 0.6em 0.6em 0.6em 0;
   border-radius: 20px;
-  margin: 0.3em; }
+  margin: 0em; }
   #main_bloc h1.cadre img, #main h1.cadre img {
     margin: 0 1em; }
 
@@ -567,7 +562,7 @@ footer {
   margin: 0.6em 0; }
 
 .nav_rub_second {
-  padding: 0.3em 1em;
+  padding: 0.3em 1em 0.3em 0;
   margin-left: 2.6em;
   margin-bottom: 1.4em; }
   .nav_rub_second li a {
@@ -753,8 +748,10 @@ em {
     background: #EFEEC6 url(../images/fbas.png) right center no-repeat;
     text-decoration: underline;
     cursor: pointer; }
+  #main .cartouche h1 {
+    padding-left: 30px; }
   #main h1 {
-    padding-left: 30px;
+    padding-left: 0;
     margin: 0; }
   #main h2 {
     font-size: 1.2em;
