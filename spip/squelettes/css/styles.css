@@ -258,14 +258,15 @@ div.direct a:focus {
   bottom: -2em;
   background-color: #5C3261;
   padding-bottom: 2em;
-  max-width: 33em;
+  width: 120%;
   color: #fff;
   font-size: 0.85em;
   line-height: 1.2em;
   font-size-adjust: 0.6; }
-  .flash_info h2 {
+  .flash_info div h2 {
     font-weight: bold;
-    margin-bottom: 0.85em; }
+    margin-bottom: 0.85em;
+    color: #fff; }
   .flash_info .inner_flash {
     padding: 1em 10%; }
 
@@ -327,6 +328,8 @@ header .entete {
   min-height: 3em;
   z-index: 2;
   align-items: center; }
+  header .entete span.textheader {
+    font-size: 1.2em; }
 
 header.sommaire .entete {
   position: fixed;
@@ -336,17 +339,18 @@ header.sommaire .entete {
   background-color: transparent; }
 
 a.logoMDPHmin {
-  padding: 0.3em 0.3em 0 0;
-  color: #4a4a4a;
+  padding: 0.4em 0.6em 0 0;
+  color: #000;
   float: right;
   display: flex;
   align-items: center; }
   a.logoMDPHmin span {
-    margin-right: 0.5em; }
+    margin-right: 0.7em;
+    font-family: robotocondensedbold; }
 
 #nav-toggle {
   position: relative;
-  color: #4a4a4a;
+  color: #fff;
   padding: 0.7em 0 0 0.3em;
   left: 0;
   float: left;
@@ -354,7 +358,8 @@ a.logoMDPHmin {
   #nav-toggle span {
     margin-left: 0.5em;
     position: relative;
-    bottom: 0.35em; }
+    bottom: 0.35em;
+    font-family: robotocondensedbold; }
 
 #nav-toggle:focus, #nav-toggle:hover {
   text-decoration: underline; }
@@ -429,7 +434,7 @@ a.logoMDPHmin {
   width: 100%;
   text-align: center;
   padding: 0.6em 0;
-  border-radius: 1.5em;
+  border-radius: 1em;
   margin: 0.3em 0; }
   .menu_central li a img {
     margin: 0 2em; }
@@ -454,7 +459,7 @@ a.logoMDPHmin {
   font-family: 'robotocondensedbold', sans-serif;
   font-size: 1em;
   color: #5B3160;
-  line-height: 1.2em;
+  line-height: 1.7em;
   margin: 1.6em 1em 0.3em 1em;
   text-align: center; }
 
@@ -798,7 +803,7 @@ em {
         #main article header .titre.fix-titre h1 {
           width: 100%; }
       #main article header h1 {
-        margin: 0 30px 0.5em;
+        margin: 0.5em 30px 0.5em;
         position: relative;
         z-index: 3; }
       #main article header .chapo {
