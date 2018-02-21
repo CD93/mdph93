@@ -159,25 +159,6 @@ button {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* clearfix : http://www.positioniseverything.net/easyclearing.html */
-.clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  overflow: hidden; }
-
-.clearfix {
-  display: inline-table; }
-
-/* Hides from IE-mac \*/
-.clearfix {
-  height: 1%; }
-
-.clearfix {
-  display: block; }
-
 /* fin */
 /* style de la MDPH */
 @font-face {
@@ -196,9 +177,11 @@ body {
   overflow-y: scroll; }
 
 a {
+  color: #008080;
   text-decoration: none; }
 
 a:hover, a:focus {
+  color: #9C8512;
   text-decoration: underline; }
 
 hr {
@@ -706,7 +689,7 @@ a.btnviolet {
   flex-direction: row-reverse;
   justify-content: space-between; }
   #fil_ariane .logoMDPH img {
-    width: 100%;
+    width: auto;
     height: 8em; }
   @media screen and (max-width: 800px) {
     #fil_ariane {
