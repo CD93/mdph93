@@ -915,7 +915,7 @@ em {
         }
       }
 		ul {
-			margin: 1.2em 2em;
+			margin: 0.8em 2em 1.2em 2em;
 			li {
 				list-style-type: square;
         ul {
@@ -925,19 +925,38 @@ em {
           }
         }
 			}
-		}
-    ul.test {
-      list-style-type: none;
-      li:before {
-        content: "\2022";
-    	  margin-right: 10px;
-    	  color: #CCC;
-      }
+    }
+    ul.plan {
+      margin: 0;
       li {
-        color: #000;
-        list-style-type: none;
+      list-style-type: none;
+      }
+      h3 {
+        margin: 0;
+      }
+      h2 {
+        border-top:1px solid #000000;
+      }
+      ul.nav_rub_second {
+        padding: 0.3em 1em 0.3em 0;
+        margin-left: 2.6em;
+        margin-bottom: 1.4em;
+        li a {
+          display: block;
+          font-family: 'robotocondensedbold', sans-serif;
+          text-decoration: none;
+          font-size: 0.9em;
+          color: #5C3261;
+          line-height: 1em;
+          padding: 0.5em 0
+        }
+        li a:hover {
+          text-decoration: underline;
+          color:#008080;
+        }
       }
     }
+
 		a {
 			color: #008080;
 			text-decoration: underline;

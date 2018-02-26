@@ -801,22 +801,36 @@ em {
       #main article ol li {
         list-style-type: decimal; }
     #main article ul {
-      margin: 1.2em 2em; }
+      margin: 0.8em 2em 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
         #main article ul li ul {
           margin: 0.4em 0.8em; }
           #main article ul li ul li {
             list-style-type: circle; }
-    #main article ul.test {
-      list-style-type: none; }
-      #main article ul.test li:before {
-        content: "\2022";
-        margin-right: 10px;
-        color: #CCC; }
-      #main article ul.test li {
-        color: #000;
+    #main article ul.plan {
+      margin: 0; }
+      #main article ul.plan li {
         list-style-type: none; }
+      #main article ul.plan h3 {
+        margin: 0; }
+      #main article ul.plan h2 {
+        border-top: 1px solid #000000; }
+      #main article ul.plan ul.nav_rub_second {
+        padding: 0.3em 1em 0.3em 0;
+        margin-left: 2.6em;
+        margin-bottom: 1.4em; }
+        #main article ul.plan ul.nav_rub_second li a {
+          display: block;
+          font-family: 'robotocondensedbold', sans-serif;
+          text-decoration: none;
+          font-size: 0.9em;
+          color: #5C3261;
+          line-height: 1em;
+          padding: 0.5em 0; }
+        #main article ul.plan ul.nav_rub_second li a:hover {
+          text-decoration: underline;
+          color: #008080; }
     #main article a {
       color: #008080;
       text-decoration: underline; }
