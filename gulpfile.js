@@ -69,7 +69,10 @@ gulp.task('copieHTML', function() {
   return gulp.src('spip/squelettes/**/*.html')
   .pipe(gulp.dest('spip/squelettes-compil/'))
 });
-
+gulp.task('copieXML', function() {
+  return gulp.src('spip/squelettes/**/*.xml')
+  .pipe(gulp.dest('spip/squelettes-compil/'))
+});
 gulp.task('copiePHP', function() {
   return gulp.src('spip/squelettes/**/*.php')
   .pipe(gulp.dest('spip/squelettes-compil/'))
@@ -150,7 +153,7 @@ gulp.task('Crecherche', function () {
 
 gulp.task('build', function (callback) {
   runSequence('cleancompile','sass','autoprefixer',
-  ['uglify', 'minify-css'],'Csommaire','Carticle','Crubrique','Crecherche','copieHTML','copieFonts','copiePHP','images',
+  ['uglify', 'minify-css'],'Csommaire','Carticle','Crubrique','Crecherche','copieHTML','copieXML','copieFonts','copiePHP','images',
   callback
   )
 });
