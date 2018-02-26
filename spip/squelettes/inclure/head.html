@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+	<meta name="application-name" content="Place-handicap">
+	<meta name="theme-color" content="#d4cb13">
+	<link rel="icon" sizes="128x128" type="image/png" href="#CHEMIN{images/logo_vert128.png}"/>
+	<link rel="apple-touch-icon" href="#CHEMIN{images/logo_vert128.png}">
+	<link rel="mask-icon" href="/#CHEMIN{images/logo_vert128.png}" color="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="manifest" href="#CHEMIN{manifest.json}">
+	<link rel="stylesheet" href="[(#CHEMIN{css/styles.css}|timestamp)]" type="text/css">
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker
+		           .register('sw.js')
+		           .then(function() { console.log('Service Worker Registered'); });
+	}
+	</script>
+	<!--[if lt IE 9]>
+		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
+	<![endif]-->
+	[(#ENV{page}|=={sommaire}|oui)
+		<title>Accueil du site de la MDPH de la Seine-Saint-Denis</title>
+	]
+	<BOUCLE_article(ARTICLES){id_article=#ID_ARTICLE}>
+    <title>[(#TITRE|textebrut)][ - (#TITRE_PARENT|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
+		<meta name="description" content="[(#CHAPO|couper{150}|attribut_html|textebrut)]">
+		<link rel="canonical" href="#URL_SITE_SPIP/#URL_ARTICLE{#ID_ARTICLE}">
+		#SET{intro,(#DESCRIPTIF)}
+		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]" />
+		<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
+		<meta property="og:url" content="[(#URL_ARTICLE|url_absolue)]"/>
+		<meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]"/>
+		<meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
+		<meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+	<!-- Twitter meta cards -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@seinesaintdenis">
+		<meta name="twitter:title" content="[(#TITRE|attribut_html)]">
+		<meta name="twitter:description" content="[(#CHAPO|attribut_html)]">
+		<meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_ARTICLE|extraire_attribut{src})]">
+  </BOUCLE_article>
+
+	<BOUCLE_rubtete(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}{tous}>
+		<title>[(#TITRE|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
+		<meta name="description" content="[(#TEXTE|couper{150}|attribut_html|textebrut)]" />
+		<link rel="canonical" href="#URL_SITE_SPIP/#URL_RUBRIQUE{#ID_RUBRIQUE}">
+		#SET{intro,(#TEXTE)}
+		<link rel="image_src" href="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]" />
+			<meta property="og:title" content="[(#TITRE|attribut_html)]"/>
+		    <meta property="og:url" content="[(#URL_RUBRIQUE|url_absolue)]"/>
+		    <meta property="og:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]"/>
+		    <meta property="og:site_name" content="[(#NOM_SITE_SPIP|attribut_html)]"/>
+		    <meta property="og:description" content="[(#DESCRIPTIF|attribut_html)]"/>
+		    <!-- Twitter meta cards -->
+		    <meta name="twitter:card" content="summary">
+		    <meta name="twitter:site" content="@seinesaintdenis">
+		    <meta name="twitter:title" content="[(#TITRE|attribut_html)]">
+		    <meta name="twitter:description" content="[(#DESCRIPTIF|attribut_html)]">
+		    <meta name="twitter:image" content="#URL_SITE_SPIP/[(#LOGO_RUBRIQUE|extraire_attribut{src})]">
+		</BOUCLE_rubtete>
+</head>
