@@ -1,0 +1,4 @@
+@media print {
+  body {
+    font-size: 1em;
+    background: none; } }

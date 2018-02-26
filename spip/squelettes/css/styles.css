@@ -159,6 +159,11 @@ button {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+@media print {
+  body {
+    font-size: 1em;
+    background: none; } }
+
 /* fin */
 /* style de la MDPH */
 @font-face {
