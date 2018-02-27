@@ -811,7 +811,7 @@ em {
       border: 1px solid #000;
       border-bottom: none; }
     #main article ul {
-      margin: 0.8em 2em 1.2em 2em; }
+      margin: -0.7em 2em 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
         #main article ul li ul {
