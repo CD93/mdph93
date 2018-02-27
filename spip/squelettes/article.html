@@ -19,7 +19,7 @@
 			<button class="btn-collapse btn-collapse-down" type="button" >Tout déplier</button></div>
 			]
 		</header>
-		<div>#TEXTE</div>
+		<div class="[(#GET{liste}|find{#RANG}|non)margeseul]">#TEXTE</div>
 	</article>
 	<div class="btnaction">
 		<div role="search" id="search">
