@@ -14,7 +14,7 @@ requirejs.config({
 require(['domReady'], function (domReady) {
 	domReady(function () {
 		require(['jquery','cookie'], function ($, cookie) {
-
+      $("p.none").css("display","none");
 			var decal;
 			$(".paragraphe").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');

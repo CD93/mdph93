@@ -21,7 +21,7 @@
   <tbody>
 <BOUCLE_avis(avis_site){!par date}>
   #SET{total,#NAVIGATION|plus{#ACCESSIBILITE}|plus{#PRESENTATION}|plus{#ESTHETIQUE}}
-  [(#TEXTE|=={""}|et{#GET{total}|=={"0"}|ou{#GET{total}|=={"20"}}}|non)
+  [(#TEXTE|=={""}|et{#GET{total}|=={"0"}}|non)
   #SET{navigation,#GET{navigation}|plus{#NAVIGATION}}
   #SET{accessibilite,#GET{accessibilite}|plus{#ACCESSIBILITE}}
   #SET{presentation,#GET{presentation}|plus{#PRESENTATION}}
@@ -67,7 +67,7 @@
 <B_avis_non_significatif>
 #SET{total,0}
 <table width="100%" class="spip liste">
-  <caption>Avis non significatifs (0 ou 20 sans commentaire)</caption>
+  <caption>Avis non significatifs (0 sans commentaire)</caption>
   <thead>
     <tr>
       <th width="100px">date</th>
@@ -83,7 +83,7 @@
   <tbody>
 <BOUCLE_avis_non_significatif(avis_site){!par date}>
   #SET{total,#NAVIGATION|plus{#ACCESSIBILITE}|plus{#PRESENTATION}|plus{#ESTHETIQUE}}
-  [(#TEXTE|=={""}|et{#GET{total}|=={"0"}|ou{#GET{total}|=={"20"}}}|oui)
+  [(#TEXTE|=={""}|et{#GET{total}|=={"0"}}|oui)
     <tr>
       <td>[(#DATE|affdate_jourcourt)]</td>
       <td>#NAVIGATION</td>
