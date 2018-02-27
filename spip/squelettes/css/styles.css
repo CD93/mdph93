@@ -805,6 +805,11 @@ em {
       margin: 1.2em 2em; }
       #main article ol li {
         list-style-type: decimal; }
+    #main article hr {
+      width: 20%;
+      margin: 1.5em auto;
+      border: 1px solid #000;
+      border-bottom: none; }
     #main article ul {
       margin: 0.8em 2em 1.2em 2em; }
       #main article ul li {

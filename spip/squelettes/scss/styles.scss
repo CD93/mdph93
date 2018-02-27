@@ -755,6 +755,12 @@ em {
           list-style-type:decimal;
         }
       }
+      hr {
+        width: 20%;
+        margin: 1.5em auto;
+        border: 1px solid #000;
+        border-bottom: none;
+      }
 		ul {
 			margin: 0.8em 2em 1.2em 2em;
 			li {
