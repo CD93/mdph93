@@ -179,8 +179,6 @@ form {
     @media screen and (max-width: 800px) {
       form input {
         width: 100%; } }
-  form input.submit {
-    background-color: #fff; }
   form textarea {
     width: 80%;
     border: 1px solid #000; }
@@ -190,10 +188,13 @@ form {
 
 .reponse_formulaire_erreur, .erreur {
   border: 1px solid red;
+  background-color: red;
+  color: #fff;
   padding: 0.5em; }
 
 .erreur_message {
-  color: red; }
+  color: red;
+  display: block; }
 
 @media print {
   body {

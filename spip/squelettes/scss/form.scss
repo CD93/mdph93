@@ -24,9 +24,7 @@ form {
       width: 100%;
     }
   }
-  input.submit {
-  background-color: #fff;
-}
+  
   textarea {
     width: 80%;
     border: 1px solid #000;
@@ -37,8 +35,11 @@ form {
 }
 .reponse_formulaire_erreur, .erreur {
   border: 1px solid red;
+  background-color: red;
+  color: #fff;
   padding:0.5em;
 }
 .erreur_message {
   color: red;
+  display: block;
 }
