@@ -25,12 +25,23 @@ form {
       form textarea {
         width: 100%; } }
 
-.reponse_formulaire_erreur, .erreur {
-  border: 1px solid red;
-  background-color: red;
-  color: #fff;
-  padding: 0.5em; }
+.reponse_formulaire_erreur {
+  color: red;
+  display: block;
+  font-weight: bold;
+  font-size: 1.3em; }
 
 .erreur_message {
-  color: red;
-  display: block; }
+  color: #FF0606;
+  display: block;
+  margin-bottom: 0.4em; }
+
+.erreur input, .erreur textarea {
+  background-color: #fcb5b5; }
+
+#main article p.reponse_formulaire_ok {
+  background-color: #EFEEC6;
+  display: block;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: 0.5em 1em; }
