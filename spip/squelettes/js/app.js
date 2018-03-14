@@ -80,8 +80,8 @@ require(['domReady'], function (domReady) {
       $("ul.nav_rub_second").hide(250);
       $("h2 button.titrerub").attr('aria-expanded','false');
       $("h2 button.titrerub").css("background-image","url(squelettes/images/fbas.png)");
-      $("h2 button.titrerub").click(function(e) {
-				$(this).toggleClass( "active" ).parent().next('ul').slideToggle(300);
+      $("#main article h2 button.titrerub").click(function(e) {
+				$(this).parent().next('ul').slideToggle(300);
 				if ($(this).hasClass("active")) {
 					$(this).css("background-image","url(squelettes/images/fhaut.png)");
 					$(this).attr('aria-expanded','true');
