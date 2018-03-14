@@ -28,6 +28,7 @@
 				Rechercher
 			</a>
 		</div>
+		[(#REM)
 		<div id="partage">
 			<button type="button" class="question" id="btnpartage">
 				<img src="#CHEMIN{images/pictos/partager.png}" alt="" height="40px" width="40px">
@@ -39,6 +40,7 @@
 				<a class="twitter" data-href="[(#URL_PAGE|replace{#GET{reg1},https://}|urlencode)]" alt="Partagez sur Twitter" href="https://twitter.com/intent/tweet?hashtags=SSD93&original_referer=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&text=[(#TITRE*|urlencode)]&tw_p=tweetbutton&url=[http://ssd.fr/(#ID_ARTICLE|urlencode)]&via=seinesaintdenis" target="_blank">Twitter</a>
 			</p>
 		</div>
+		]
 	</div>
 	<INCLURE{fond=inclure/avis} />
 </main>
