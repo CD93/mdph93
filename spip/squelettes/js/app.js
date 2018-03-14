@@ -65,7 +65,7 @@ require(['domReady'], function (domReady) {
 				findInsiders($('#menu_ferme'));
 			});
 			$("#main article h2 button").click(function(e) {
-				$(this).toggleClass( "active" ).parent().next('div').slideToggle(300);
+				$(this).toggleClass("active").parent().next('div').slideToggle(300);
 				if ($(this).hasClass("active")) {
 					$(this).css("background-image","url(squelettes/images/fhaut.png)");
 					$(this).attr('aria-expanded','true');
@@ -80,7 +80,19 @@ require(['domReady'], function (domReady) {
       $("ul.nav_rub_second").hide(250);
       $("h2 button.titrerub").attr('aria-expanded','false');
       $("h2 button.titrerub").css("background-image","url(squelettes/images/fbas.png)");
-      $("#main article h2 button.titrerub").click(function(e) {
+      $("h2 button.titrerub").click(function(e) {
+				$(this).toggleClass("active").parent().next('ul').slideToggle(300);
+				if ($(this).hasClass("active")) {
+					$(this).css("background-image","url(squelettes/images/fhaut.png)");
+					$(this).attr('aria-expanded','true');
+				}
+				else {
+					$(this).css("background-image","url(squelettes/images/fbas.png)");
+					$(this).attr('aria-expanded','false');
+				}
+				$(".pliage button.btn-collapse-up").show();
+			});
+      $("h2 button.titreplan").click(function(e) {
 				$(this).parent().next('ul').slideToggle(300);
 				if ($(this).hasClass("active")) {
 					$(this).css("background-image","url(squelettes/images/fhaut.png)");
