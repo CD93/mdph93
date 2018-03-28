@@ -12,7 +12,7 @@
 	</div>
 	</BOUCLE_flashinfo>
 	<INCLURE{fond=inclure/avis} />
-	<ul class="menu_central" role="menu" id="menu">
+	<ul class="menu_central" id="menu">
 		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
 		<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|image_gamma{-254}|vider_attribut{width}|inserer_attribut{width,'33px'}|vider_attribut{height}|inserer_attribut{height,'33px'})] #TITRE</a></li>
 		</BOUCLE_rubriquemere>

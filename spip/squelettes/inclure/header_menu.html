@@ -1,10 +1,10 @@
 <div class="direct"><a href="#search">aller à la recherche</a></div>
 [(#ENV{page}|=={sommaire}|non)<div class="direct"><a href="#main">aller au contenu</a></div>]
-[(#ENV{page}|=={sommaire}|oui)<div class="direct"><a href="#menu">aller au menu</a></div>]
+[(#ENV{page}|=={sommaire}|non)<div class="direct"><a href="#menu">aller au menu</a></div>]
 <header role="banner" class="conteneur[ (#ENV{page}|=={sommaire}|oui) sommaire]">
 <div id="menu_ferme">
 <nav role="navigation" id="nav-collapse">
-	<button aria-label="fermer le menu" id="fermer_menu" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="fermer le menu" height="18px" width="18px"></button>
+	<button aria-label="fermer le menu" id="fermer_menu" type="button"><span>Fermer</span><img src="#CHEMIN{images/croix.png}" alt="" height="18" width="18"></button>
 	<ul class="titre_menu premier">
 		<BOUCLE_menuburger(ARTICLES){id_rubrique=5}{par num titre}>
 		<li><a href="#URL_ARTICLE">#TITRE</a></li>
@@ -14,13 +14,13 @@
 		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
 			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|image_gamma{254}|vider_attribut{width}|inserer_attribut{width,'33px'}|vider_attribut{height}|inserer_attribut{height,'33px'})] #TITRE</a></li>
 		</BOUCLE_rubriquemere>
-		<li><a href="#URL_PAGE{recherche}"><img alt="" src="#CHEMIN{images/pictos/loupe_b.png}" height="33px" width="33px" />Rechercher</a></li>
+		<li><a href="#URL_PAGE{recherche}"><img alt="" src="#CHEMIN{images/pictos/loupe_b.png}" height="33" width="33" />Rechercher</a></li>
 	</ul>
 </nav>
 </div>
 <div class="entete">
-[(#ENV{page}|=={sommaire}|non)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span class="textheader">menu</span></button>]
-[(#ENV{page}|=={sommaire}|oui)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24px" width="39px"><span class="textheader">menu</span></button>]
-[(#ENV{page}|=={sommaire}|non)<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span class="textheader">accueil</span><img src="#CHEMIN{images/miniMDPHg.png}" alt="Place-Handicap" width="18px" height="auto"></a>]
+[(#ENV{page}|=={sommaire}|non)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24" width="39"><span class="textheader">menu</span></button>]
+[(#ENV{page}|=={sommaire}|oui)<button type="button" id="nav-toggle" aria-label="ouvrir le menu"><img src="#CHEMIN{images/menu_mobile.png}" alt="" height="24" width="39"><span class="textheader">menu</span></button>]
+[(#ENV{page}|=={sommaire}|non)<a href="#URL_SITE_SPIP" class="logoMDPHmin" id="logomenu"><span class="textheader">accueil</span><img src="#CHEMIN{images/miniMDPHg.png}" alt="Place-Handicap" width="18" height="auto"></a>]
 </div>
 </header>

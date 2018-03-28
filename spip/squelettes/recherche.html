@@ -19,7 +19,12 @@
 	</style>
 ]
 	<INCLURE{fond=inclure/preload}/>
-	<title>Rechercher - #RECHERCHE sur #NOM_SITE_SPIP</title>
+	[(#RECHERCHE|oui)
+	<title>Résultats de recherche pour "#RECHERCHE" sur #NOM_SITE_SPIP</title>
+	]
+	[(#RECHERCHE|non)
+	<title>Rechercher sur #NOM_SITE_SPIP</title>
+	]
 	<!--[if lt IE 9]>
 		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
 	<![endif]-->

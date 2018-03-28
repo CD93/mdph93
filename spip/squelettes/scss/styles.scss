@@ -484,12 +484,15 @@ footer {
 			font-size: 1em;
 			height: 2.5em;
 			border: none;
-			background-color: #EFEEC6;
+			background-color: #fff;
 			margin-top: 0.6em;
       padding: 0.5em;
 			font-family: 'robotoregular';
 			box-shadow: inset 0 0.07em 0.14em 0 rgba(0,0,0,0.50);
 		}
+    input#message::-moz-placeholder,input#message:-ms-input-placeholder,input#message::-webkit-input-placeholder{
+        color:#6E6C54;
+        opacity:1;}
 		label {
 			font-family: 'robotoregular', sans-serif;
 			font-size: 1.4em;

@@ -58,20 +58,19 @@
 </B_recherchebrute>
 
 <B_recherche>
-[(#REM)<h2 class="liste_reponse">Nos réponses : #ENV{recherche}</h2>]
-[(#REM)<h3>[<pre>(#GET{resultats}|print_r{1})</pre>]</h3>]
+<h2 class="liste_reponse">#TOTAL_BOUCLE résultats pour votre recherche : #ENV{recherche}</h2>
 <ul class="liste_reponse surlignable">
 <BOUCLE_recherche(DATA){source tableau, #GET{resultats}}{!par points}>
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li class="niv1">
       [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
-      <a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a>
+      <h3><a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a></h3>
       <div class="rechprinc">#TITRE</div>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
       <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
       ]
       [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
-      <a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a>
+      <h3><a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a></h3>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
       ]
     </li>

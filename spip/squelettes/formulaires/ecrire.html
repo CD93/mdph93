@@ -1,4 +1,5 @@
 
+<h2>Pour nous écrire par courriel</h2>
 <div class="formulaire_spip formulaire_ecrire" id="ecrire">
 [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
@@ -7,11 +8,10 @@
 	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
 	#ACTION_FORMULAIRE
 	[(#REM) Sinon, formulaire normal ]
-	<fieldset>
-		<legend><:envoyer_message:></legend>
+
 		<div class="editer-groupe">
 			<div class="editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]">
-				<label for="email_message_auteur#ENV{id}"><:entree_adresse_email:> <:info_obligatoire_02:></label>
+				<label for="email_message_auteur#ENV{id}">Votre adresse email (obligatoire, format nom@exemple.com)</</label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
 				<input[ (#HTML5|?{required="required" type="email" class="text form-control",type="text" class="text form-control"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" size="30" />
 			</div>
@@ -32,14 +32,13 @@
 		<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
 	</p>
 	<div id="recapacha">
-    <label for="test" >#ENV{nombre_a}&nbsp;+&nbsp;#ENV{nombre_b}&nbsp;= (<em>Merci de répondre à ce petit calcul</em> )</label>
+    <label for="test" >#ENV{nombre_a}&nbsp;+&nbsp;#ENV{nombre_b}&nbsp;= (<em>Merci de répondre à ce petit calcul</em>, obligatoire)</label>
     <input type="text" class="nbr" name="test" id="test#ENV{id}" value="" size="2"[(#HTML5) required="required"] />
   </div>
   <input type="hidden" name="nba" value="#ENV{nombre_a}" />
   <input type="hidden" name="nbb" value="#ENV{nombre_b}" />
 	<p class="boutons"><input type="submit" class="submit btnviolet" name="valide" value="<:form_prop_envoyer:>" /></p>
 </div>
-</fieldset>
 </form>
 ]
 </div>

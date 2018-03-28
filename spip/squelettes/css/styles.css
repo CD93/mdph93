@@ -631,11 +631,14 @@ footer {
     font-size: 1em;
     height: 2.5em;
     border: none;
-    background-color: #EFEEC6;
+    background-color: #fff;
     margin-top: 0.6em;
     padding: 0.5em;
     font-family: 'robotoregular';
     box-shadow: inset 0 0.07em 0.14em 0 rgba(0, 0, 0, 0.5); }
+  #form_question input#message::-moz-placeholder, #form_question input#message:-ms-input-placeholder, #form_question input#message::-webkit-input-placeholder {
+    color: #6E6C54;
+    opacity: 1; }
   #form_question label {
     font-family: 'robotoregular', sans-serif;
     font-size: 1.4em;
