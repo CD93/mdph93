@@ -39,7 +39,6 @@ require(['domReady'], function (domReady) {
 			$('#nav-toggle').click(function(e) {
 				e.preventDefault();
 				cookie.set('menuouvert', 'oui');
-				console.log(cookie.get('menuouvert'));
 				$("#nav-collapse").css("left","0");
 				var offsets = $('#main').offset();
 				var left = offsets.left;
@@ -53,16 +52,29 @@ require(['domReady'], function (domReady) {
         $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
 				findInsiders($('#menu_ferme'));
 			});
-			$('#fermer_menu').click(function(e) {
-				e.preventDefault();
-				cookie.set('menuouvert', 'non');
-				console.log(cookie.get('menuouvert'));
+      $( "body" ).keydown(function( event ) {
+        if ( event.keyCode == 27 ) {
+        cookie.set('menuouvert', 'non');
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
         $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
         $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
+        $('#nav-toggle').focus();
+        }
+      });
+
+			$('#fermer_menu').click(function(e) {
+				e.preventDefault();
+				cookie.set('menuouvert', 'non');
+				$("#nav-collapse").css("left","-280px");
+				$("#main").css("left",0);
+				$('#menu_ferme').hide(250);
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
+				findInsiders($('#menu_ferme'));
+        $('#nav-toggle').focus();
 			});
 			$("#main article h2 button").click(function(e) {
 				$(this).toggleClass("active").parent().next('div').slideToggle(300);
@@ -114,6 +126,7 @@ require(['domReady'], function (domReady) {
 				$('.titrerub').attr('aria-expanded','true');
 				$('.titrerub').addClass( "active" );
 				$(".pliage button.btn-collapse-up").show();
+        $(".pliage button.btn-collapse-up").focus();
 				$(this).hide();
 			});
 			$(".pliage button.btn-collapse-up").click(function(e) {
@@ -126,6 +139,7 @@ require(['domReady'], function (domReady) {
 				$('.titrerub').attr('aria-expanded','false');
 				$('.titrerub').removeClass( "active" );
 				$(".pliage button.btn-collapse-down").show();
+        $(".pliage button.btn-collapse-down").focus();
 				$(this).hide();
 			});
       // on récupère l'ancre

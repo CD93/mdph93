@@ -712,6 +712,12 @@ em {
 	}
 	article {
 	/* habillage article */
+    p.qr {
+      margin-left: 30px;
+      margin-top: 1em;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
   		padding: 0em 0em;
       position: relative;
       header {
@@ -841,7 +847,9 @@ em {
 			padding: 0.5em 1em;
 			margin: 1em 0;
 			background-color: #E4F2F2;
-			//border: 0.07em solid #ccc;
+			p {
+        margin-bottom: 0.5em;
+      }
       h3 {
         margin-top:0.5em;
       }
