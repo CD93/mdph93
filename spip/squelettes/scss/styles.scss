@@ -712,14 +712,40 @@ em {
 	}
 	article {
 	/* habillage article */
-    p.qr {
-      margin-left: 30px;
-      margin-top: 1em;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
   		padding: 0em 0em;
       position: relative;
+      .chargerfichier {
+        margin-bottom: 1.5em;
+        p {
+          margin-bottom: .2em;
+          text-align: center;
+        }
+        a {
+          display: inline-block;
+          margin-bottom: 0;
+          font-weight: normal;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          background-image: none;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          padding: 6px 12px;
+          font-size: 1em;
+          line-height: 1.5;
+          border-radius: 4px;
+        }
+        .source {
+          font-size: 1em;
+          color: #6e6e6e;
+        }
+      }
+      p.qr {
+        margin-left: 30px;
+        margin-top: 1em;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
       header {
         position: relative;
         width:100%;

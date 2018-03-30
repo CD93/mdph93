@@ -820,6 +820,28 @@ em {
     /* habillage article */
     padding: 0em 0em;
     position: relative; }
+    #main article .chargerfichier {
+      margin-bottom: 1.5em; }
+      #main article .chargerfichier p {
+        margin-bottom: .2em;
+        text-align: center; }
+      #main article .chargerfichier a {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 1em;
+        line-height: 1.5;
+        border-radius: 4px; }
+      #main article .chargerfichier .source {
+        font-size: 1em;
+        color: #6e6e6e; }
     #main article p.qr {
       margin-left: 30px;
       margin-top: 1em;

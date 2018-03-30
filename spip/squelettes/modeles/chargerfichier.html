@@ -1,13 +1,10 @@
 <BOUCLE_doc (DOCUMENTS) {id_document=#ENV{id}} {tout}>
-<div class="demarche-button">
+<div class="chargerfichier">
 	<p>
 		<a href="#URL_DOCUMENT"
-		 	class="btn btn-primary"
-			target="_blank"
-			rel="noopener noreferrer"
+			type="#MIME_TYPE"
+	 		class="spip_out"
 			title="#TITRE - Nouvelle fenêtre">#TITRE [[(#TYPE_DOCUMENT) [(#TAILLE|taille_en_octets)]]]&nbsp;
-    	<span class="icon icon-external-link" aria-hidden="true"></span>
-			<span class="sr-only"> - Nouvelle fenêtre</span>
 		</a>
 	</p>
 	[<p class="source">(#CREDITS)</p>]
