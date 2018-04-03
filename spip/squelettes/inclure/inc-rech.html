@@ -64,13 +64,13 @@
   <BOUCLE_article(ARTICLES){id_article=#VALEUR{articlesource}}>
     <li class="niv1">
       [(#ARTICLE|!={#ARTICLESOURCE}|?{" ",""})
-      <h3><a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a></h3>
+      <h3><a href='#URL_ARTICLE#titre#ARTICLE'>#INFO_TITRE{article,#ARTICLE}</a></h3>
       <div class="rechprinc">#TITRE</div>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{140}, #INFO_TEXTE{article,#VALEUR{article}}|couper{140}})</div>]
       <INCLURE{fond=inclure/sous-rech, articles=#ARTICLES, articlesource=#ARTICLESOURCE} />
       ]
       [(#ARTICLE|!={#ARTICLESOURCE}|?{""," "})
-      <h3><a href='#URL_ARTICLE'>#TITRE<em style="display:none;left:-7000px;font-size:0.6em;padding-left:1em;color:#000;">#VALEUR{points}pts</em></a></h3>
+      <h3><a href='#URL_ARTICLE'>#TITRE</a></h3>
       [<div class="texte">(#INFO_CHAPO{article,#VALEUR{article}}|?{#INFO_CHAPO{article,#VALEUR{article}}|couper{320}, #INFO_TEXTE{article,#VALEUR{article}}|couper{320}})</div>]
       ]
     </li>
