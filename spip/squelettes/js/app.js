@@ -16,7 +16,6 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
       $("p.none").css("display","none");
 			var decal;
-      var largeur = $( document ).width();
 			$(".paragraphe").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
 			if(cookie.get('menuouvert')=='oui'){
@@ -43,8 +42,11 @@ require(['domReady'], function (domReady) {
 				$("#nav-collapse").css("left","0");
 				var offsets = $('#main').offset();
 				var left = offsets.left;
-        if(largeur < 426){
+        var largeur = $( document ).width();
+        if(largeur < 767){
           $("#main").attr('aria-hidden','true');
+          $("#hoverlay").show().fadeTo(100,0.5);
+          findInsiders($('#menu_ferme'));
         } else {
           cookie.set('menuouvert', 'oui');
         }
@@ -54,14 +56,12 @@ require(['domReady'], function (domReady) {
 					$("#main, .logoMDPH").css("left",decal);
 				}
         $('#menu_ferme').show(250);
-        if(largeur < 426){
-				      findInsiders($('#menu_ferme'));
-          }
         $('#fermer_menu').focus();
 			});
       $("body").keydown(function( event ) {
         if ( event.keyCode == 27 ) {
         cookie.set('menuouvert', 'non');
+        $("#hoverlay").hide();
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
@@ -74,6 +74,7 @@ require(['domReady'], function (domReady) {
 				e.preventDefault();
 				cookie.set('menuouvert', 'non');
 				$("#nav-collapse").css("left","-280px");
+        $("#hoverlay").hide();
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
         $("#main").attr('aria-hidden','false');

@@ -110,6 +110,14 @@ div.direct a:focus{
 		padding: 1em 10%;
 	}
 }
+#hoverlay {
+  width: 100%;
+  height: 10000px;
+  background-color: #fff;
+  opacity: 0.5;
+  display: none;
+}
+
 #main.conteneur {
 	transition: all .20s ease-in;
 	position: relative;
