@@ -4,7 +4,7 @@
   	<div id="fil_ariane">
       <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
   		<div class="chemin">
-  			<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#TITRE</h1>
+  			<h1 class="cadre"><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33" width="33">#TITRE</h1>
   		</div>
   	</div>
   </div>
@@ -24,7 +24,7 @@
   <div id="fil_ariane">
     <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
     <div class="chemin">
-      <div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33px" width="33px">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
+      <div class="grandes_rub"><a href="#INFO_URL{rubrique,#ID_SECTEUR}" ><img src="[(#LOGO_RUBRIQUE|extraire_attribut{src})]" alt="" height="33" width="33">#INFO_TITRE{rubrique,#ID_SECTEUR}</a></div>
       [(#INFO_PROFONDEUR{rubrique,#ID_RUBRIQUE}|>{0}|?{' ',''})
       <a href="#INFO_URL{rubrique,#ID_SECTEUR}#titre#ID_RUBRIQUE" class="petites_rub">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>
       ]
