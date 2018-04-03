@@ -823,22 +823,11 @@ em {
     #main article .chargerfichier {
       margin-bottom: 1.5em; }
       #main article .chargerfichier p {
-        margin-bottom: .2em;
-        text-align: center; }
+        margin-bottom: .2em; }
       #main article .chargerfichier a {
-        display: inline-block;
-        margin-bottom: 0;
-        font-weight: normal;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
-        background-image: none;
-        border: 1px solid transparent;
         white-space: nowrap;
         padding: 6px 12px;
-        font-size: 1em;
-        line-height: 1.5;
-        border-radius: 4px; }
+        font-size: 1em; }
       #main article .chargerfichier .source {
         font-size: 1em;
         color: #6e6e6e; }
@@ -888,7 +877,7 @@ em {
       border: 1px solid #000;
       border-bottom: none; }
     #main article ul {
-      margin: -0.7em 2em 1.2em 2em; }
+      margin: 0.7em 2em 1.2em 2em; }
       #main article ul li {
         list-style-type: square; }
         #main article ul li ul {
