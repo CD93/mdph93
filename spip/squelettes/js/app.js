@@ -43,9 +43,13 @@ require(['domReady'], function (domReady) {
 				var offsets = $('#main').offset();
 				var left = offsets.left;
         var largeur = $( document ).width();
+        $('#menu_ferme').show(250);
+        $('#fermer_menu').focus();
         if(largeur < 767){
           $("#main").attr('aria-hidden','true');
-          $("#hoverlay").show().fadeTo(100,0.5);
+          $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
+          $("#hoverlay").css("height","10000px");
+          $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
           findInsiders($('#menu_ferme'));
         } else {
           cookie.set('menuouvert', 'oui');
@@ -55,29 +59,32 @@ require(['domReady'], function (domReady) {
 					decal = 300 - left ;
 					$("#main, .logoMDPH").css("left",decal);
 				}
-        $('#menu_ferme').show(250);
-        $('#fermer_menu').focus();
 			});
       $("body").keydown(function( event ) {
         if ( event.keyCode == 27 ) {
         cookie.set('menuouvert', 'non');
-        $("#hoverlay").hide();
+        $("#hoverlay").css("height","0");
 				$("#nav-collapse").css("left","-280px");
 				$("#main").css("left",0);
+        $("#main").attr('aria-hidden','false');
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				$('#menu_ferme').hide(250);
 				findInsiders($('#menu_ferme'));
         $('#nav-toggle').focus();
         }
       });
 
-			$('#fermer_menu').click(function(e) {
+			$('#fermer_menu, #hoverlay').click(function(e) {
 				e.preventDefault();
 				cookie.set('menuouvert', 'non');
 				$("#nav-collapse").css("left","-280px");
-        $("#hoverlay").hide();
+        $("#hoverlay").css("height","0");
 				$("#main").css("left",0);
 				$('#menu_ferme').hide(250);
         $("#main").attr('aria-hidden','false');
+        $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','false');
+        $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','true');
 				findInsiders($('#menu_ferme'));
         $('#nav-toggle').focus();
 			});
