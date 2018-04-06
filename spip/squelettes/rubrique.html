@@ -12,8 +12,8 @@
 		</div>
 		<ul class="nav_rub">
 		<BOUCLE_liste(RUBRIQUES){id_parent}{par num titre}{titre !==^[0-9]. Dossier }>
-			<li><h2><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button"><span>#TITRE</span></button></h2>
-					<ul class="nav_rub_second">
+			<li><h2><button id="titre#ID_RUBRIQUE" aria-expanded="false" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button"><span>#TITRE</span></button></h2>
+					<ul class="nav_rub_second" id="id_acc#ID_RUBRIQUE">
 					<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
 						<li><a href="#URL_ARTICLE">#TITRE</a></li>
 					</BOUCLE_articles>
@@ -26,8 +26,8 @@
 		</ul>
 		</B_liste>
 			<BOUCLE_liste2(RUBRIQUES){id_rubrique}{par num titre}{titre !==^[0-9]. Dossier }>
-				<li><h2><button id="titre#ID_RUBRIQUE" aria-expanded="true" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button"><span>#TITRE</span></button></h2>
-						<ul class="nav_rub_second">
+				<li><h2><button id="titre#ID_RUBRIQUE" aria-expanded="false" class="titrerub" aria-controls="id_acc#ID_RUBRIQUE" role="button" type="button"><span>#TITRE</span></button></h2>
+						<ul class="nav_rub_second" id="id_acc#ID_RUBRIQUE">
 						<BOUCLE_articles2(ARTICLES){id_rubrique}{par num titre}>
 							<li><a href="#URL_ARTICLE">#TITRE</a></li>
 						</BOUCLE_articles2>
