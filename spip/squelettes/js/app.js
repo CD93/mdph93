@@ -29,6 +29,7 @@ require(['domReady'], function (domReady) {
 					}
 					$('#menu_ferme').show();
 					$("#nav-collapse").css("left","0");
+          $('#nav-toggle').hide();
 				} else {
           $('#menu_ferme').hide();
   				$("#nav-collapse").css("left","-18.6em");
@@ -50,6 +51,7 @@ require(['domReady'], function (domReady) {
         if(largeur < 767){
           $("#main").attr('aria-hidden','true');
           $(':not(#menu_ferme)').find('select, input, textarea, button, a').attr('aria-hidden','true');
+          $('#menu_ferme').find('select, input, textarea, button, a').attr('aria-hidden','false');
           $('footer').attr('aria-hidden','true');
           $("#hoverlay").css("height","10000px");
           findInsiders($('#menu_ferme'));
