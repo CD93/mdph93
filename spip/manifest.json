@@ -1,6 +1,6 @@
 {
   "short_name": "mdph93",
-  "name": "Place-Handicap, le site de la MDPH de Seine-Saint-Denis",
+  "name": "Place-handicap, le site de la MDPH de Seine-Saint-Denis",
   "icons": [
     {
       "src": "squelettes/images/logo-simple@1x.png",
@@ -13,9 +13,9 @@
       "sizes": "96x96"
     },
     {
-      "src": "squelettes/images/logo.png",
+      "src": "squelettes/images/logo-simple128.png",
       "type": "image/png",
-      "sizes": "414x294"
+      "sizes": "128x128"
     },
     {
       "src": "squelettes/images/logo-simple@3x.png",

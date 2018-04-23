@@ -244,7 +244,7 @@ body {
   margin-bottom: 3em;
   font-family: robotoregular, Fallback, sans-serif;
   word-wrap: break-word;
-  hyphens: auto; }
+  hyphens: manual; }
 
 h1, h2, h3, h4, h5, h6 {
   word-wrap: normal;

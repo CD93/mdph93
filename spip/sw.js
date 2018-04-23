@@ -22,7 +22,7 @@ const OFFLINE_CACHE_FILES = [
   '/squelettes/js/domReady.js',
   '/squelettes/js/jquery.3.2.1.min.js',
   '/manifest.json',
-  'spip.php?page=article&id_article=1',
+  'spip.php?page=article&id_article=257',
   '/squelettes/images/icon-message.png',
   '/squelettes/images/logo.png',
   '/squelettes/images/fbas.png',
@@ -36,11 +36,11 @@ const NOT_FOUND_CACHE_FILES = [
   '/squelettes/js/app.js',
   '/squelettes/js/domReady.js',
   '/squelettes/js/jquery.3.2.1.min.js',
-  'spip.php?page=article&id_article=1'
+  'spip.php?page=article&id_article=257'
 ];
 
-const OFFLINE_PAGE = 'spip.php?page=article&id_article=1';
-const NOT_FOUND_PAGE = 'spip.php?page=article&id_article=1';
+const OFFLINE_PAGE = 'spip.php?page=article&id_article=257';
+const NOT_FOUND_PAGE = 'spip.php?page=article&id_article=257';
 
 const CACHE_VERSIONS = {
   assets: 'assets-v' + CACHE_VERSION,

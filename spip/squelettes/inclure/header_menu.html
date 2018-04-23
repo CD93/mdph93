@@ -11,9 +11,12 @@
 		</BOUCLE_menuburger>
 	</ul>
 	<ul class="titre_menu">
-		<BOUCLE_rubriquemere(RUBRIQUES){id_parent=0}{par num titre}{0,3}>
+		<BOUCLE_rubriquemere(RUBRIQUES){id_rubrique IN 1,2}{par num titre}>
 			<li><a href="#URL_RUBRIQUE">[(#LOGO_RUBRIQUE|image_gamma{254}|vider_attribut{width}|inserer_attribut{width,'33px'}|vider_attribut{height}|inserer_attribut{height,'33px'})] #TITRE</a></li>
 		</BOUCLE_rubriquemere>
+		<BOUCLE_infop(ARTICLES){id_article=257}>
+		<li><a href="#URL_ARTICLE">[(#LOGO_ARTICLE|image_gamma{254}|vider_attribut{width}|inserer_attribut{width,'33px'}|vider_attribut{height}|inserer_attribut{height,'33px'})] #TITRE</a></li>
+	</BOUCLE_infop>
 		<li><a href="#URL_PAGE{recherche}"><img alt="" src="#CHEMIN{images/pictos/loupe_b.png}" height="33" width="33" />Rechercher</a></li>
 	</ul>
 </nav>
