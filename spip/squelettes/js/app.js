@@ -16,8 +16,22 @@ require(['domReady'], function (domReady) {
 		require(['jquery','cookie'], function ($, cookie) {
       $("p.none").css("display","none");
 			var decal;
+
 			$(".paragraphe").css("display","none");
       $("h2 button.titrepara").attr('aria-expanded','false');
+      $("#flash").click(function(e) {
+        alert("hgr");
+				$(this).toggleClass("active");
+        $('#alertetexte').slideToggle(300);
+				if ($(this).hasClass("active")) {
+					$(this).css("background-image","url(squelettes/images/fhaut.png)");
+					$(this).attr('aria-expanded','true');
+				}
+				else {
+					$(this).css("background-image","url(squelettes/images/fbas.png)");
+					$(this).attr('aria-expanded','false');
+				}
+			});
 			if(cookie.get('menuouvert')=='oui'){
 				if($( document ).width() > 768) {
 					var offsets = $('#main').offset();
@@ -108,6 +122,8 @@ require(['domReady'], function (domReady) {
 				}
 				$(".pliage button.btn-collapse-up").show();
 			});
+      //les alertes
+
       // on déplie les accordéons pour les pages rubriques
       $("ul.nav_rub_second").hide(250);
       $("h2 button.titrerub").attr('aria-expanded','false');

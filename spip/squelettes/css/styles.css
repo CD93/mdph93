@@ -287,7 +287,7 @@ div.direct a:focus {
     div.direct a:focus {
       left: 18em; } }
 
-.flash_info {
+#main .flash_info {
   position: relative;
   text-align: justify;
   z-index: -1;
@@ -295,16 +295,18 @@ div.direct a:focus {
   background-color: #5C3261;
   padding-bottom: 2em;
   width: 120%;
+  max-width: 40em;
   color: #fff;
   font-size: 0.85em;
   line-height: 1.2em;
   font-size-adjust: 0.6; }
-  .flash_info div h2 {
-    font-weight: bold;
-    margin-bottom: 0.85em;
-    color: #fff; }
-  .flash_info .inner_flash {
-    padding: 1em 10%; }
+  #main .flash_info h2 button#flash {
+    background: #5C3261 url(../images/fbas.png) right center no-repeat;
+    text-decoration: underline;
+    color: #fff;
+    font-size: 1.3em;
+    border: none;
+    cursor: pointer; }
 
 #hoverlay {
   width: 100%;

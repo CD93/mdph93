@@ -89,7 +89,7 @@ div.direct a:focus{
 	top: 0.6em;
 	min-height: 2em;
 	}
-.flash_info {
+#main .flash_info {
 	position: relative;
 	text-align: justify;
 	z-index: -1;
@@ -97,18 +97,19 @@ div.direct a:focus{
 	background-color: #5C3261;
 	padding-bottom: 2em;
   width: 120%;
+  max-width: 40em;
 	color: #fff;
 	font-size:0.85em ;
 	line-height: 1.2em;
 	font-size-adjust: 0.6;
-	div h2 {
-		font-weight: bold;
-		margin-bottom: 0.85em;
+  h2 button#flash {
+    background: #5C3261 url(../images/fbas.png) right center no-repeat;
+    text-decoration: underline;
     color:#fff;
-	}
-	.inner_flash {
-		padding: 1em 10%;
-	}
+    font-size: 1.3em;
+    border:none;
+    cursor: pointer;
+  }
 }
 #hoverlay {
   width: 100%;
