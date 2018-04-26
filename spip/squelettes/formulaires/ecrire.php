@@ -67,7 +67,7 @@ function formulaires_ecrire_verifier_dist() {
 
 function formulaires_ecrire_traiter_dist() {
 
-	$mail="contact@seinesaindenis.fr";
+	$mail="placehandicap@seinesaintdenis.fr";
 	$adres = _request('email_message_auteur');
 	$sujet = _request('sujet_message_auteur');
 
