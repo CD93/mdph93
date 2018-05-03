@@ -1,34 +1,4 @@
-<!doctype html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="manifest" href="#CHEMIN{manifest.json}">
-	<script>
-		if ('serviceWorker' in navigator) {
-		  navigator.serviceWorker
-		           .register('sw.js')
-		           .then(function() { console.log('Service Worker Registered'); });
-	}
-	</script>
-	[(#REM)
-	<style>
-		<INCLURE{fond=css/recherche.css}/>
-	</style>
-]
-	<INCLURE{fond=inclure/preload}/>
-	[(#RECHERCHE|oui)
-	<title>Résultats de recherche pour "#RECHERCHE" sur #NOM_SITE_SPIP</title>
-	]
-	[(#RECHERCHE|non)
-	<title>Rechercher sur #NOM_SITE_SPIP</title>
-	]
-	<!--[if lt IE 9]>
-		<script src="#CHEMIN{js/html5shiv.min.js}"></script>
-	<![endif]-->
-</head>
+<INCLURE{fond=inclure/head}{env}{page=recherche}/>
 <body>
 <INCLURE{fond=inclure/header_menu}/>
 <main role="main" class="conteneur" id="main">

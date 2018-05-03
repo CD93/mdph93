@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' *.seinesaintdenis.fr;" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="application-name" content="Place-handicap">
 	<meta name="theme-color" content="#d4cb13">
@@ -27,6 +28,14 @@
 	<![endif]-->
 	[(#ENV{page}|=={sommaire}|oui)
 		<title>Accueil du site de la MDPH de la Seine-Saint-Denis</title>
+	]
+	[(#ENV{page}|=={recherche}|oui)
+		[(#RECHERCHE|oui)
+		<title>Résultats de recherche pour "#RECHERCHE" sur #NOM_SITE_SPIP</title>
+		]
+		[(#RECHERCHE|non)
+		<title>Rechercher sur #NOM_SITE_SPIP</title>
+		]
 	]
 	<BOUCLE_article(ARTICLES){id_article=#ID_ARTICLE}>
     <title>[(#TITRE|textebrut)][ - (#TITRE_PARENT|textebrut)][ - (#NOM_SITE_SPIP|textebrut)]</title>
