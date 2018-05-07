@@ -90,25 +90,17 @@ div.direct a:focus{
 	min-height: 2em;
 	}
 #main .flash_info {
-	position: relative;
+  margin: 2em 0;
 	text-align: justify;
-	z-index: -1;
-	bottom: -2em;
-	background-color: #5C3261;
-	padding-bottom: 2em;
-  width: 120%;
   max-width: 40em;
-	color: #fff;
 	font-size:0.85em ;
 	line-height: 1.2em;
 	font-size-adjust: 0.6;
-  h2 button#flash {
-    background: #5C3261 url(../images/fbas.png) right center no-repeat;
-    text-decoration: underline;
-    color:#fff;
-    font-size: 1.3em;
-    border:none;
-    cursor: pointer;
+  h2 {
+    text-align: center;
+    color:#5C3261;
+    font-size: 1.5em;
+    font-weight: bold;
   }
 }
 #hoverlay {
