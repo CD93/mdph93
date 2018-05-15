@@ -13,7 +13,7 @@
 	</BOUCLE_rechercheform>
 		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE}{env} />
 	[(#GET{recherche}|non|et{#RECHERCHE|strlen|>{3}})
-		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim}{envc} />
+		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim}{env} />
 	]
 	[(#RECHERCHE|strlen|>{3}|oui)
 		<div class="btnaction">
