@@ -3,24 +3,29 @@
   "name": "Place-handicap, le site de la MDPH de Seine-Saint-Denis",
   "icons": [
     {
-      "src": "squelettes/images/logo-simple@1x.png",
+      "src": "squelettes/images/picto48.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "squelettes/images/logo-simple@2x.png",
+      "src": "squelettes/images/picto96.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "squelettes/images/logo-simple128.png",
-      "type": "image/png",
-      "sizes": "128x128"
-    },
-    {
-      "src": "squelettes/images/logo-simple@3x.png",
+      "src": "squelettes/images/picto144.png",
       "type": "image/png",
       "sizes": "144x144"
+    },
+    {
+      "src": "squelettes/images/picto168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "squelettes/images/picto192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
   "start_url": "/?utm_source=homescreen",
