@@ -1,6 +1,6 @@
 <INCLURE{fond=inclure/head}{env}{page=recherche}/>
 <body>
-<INCLURE{fond=inclure/header_menu}{env}/>
+<INCLURE{fond=inclure/header_menu}/>
 <main role="main" class="conteneur" id="main">
 	#SET{titrepage,"Recherche"}
 	#SET{titrepage,#GET{titrepage}|concat{"/"}|concat{#ENV{recherche}}}
@@ -11,9 +11,9 @@
 	<BOUCLE_rechercheform(ARTICLES){recherche #ENV{recherche}}{!par points}{0,1}>
 	#SET{recherche,#ENV{recherche}}
 	</BOUCLE_rechercheform>
-		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE}{env} />
+		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE} />
 	[(#GET{recherche}|non|et{#RECHERCHE|strlen|>{3}})
-		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim}{env} />
+		<INCLURE{fond=inclure/inc-rech}{recherche=#RECHERCHE|explode{" "}|foreach{modelecouper}|explode{"|"}|implode{" "}|trim} />
 	]
 	[(#RECHERCHE|strlen|>{3}|oui)
 		<div class="btnaction">
