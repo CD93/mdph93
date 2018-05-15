@@ -4,6 +4,7 @@
 <INCLURE{fond=inclure/header_menu}/>
 
 <main role="main" class="conteneur" id="main">
+	#SET{titrepage,""}<BOUCLE_hier(HIERARCHIE){id_rubrique}>#SET{titrepage,#GET{titrepage}|concat{#TITRE}|concat{"/"}}</BOUCLE_hier>
 	<INCLURE{fond=inclure/ariane}{env}/>
 	<nav role="navigation" aria-label="Menu de la rubrique">
 
@@ -20,10 +21,10 @@
 		Rechercher
 		</a>
 	</div>
-	
+
 </main>
 
-<INCLURE{fond=inclure/inc-footer}/>
+<INCLURE{fond=inclure/inc-footer}{env}{titrepage=#ENV{titrepage}}/>
 </body>
 </html>
 </BOUCLE_rubrique>
