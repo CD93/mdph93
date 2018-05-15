@@ -1,6 +1,6 @@
-<INCLURE{fond=inclure/head}{page=sommaire} />
+<INCLURE{fond=inclure/head}{page=sommaire}{env} />
 <body class="accueil">
-<INCLURE{fond=inclure/header_menu}{page=sommaire} />
+<INCLURE{fond=inclure/header_menu}{page=sommaire}{env} />
 <main role="main" class="conteneur sommaire" id="main">
 	<h1 class="logoMDPH"><img src="#CHEMIN{images/logo.png}" alt="Place-Handicap, maison départementale des personnes handicapées de la Seine-Saint-Denis"></h1>
 	<BOUCLE_flashinfo(ARTICLES){id_rubrique=4}{par date}{0,1}>
@@ -27,6 +27,6 @@
 		</a>
 	</div>
 </main>
-<INCLURE{fond=inclure/inc-footer}/>
+<INCLURE{fond=inclure/inc-footer}{env}{page=sommaire}/>
 </body>
 </html>

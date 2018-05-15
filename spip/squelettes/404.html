@@ -23,7 +23,7 @@
 		<title><:pass_erreur:> [(#ENV{status, 404}|textebrut)] - [(#NOM_SITE_SPIP|textebrut)]</title>
 	</head>
 	<body class="pas_surlignable page_404">
-	<INCLURE{fond=inclure/header_menu} />
+	<INCLURE{fond=inclure/header_menu}{env} />
 		<main role="main" class="conteneur" id="main">
 				<div id="content">
 					<p class="arbo"><a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt; <strong class="on"><:pass_erreur:></strong></p>
@@ -41,6 +41,6 @@
 				</div>
 			</div>
 		</main><!--.main-->
-		<INCLURE{fond=inclure/inc-footer}/>
+		<INCLURE{fond=inclure/inc-footer}{env}/>
 	</body>
 </html>

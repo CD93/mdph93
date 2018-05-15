@@ -1,8 +1,10 @@
 <BOUCLE_article(ARTICLES){id_article}>
 <INCLURE{fond=inclure/head}{env}/>
 <body>
-<INCLURE{fond=inclure/header_menu}/>
+<INCLURE{fond=inclure/header_menu}{env}/>
 <main role="main" class="conteneur surlignable" id="main">
+	#SET{titrepage,""}<BOUCLE_hier(HIERARCHIE){id_article}>#SET{titrepage,#GET{titrepage}|concat{#TITRE}|concat{"/"}}</BOUCLE_hier>
+	#SET{titrepage,#GET{titrepage}|concat{#TITRE}}
 	<INCLURE{fond=inclure/ariane}{env}/>
 	<article>
 		<header>
@@ -44,7 +46,7 @@
 	</div>
 
 </main>
-<INCLURE{fond=inclure/inc-footer}/>
+<INCLURE{fond=inclure/inc-footer}{env}{titrepage=#GET{titrepage}}/>
 </body>
 </html>
 </BOUCLE_article>

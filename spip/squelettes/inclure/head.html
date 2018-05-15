@@ -1,4 +1,5 @@
 <!doctype html>
+#SET{nbreresultats,""}
 <html lang="fr">
 <head>
 	<meta charset="utf-8">
@@ -31,7 +32,7 @@
 	]
 	[(#ENV{page}|=={recherche}|oui)
 		[(#RECHERCHE|oui)
-		<title>Résultats de recherche pour "#RECHERCHE" sur #NOM_SITE_SPIP</title>
+		<title>[(#GET{nbreresultats}) ]<:resultats_recherche:> pour "#RECHERCHE" sur #NOM_SITE_SPIP</title>
 		]
 		[(#RECHERCHE|non)
 		<title>Rechercher sur #NOM_SITE_SPIP</title>

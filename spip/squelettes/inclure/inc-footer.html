@@ -25,8 +25,12 @@
     this.setVisitorCookieTimeout( getOriginalVisitorCookieTimeout() );
   }]);
   _paq.push(["setDomains", ["place-handicap.fr"]]);
-  _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
+	// accurately measure time spent on the last pageview
+	// set the default heart beat interval to 30 seconds
+	_paq.push(['enableHeartBeatTimer', 30]);
+	[(#ENV{page}|=={recherche}|oui) <INCLURE{fond=inclure/confpiwikrech}{env} />]
+	[(#ENV{page}|=={recherche}|non) <INCLURE{fond=inclure/confpiwik}{env} />]
   (function() {
     var u="https://visites.seinesaintdenis.fr/";
     _paq.push(['setTrackerUrl', u+'visite.php']);
