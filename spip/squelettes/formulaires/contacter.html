@@ -1,0 +1,78 @@
+
+<h2>Pour nous écrire par courriel</h2>
+<div class="formulaire_spip formulaire_ecrire" id="ecrire">
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+[(#ENV{editable})
+<form method="post" action="#ENV{action}#ecrire">
+	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
+	#ACTION_FORMULAIRE
+	[(#REM) Sinon, formulaire normal ]
+		<div class="editer-groupe">
+                <div class="editer saisie_nom_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{nom_message_auteur}|oui)erreur]">
+                    <label for="nom_message_auteur#ENV{id}">Votre nom</label>
+                    [<span class="erreur_message">(#ENV*{erreurs}|table_valeur{nom_message_auteur})</span>]
+                    <input[ (#HTML5|?{required="required" type="text" class="text form-control",type="text" class="text form-control"})] name="nom_message_auteur" id="nom_message_auteur#ENV{id}" value="#ENV{nom_message_auteur}" size="30" />
+                 </div>
+                 <div class="editer saisie_prenom_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{prenom_message_auteur}|oui)erreur]">
+                        <label for="prenom_message_auteur#ENV{id}">Votre prénom</label>
+                        [<span class="erreur_message">(#ENV*{erreurs}|table_valeur{prenom_message_auteur})</span>]
+                        <input[ (#HTML5|?{required="required" type="text" class="text form-control",type="text" class="text form-control"})] name="prenom_message_auteur" id="prenom_message_auteur#ENV{id}" value="#ENV{prenom_message_auteur}" size="30" />
+                     </div>
+			<div class="editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]">
+				<label for="email_message_auteur#ENV{id}">Votre adresse email (obligatoire, format nom@exemple.com)</label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
+				<input[ (#HTML5|?{required="required" type="email" class="text form-control",type="text" class="text form-control"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" size="30" />
+            </div>
+            <div class="editer saisie_ville_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{ville_message_auteur}|oui)erreur]">
+                <select id="choixcommune"><option value="0">Choisir une commune</option><option value="1">Aubervilliers</option><option value="2">Aulnay-sous-Bois</option><option value="3">Bagnolet</option><option value="4">Bobigny</option><option value="5">Bondy</option><option value="6">Clichy-sous-Bois</option><option value="7">Coubron</option><option value="8">Drancy</option><option value="9">Dugny</option><option value="10">Epinay-sur-Seine</option><option value="11">Gagny</option><option value="12">Gournay-sur-Marne</option><option value="13">L Ile-Saint-Denis</option><option value="14">La Courneuve</option><option value="15">Le Blanc-Mesnil</option><option value="16">Le Bourget</option><option value="17">Le Pré-Saint-Gervais</option><option value="18">Le Raincy</option><option value="19">Les Lilas</option><option value="20">Les Pavillons-sous-Bois</option><option value="21">Livry-Gargan</option><option value="22">Montfermeil</option><option value="23">Montreuil</option><option value="24">Neuilly-Plaisance</option><option value="25">Neuilly-sur-Marne</option><option value="26">Noisy-le-Grand</option><option value="27">Noisy-le-Sec</option><option value="28">Pantin</option><option value="29">Pierrefitte-sur-Seine</option><option value="30">Romainville</option><option value="31">Rosny-sous-Bois</option><option value="32">Saint-Denis</option><option value="33">Saint-Ouen</option><option value="34">Sevran</option><option value="35">Stains</option><option value="36">Tremblay-en-France</option><option value="37">Vaujours</option><option value="38">Villemomble</option><option value="39">Villepinte</option><option value="40">Villetaneuse</option></select>
+            </div>
+			<div class="editer saisie_sujet_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{sujet_message_auteur}|oui)erreur]">
+                    <div>
+                        <input type="radio" id="a" name="sujet" />
+                        <label for="a">Je déménage vers un autre département (transfert)</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="b" name="sujet" />
+                        <label for="b">Je souhaite modifier mon nom, adresse, etc</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="c" name="sujet" />
+                        <label for="c">Jʼai perdu une ou des décisions (duplicata)</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="d" name="sujet" />
+                        <label for="d">Jʼai un problème technique pour suivre mon dossier en ligne</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="e" name="sujet" />
+                        <label for="e">Je souhaite connaître lʼavancée de mon dossier ou joindre un complément</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="f" name="sujet" />
+                         <label for="f">Jʼai une autre question </label>
+                    </div>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{sujet_message_auteur})</span>]
+			</div>
+			<div class="editer saisie_texte_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]">
+				<label for="texte_message_auteur#ENV{id}">Votre message<:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+				<textarea name="texte_message_auteur" id="texte_message_auteur#ENV{id}" rows="10" [(#HTML5) required="required"]>#ENV{texte_message_auteur}</textarea>
+			</div>
+
+	[(#REM) Piege a robots spammeurs ]
+	<p class="none" style="display:none;">
+		<label for="nobot"><:antispam_champ_vide:></label>
+		<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
+	</p>
+	<div id="recapacha">
+    <label for="test#ENV{nombre_a}" >#ENV{nombre_a}&nbsp;+&nbsp;#ENV{nombre_b}&nbsp;= (<em>Merci de répondre à ce petit calcul</em>, obligatoire)</label>
+    <input type="text" class="nbr" name="test" id="test#ENV{nombre_a}" value="" size="2"[(#HTML5) required="required"] />
+  </div>
+  <input type="hidden" name="nba" value="#ENV{nombre_a}" />
+  <input type="hidden" name="nbb" value="#ENV{nombre_b}" />
+	<p class="boutons"><input type="submit" class="submit btnviolet" name="valide" value="<:form_prop_envoyer:>" /></p>
+</div>
+</form>
+]
+</div>
