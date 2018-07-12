@@ -21,8 +21,12 @@ function formulaires_contacter_charger_dist() {
 	$valeurs = array(
 		'nombre_a' => rand(1, 10),
 		'nombre_b' => rand(1, 10),
-		'sujet_message_auteur' => '',
+		'nom_message_auteur' => '',
+		'prenom_message_auteur' => '',
+		'choixcommune' => '',
 		'texte_message_auteur' => '',
+		'age' => '',
+		'sujet' => '',
 		'email_message_auteur' => isset($GLOBALS['visiteur_session']['email']) ?
 			$GLOBALS['visiteur_session']['email'] : '',
 		'nobot' => '',
@@ -43,11 +47,7 @@ function formulaires_contacter_verifier_dist() {
 		session_set('email', $adres);
 	}
 
-	if (!$sujet = _request('sujet_message_auteur')) {
-		$erreurs['sujet_message_auteur'] = _T('info_obligatoire');
-	} elseif (!(strlen($sujet) > 3)) {
-		$erreurs['sujet_message_auteur'] = _T('forum:forum_attention_trois_caracteres');
-	}
+	
 
 	if (!$texte = _request('texte_message_auteur')) {
 		$erreurs['texte_message_auteur'] = _T('info_obligatoire');
@@ -65,40 +65,91 @@ function formulaires_contacter_verifier_dist() {
 	return $erreurs;
 }
 
-function formulaires_econtacter_traiter_dist() {
+function formulaires_contacter_traiter_dist() {
 
 	$mail="placehandicap@seinesaintdenis.fr";
-	$adres = _request('email_message_auteur');
-	$sujet = _request('sujet_message_auteur');
 
-	$sujet = '[' . supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site'])) . '] '
-		. _T('info_message_2') . ' '
-		. $sujet;
+	$sect1 = array (1,3,4,9,10,14,16,17,19,13,23,27,28,29,30,31,32,33,35,40);
+	$sect2 = array (2,5,6,7,8,7,11,12,15,18,20,21,22,24,25,26,34,36,37,38,39);
+	$sect3 = array (1,8,9,10,14,15,16,13,29,32,33,35,40);
+	$sect4 = array (2,3,4,17,19,23,27,28,30,31,34);
+	$sect5 = array (5,6,7,11,18,20,21,22,24,25,26,36,37,38,39);
+	$sect6 = array (1,9,10,14,16,13,29,32,33,35,40);
+	$sect7 = array (3,4,17,19,23,27,28,30,31);
+	$sect8 = array (2,8,15,34,36,39);
+	$sect9 = array (5,6,7,11,12,18,20,21,22,24,25,26,37,38);
+
+	$adres = _request('email_message_auteur');
+	$sujet = _request('sujet');
+	$age = _request('age');
+	$choixcommune = _request('choixcommune');
 	$texte = _request('texte_message_auteur');
 	$texte .= "\n\n-- " . _T('envoi_via_le_site') . ' '
 		. supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))
 		. ' (' . $GLOBALS['meta']['adresse_site'] . "/) --\n";
-	$textear = "Nous avons bien reçu votre courriel, nos équipes vont transmettre votre demande au service concerné dans les deux jours ouvrés. Merci de nous avoir contacté. L'équipe web.<br/> votre message : <br/>".$texte;
-	$envoyer_mail = charger_fonction('envoyer_mail', 'inc');
-	$corps = array(
-		'html' => $texte,
-		'texte' => $texte,
-		'repondre_a' => $adres
-	);
-	$corpsar = array(
-		'html' => $textear,
-		'texte' => $textear
-	);
-	$ar = ($envoyer_mail($adres, "accusé de reception ".$sujet, $corpsar, $mail,
-	  'X-Originating-IP: ' . $GLOBALS['ip']));
-	if ($envoyer_mail($mail, $sujet, $corps, $adres,
-	  'X-Originating-IP: ' . $GLOBALS['ip'])) {
-	  $message = "votre message a bien été envoyé, vous allez recevoir un accusé de reception par courriel";
-	  return array('message_ok' => $message);
-	} else {
-	  $message = _T('pass_erreur_probleme_technique');
-	  return array('message_erreur' => $message);
+
+	$message_retour = "pas de mail";
+	switch ($sujet) {
+		case "a":
+			$message_retour = "mdph-secteur-courriernum@seinesaintdenis.fr";
+			break;
+		case "b":
+		case "c":
+			switch($age) {
+				case "moins":
+					if(in_array($choixcommune,$sect1)){
+						$message_retour = "mdph-secteur-ouest-enfants@seinesaintdenis.fr";
+					}
+					if(in_array($choixcommune,$sect2)){
+						$message_retour = "mdph-secteur-est-enfants@seinesaintdenis.fr";
+					}
+				break;
+				case "plus":
+					if(in_array($choixcommune,$sect3)){
+						$message_retour = "mdph-secteur-nordouest-adultes@seinesaintdenis.fr";
+					}
+					if(in_array($choixcommune,$sect4)){
+						$message_retour = "mdph-secteur-sudouest-adultes@seinesaintdenis.fr";
+					}
+					if(in_array($choixcommune,$sect5)){
+						$message_retour = "mdph-secteur-sudest-adultes@seinesaintdenis.fr";
+					}
+				break;
+			}
+		case "d":
+		case "f":
+			$message_retour = "placehandicap@seinesaintdenis.fr";
+			break;
+		case "e":
+			case "moins":
+				if(in_array($choixcommune,$sect1)){
+					$message_retour = "mdph-evaluation-ouest-enfants@seinesaintdenis.fr";
+				}
+				if(in_array($choixcommune,$sect2)){
+					$message_retour = "mdph-evaluation-est-enfants@seinesaintdenis.fr";
+				}
+			break;
+			case "plus":
+				if(in_array($choixcommune,$sect6)){
+					$message_retour = "mdph-evaluation-nordouest-adultes@seinesaintdenis.fr";
+				}
+				if(in_array($choixcommune,$sect7)){
+					$message_retour = "mdph-evaluation-sudouest-adultes@seinesaintdenis.fr";
+				}
+				if(in_array($choixcommune,$sect8)){
+					$message_retour = "mdph-evaluation-sudest-adultes@seinesaintdenis.fr";
+				}
+				if(in_array($choixcommune,$sect9)){
+					$message_retour = "mdph-evaluation-sudest-adultes@seinesaintdenis.fr";
+				}
+			break;
+		break;
 	}
-	return array('message_ok' => $message);
+	$message_retour .= "<br/>sujet : ".$sujet."<br/>";
+	$message_retour .= "age : ".$age."<br/>";
+	$message_retour .= "ville :".$choixcommune."<br/>";
+
+
+	return array('message_ok' => $message_retour);
 
 }
