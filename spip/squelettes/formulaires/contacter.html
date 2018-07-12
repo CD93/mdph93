@@ -10,12 +10,12 @@
 	[(#REM) Sinon, formulaire normal ]
 		<div class="editer-groupe">
                 <div class="editer saisie_nom_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{nom_message_auteur}|oui)erreur]">
-                    <label for="nom_message_auteur#ENV{id}">Votre nom</label>
+                    <label for="nom_message_auteur#ENV{id}">Votre nom (obligatoire)</label>
                     [<span class="erreur_message">(#ENV*{erreurs}|table_valeur{nom_message_auteur})</span>]
                     <input[ (#HTML5|?{required="required" type="text" class="text form-control",type="text" class="text form-control"})] name="nom_message_auteur" id="nom_message_auteur#ENV{id}" value="#ENV{nom_message_auteur}" size="30" />
                  </div>
                  <div class="editer saisie_prenom_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{prenom_message_auteur}|oui)erreur]">
-                        <label for="prenom_message_auteur#ENV{id}">Votre prénom</label>
+                        <label for="prenom_message_auteur#ENV{id}">Votre prénom (obligatoire)</label>
                         [<span class="erreur_message">(#ENV*{erreurs}|table_valeur{prenom_message_auteur})</span>]
                         <input[ (#HTML5|?{required="required" type="text" class="text form-control",type="text" class="text form-control"})] name="prenom_message_auteur" id="prenom_message_auteur#ENV{id}" value="#ENV{prenom_message_auteur}" size="30" />
                      </div>
@@ -70,7 +70,7 @@
                 </select>
             </div>
             <div class="editer saisie_age_message_auteur obligatoire [ (#ENV*{erreurs}|table_valeur{age_message_auteur}|oui)erreur]">
-                    <label for="age">Âge de la personne concernée par la demande :</label>
+                    <label for="age">Âge de la personne concernée par la demande : (obligatoire)</label>
                         <div>
                             <input type="radio" id="moins" name="age" value="moins"/>
                             <label class="inline_norm" for="moins">moins de 20 ans</label>
@@ -81,7 +81,7 @@
                         </div>
             </div>
 			<div class="editer saisie_sujet_message_auteur">
-                <label for="sujet">Votre question</label>
+                <label for="sujet">Votre question (obligatoire)</label>
                     <div>
                         <input type="radio" id="a" name="sujet" value="a"/>
                         <label class="inline_norm" for="a">Je déménage vers un autre département (transfert)</label>
