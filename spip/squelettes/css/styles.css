@@ -179,11 +179,11 @@ form {
     @media screen and (max-width: 800px) {
       form input[type=text], form input[type=email], form select {
         width: 100%; } }
-  form label.inline_norm {
+  form label.inline_norm, form .saisie_radio .choix label {
     display: inline-block;
     font-family: "robotoregular";
     margin: 0.8em 0 0.1em 0; }
-  form .saisie_sujet_message_auteur div, form .saisie_age_message_auteur div {
+  form .saisie_sujet_message_auteur div, form .saisie_age_message_auteur div, form .saisie_radio div {
     border: 1px solid white;
     padding: 0 0 0.3em 1em;
     margin: 0.2em 0; }

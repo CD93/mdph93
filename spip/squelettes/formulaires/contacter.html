@@ -113,6 +113,20 @@
 				<textarea name="texte_message_auteur" id="texte_message_auteur#ENV{id}" rows="10" [(#HTML5) required="required"]>#ENV{texte_message_auteur}</textarea>
 			</div>
 
+			#SET{name,plusieurs}
+			#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+			#SET{obli,'obligatoire'}
+			<li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+				<label>Joindre un ou plusieurs fichiers</label>
+				[<span class="erreur_message">(#GET{erreurs})</span>]
+				<div class="choix">
+					<input type="file" class="file" name="#GET{name}&#91;0&#93;" id="#GET{name}" size="40" />
+				</div>
+				<div class="choix">
+					<input type="file" class="file" name="#GET{name}&#91;1&#93;" id="#GET{name}" size="40" />
+				</div>
+			</li>
+
 	[(#REM) Piege a robots spammeurs ]
 	<p class="none" style="display:none;">
 		<label for="nobot"><:antispam_champ_vide:></label>

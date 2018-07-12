@@ -26,19 +26,20 @@ form {
     }
   }
 
-    label.inline_norm {
+    label.inline_norm, form .saisie_radio .choix label {
       display: inline-block;
       font-family: "robotoregular";
       margin: 0.8em 0 0.1em 0
     }
-    .saisie_sujet_message_auteur, .saisie_age_message_auteur {
+    .saisie_sujet_message_auteur, .saisie_age_message_auteur, .saisie_radio {
       div {
         border: 1px solid rgb(255, 255, 255);
         padding:0 0 0.3em 1em;
         margin: 0.2em 0;
       }
+
     }
-  
+
   textarea {
     width: 80%;
     border: 1px solid $couleur-cadre;

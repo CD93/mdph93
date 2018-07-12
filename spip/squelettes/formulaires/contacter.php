@@ -15,22 +15,20 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
+include_spip('inc/cvtupload');
+
 function formulaires_contacter_charger_dist() {
 	include_spip('inc/texte');
 	$puce = definir_puce();
 	$valeurs = array(
-		'nombre_a' => rand(1, 10),
-		'nombre_b' => rand(1, 10),
 		'nom_message_auteur' => '',
 		'prenom_message_auteur' => '',
-		'choixcommune' => '',
+		'choixcommune' => array(),
 		'texte_message_auteur' => '',
-		'age' => '',
-		'sujet' => '',
-		'email_message_auteur' => isset($GLOBALS['visiteur_session']['email']) ?
-			$GLOBALS['visiteur_session']['email'] : '',
+		'age' => array(),
+		'email_message_auteur' => '',
 		'nobot' => '',
-		'test' => ''
+		'plusieurs' => array()
 	);
 	return $valeurs;
 }
@@ -38,16 +36,24 @@ function formulaires_contacter_charger_dist() {
 function formulaires_contacter_verifier_dist() {
 	$erreurs = array();
 	include_spip('inc/filtres');
+
+	if (!$nom = _request('nom_message_auteur')) {
+		$erreurs['nom_message_auteur'] = _T('info_obligatoire');
+	}
+	if (!$prenom = _request('prenom_message_auteur')) {
+			$erreurs['prenom_message_auteur'] = _T('info_obligatoire');
+	}
+	if (!$age = _request('age')) {
+					$erreurs['age_message_auteur'] = _T('info_obligatoire');
+	}
+	if (!$commune = _request('choixcommune') || _request('choixcommune')==0) {
+					$erreurs['ville_message_auteur'] = _T('info_obligatoire');
+	}
 	if (!$adres = _request('email_message_auteur')) {
 		$erreurs['email_message_auteur'] = _T('info_obligatoire');
 	} elseif (!email_valide($adres)) {
 		$erreurs['email_message_auteur'] = _T('form_prop_indiquer_email');
-	} else {
-		include_spip('inc/session');
-		session_set('email', $adres);
 	}
-
-	
 
 	if (!$texte = _request('texte_message_auteur')) {
 		$erreurs['texte_message_auteur'] = _T('info_obligatoire');
@@ -58,14 +64,25 @@ function formulaires_contacter_verifier_dist() {
 	if (_request('nobot')) {
 		$erreurs['message_erreur'] = _T('pass_rien_a_faire_ici');
 	}
-	if(_request('test') != _request('nba')+_request('nbb')){
-		$erreurs['message_erreur'] = "mauvaise réponse au calcul";
-	}
+
+	// options pour vérifier les images
+	// si les options ne sont pas renseignées, la vérification se base sur
+	// _IMG_MAX_SIZE, _IMG_MAX_WIDTH, _IMG_MAX_HEIGHT
+	$verifier = charger_fonction('verifier', 'inc', true);
+	$options = array(
+		'taille_max' => 250, // en kio
+		'largeur_max' => 800, // en px
+		'hauteur_max' => 600, // en px
+	);
 
 	return $erreurs;
 }
 
 function formulaires_contacter_traiter_dist() {
+	//$fichiers = _request('_fichiers');
+	//var_dump($_FILES);
+	//var_dump($fichiers);
+
 
 	$mail="placehandicap@seinesaintdenis.fr";
 
