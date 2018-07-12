@@ -25,6 +25,7 @@
 				<input[ (#HTML5|?{required="required" type="email" class="text form-control",type="text" class="text form-control"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" size="30" />
             </div>
             <div class="editer saisie_ville_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{ville_message_auteur}|oui)erreur]">
+                <label for="choixcommune">Indiquez votre commune (obligatoire)</label>
                 <select id="choixcommune" name="choixcommune"><option value="0">Choisir une commune</option>
                     <option value="1">Aubervilliers</option>
                     <option value="2">Aulnay-sous-Bois</option>
@@ -69,44 +70,43 @@
                 </select>
             </div>
             <div class="editer saisie_age_message_auteur obligatoire [ (#ENV*{erreurs}|table_valeur{age_message_auteur}|oui)erreur]">
-                    Âge de la personne concernée par la demande :
-                    <div>
+                    <label for="age">Âge de la personne concernée par la demande :</label>
+                        <div>
                             <input type="radio" id="moins" name="age" value="moins"/>
-                            <label for="moins">moins de 20 ans</label>
+                            <label class="inline_norm" for="moins">moins de 20 ans</label>
                         </div>
                         <div>
                             <input type="radio" id="plus" name="age" value="plus"/>
-                            <label for="plus">plus de 20 ans</label>
+                            <label class="inline_norm" for="plus">plus de 20 ans</label>
                         </div>
             </div>
-            <hr/>
 			<div class="editer saisie_sujet_message_auteur">
+                <label for="sujet">Votre question</label>
                     <div>
                         <input type="radio" id="a" name="sujet" value="a"/>
-                        <label for="a">Je déménage vers un autre département (transfert)</label>
+                        <label class="inline_norm" for="a">Je déménage vers un autre département (transfert)</label>
                     </div>
                     <div>
                         <input type="radio" id="b" name="sujet" value="b"/>
-                        <label for="b">Je souhaite modifier mon nom, adresse, etc</label>
+                        <label class="inline_norm" for="b">Je souhaite modifier mon nom, adresse, etc</label>
                     </div>
                     <div>
                         <input type="radio" id="c" name="sujet" value="c"/>
-                        <label for="c">Jʼai perdu une ou des décisions (duplicata)</label>
+                        <label class="inline_norm" for="c">Jʼai perdu une ou des décisions (duplicata)</label>
                     </div>
                     <div>
                         <input type="radio" id="d" name="sujet" value="d"/>
-                        <label for="d">Jʼai un problème technique pour suivre mon dossier en ligne</label>
+                        <label class="inline_norm" for="d">Jʼai un problème technique pour suivre mon dossier en ligne</label>
                     </div>
                     <div>
                         <input type="radio" id="e" name="sujet" value="e"/>
-                        <label for="e">Je souhaite connaître lʼavancée de mon dossier ou joindre un complément</label>
+                        <label class="inline_norm" for="e">Je souhaite connaître lʼavancée de mon dossier ou joindre un complément</label>
                     </div>
                     <div>
                         <input type="radio" id="f" name="sujet" value="f"/>
-                         <label for="f">Jʼai une autre question </label>
+                         <label class="inline_norm" for="f">Jʼai une autre question </label>
                     </div>
             </div>
-            <hr/>
 			<div class="editer saisie_texte_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]">
 				<label for="texte_message_auteur#ENV{id}">Votre message<:info_obligatoire_02:></label>
 				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
