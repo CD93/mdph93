@@ -11,16 +11,24 @@ form {
     font-family: "robotocondensedbold";
     display: block;
     margin: 1em 0 0.5em 0; }
-  form input {
+  form input[type=text], form input[type=email], form select {
     font-size: 1em;
-    border: 1px solid #000;
+    border: 1px solid #c2c1c1;
     padding: 0.3em 1em; }
     @media screen and (max-width: 800px) {
-      form input {
+      form input[type=text], form input[type=email], form select {
         width: 100%; } }
+  form label.inline_norm {
+    display: inline-block;
+    font-family: "robotoregular";
+    margin: 0.8em 0 0.1em 0; }
+  form .saisie_sujet_message_auteur div, form .saisie_age_message_auteur div {
+    border: 1px solid white;
+    padding: 0 0 0.3em 1em;
+    margin: 0.2em 0; }
   form textarea {
     width: 80%;
-    border: 1px solid #000; }
+    border: 1px solid #c2c1c1; }
     @media screen and (max-width: 800px) {
       form textarea {
         width: 100%; } }
