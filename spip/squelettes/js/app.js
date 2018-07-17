@@ -213,6 +213,97 @@ require(['domReady'], function (domReady) {
           $("article header .titre, article header .chapo").removeClass("fix-titre");
         }
       });
+			//formulaire de contact 
+			function displayVals() {
+			var sect1 = Array('choix1','choix3','choix4','choix9','choix10','choix14','choix16','choix17','choix19','choix13','choix23','choix27','choix28','choix29','choix30','choix31','choix32','choix33','choix35','choix40');
+			var sect2 = Array ('choix2','choix5','choix6','choix7','choix8','choix7','choix11','choix12','choix15','choix18','choix20','choix21','choix22','choix24','choix25','choix26','choix34','choix36','choix37','choix38','choix39');
+			var sect3 = Array ('choix1','choix8','choix9','choix10','choix14','choix15','choix16','choix13','choix29','choix32','choix33','choix35','choix40');
+			var sect4 = Array ('choix2','choix3','choix4','choix17','choix19','choix23','choix27','choix28','choix30','choix31','choix34');
+			var sect5 = Array ('choix5','choix6','choix7','choix11','choix18','choix20','choix21','choix22','choix24','choix25','choix26','choix36','choix37','choix38','choix39');
+			var sect6 = Array ('choix1','choix9','choix10','choix14','choix16','choix13','choix29','choix32','choix33','choix35','choix40');
+			var sect7 = Array ('choix3','choix4','choix17','choix19','choix23','choix27','choix28','choix30','choix31');
+			var sect8 = Array ('choix2','choix8','choix15','choix34','choix36','choix39');
+			var sect9 = Array ('choix5','choix6','choix7','choix11','choix12','choix18','choix20','choix21','choix22','choix24','choix25','choix26','choix37','choix38');
+			var sujet = $("input[type=radio][name=radio_2]:checked" ).val();
+			var age = $("input[type=radio][name=radio_1]:checked" ).val();
+			var choixcommune = $( "select#champ_selection_1 option:checked" ).val();
+			$('#champ_input_4').val('test');
+			switch (sujet) {
+				case "choixa":
+				$('#champ_input_4').val('mdph-secteur-courriernum@seinesaintdenis.fr');
+					break;
+				case "choixb":
+				$('#champ_input_4').val('choix b mdph-secteur-courriernum@seinesaintdenis.fr');
+				break;
+				case "choixc":
+					switch(age) {
+						case "choix1":
+							if($.inArray(choixcommune,sect1) >=0){
+								$('#champ_input_4').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect2) >=0){
+								$('#champ_input_4').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
+								break;
+							}
+						break;
+						case "choix2":
+							if($.inArray(choixcommune,sect3) >=0){
+								$('#champ_input_4').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect4) >=0){
+								$('#champ_input_4').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect5) >=0){
+								$('#champ_input_4').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
+								break;
+							}
+						break;
+					}
+					break;
+				case "choixd":
+				case "choixf":
+					$('#champ_input_4').val('placehandicap@seinesaintdenis.fr');
+					break;
+				case "choixe":
+					switch(age) {
+						case "choix1":
+							if($.inArray(choixcommune,sect1) >=0){
+								$('#champ_input_4').val('mdph-evaluation-ouest-enfants@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect2) >=0){
+								$('#champ_input_4').val('mdph-evaluation-est-enfants@seinesaintdenis.fr');
+								break;
+							}
+						break;
+						case "choix2":
+							if($.inArray(choixcommune,sect6) >=0){
+								$('#champ_input_4').val('mdph-evaluation-nordouest-adultes@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect7) >=0){
+								$('#champ_input_4').val('mdph-evaluation-sudouest-adultes@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect8) >=0){
+								$('#champ_input_4').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
+								break;
+							}
+							if($.inArray(choixcommune,sect9) >=0){
+								$('#champ_input_4').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
+								break;
+							}
+						break;
+					}
+				break;
+				}
+			};
+			$("#formulaire_formidable-2 input, #formulaire_formidable-2 select").change(displayVals);
+			displayVals();
+
 
       //sondage formulaire avis formulaire_avis_utilisateur
       // On ajoute la classe "js" à la liste pour mettre en place par la suite du code CSS uniquement dans le cas où le Javascript est activé
