@@ -17,3 +17,4 @@ mdph.key
 **/css/styles.css
 .DS_Store
 .vscode
+.eslintrc.js
