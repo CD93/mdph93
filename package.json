@@ -22,5 +22,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "eslint": "^5.2.0"
   }
 }
