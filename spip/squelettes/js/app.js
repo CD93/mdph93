@@ -232,8 +232,8 @@ require(['domReady'], function (domReady) {
 
 			switch (sujet) {
 				case "choixa":
-				$('#champ_input_4').val('mail1');
-				$('#champ_hidden_1').val('5');
+					$('#champ_input_4').val('mail1');
+					$('#champ_hidden_1').val('5');
 					break;
 				case "choixb":
 				switch(age) {
@@ -346,7 +346,7 @@ require(['domReady'], function (domReady) {
 				break;
 				}
 			};
-			$("#formulaire_formidable-2 input, #formulaire_formidable-2 select").change(displayVals);
+			$(".formulaire_formidable_contactmdph input, .formulaire_formidable_contactmdph select").change(displayVals);
 			displayVals();
 
 
