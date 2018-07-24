@@ -228,33 +228,41 @@ require(['domReady'], function (domReady) {
 			var age = $("input[type=radio][name=radio_1]:checked" ).val();
 			var choixcommune = $( "select#champ_selection_1 option:checked" ).val();
 			$('#champ_input_4').val('test');
+			$('#champ_hidden_1').val('test');
+
 			switch (sujet) {
 				case "choixa":
 				$('#champ_input_4').val('mdph-secteur-courriernum@seinesaintdenis.fr');
+				$('#champ_hidden_1').val('mdph-secteur-courriernum@seinesaintdenis.fr');
 					break;
 				case "choixb":
 				switch(age) {
 					case "choix1":
 						if($.inArray(choixcommune,sect1) >=0){
 							$('#champ_input_4').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
+							$('#champ_hidden_1').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
 							break;
 						}
 						if($.inArray(choixcommune,sect2) >=0){
 							$('#champ_input_4').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
+							$('#champ_hidden_1').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
 							break;
 						}
 					break;
 					case "choix2":
 						if($.inArray(choixcommune,sect3) >=0){
 							$('#champ_input_4').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
+							$('#champ_hidden_1').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
 							break;
 						}
 						if($.inArray(choixcommune,sect4) >=0){
 							$('#champ_input_4').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
+							$('#champ_hidden_1').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
 							break;
 						}
 						if($.inArray(choixcommune,sect5) >=0){
 							$('#champ_input_4').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
+							$('#champ_hidden_1').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
 							break;
 						}
 					break;
@@ -265,24 +273,29 @@ require(['domReady'], function (domReady) {
 						case "choix1":
 							if($.inArray(choixcommune,sect1) >=0){
 								$('#champ_input_4').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect2) >=0){
 								$('#champ_input_4').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
 								break;
 							}
 						break;
 						case "choix2":
 							if($.inArray(choixcommune,sect3) >=0){
 								$('#champ_input_4').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect4) >=0){
 								$('#champ_input_4').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect5) >=0){
 								$('#champ_input_4').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
 								break;
 							}
 						break;
@@ -291,34 +304,41 @@ require(['domReady'], function (domReady) {
 				case "choixd":
 				case "choixf":
 					$('#champ_input_4').val('placehandicap@seinesaintdenis.fr');
+					$('#champ_hidden_1').val('placehandicap@seinesaintdenis.fr');
 					break;
 				case "choixe":
 					switch(age) {
 						case "choix1":
 							if($.inArray(choixcommune,sect1) >=0){
 								$('#champ_input_4').val('mdph-evaluation-ouest-enfants@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-ouest-enfants@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect2) >=0){
 								$('#champ_input_4').val('mdph-evaluation-est-enfants@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-est-enfants@seinesaintdenis.fr');
 								break;
 							}
 						break;
 						case "choix2":
 							if($.inArray(choixcommune,sect6) >=0){
 								$('#champ_input_4').val('mdph-evaluation-nordouest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-nordouest-adultes@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect7) >=0){
 								$('#champ_input_4').val('mdph-evaluation-sudouest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-sudouest-adultes@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect8) >=0){
 								$('#champ_input_4').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
 								break;
 							}
 							if($.inArray(choixcommune,sect9) >=0){
 								$('#champ_input_4').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
+								$('#champ_hidden_1').val('mdph-evaluation-sudest-adultes@seinesaintdenis.fr');
 								break;
 							}
 						break;
