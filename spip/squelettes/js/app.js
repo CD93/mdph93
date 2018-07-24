@@ -233,7 +233,32 @@ require(['domReady'], function (domReady) {
 				$('#champ_input_4').val('mdph-secteur-courriernum@seinesaintdenis.fr');
 					break;
 				case "choixb":
-				$('#champ_input_4').val('choix b mdph-secteur-courriernum@seinesaintdenis.fr');
+				switch(age) {
+					case "choix1":
+						if($.inArray(choixcommune,sect1) >=0){
+							$('#champ_input_4').val('mdph-secteur-ouest-enfants@seinesaintdenis.fr');
+							break;
+						}
+						if($.inArray(choixcommune,sect2) >=0){
+							$('#champ_input_4').val('mdph-secteur-est-enfants@seinesaintdenis.fr');
+							break;
+						}
+					break;
+					case "choix2":
+						if($.inArray(choixcommune,sect3) >=0){
+							$('#champ_input_4').val('mdph-secteur-nordouest-adultes@seinesaintdenis.fr');
+							break;
+						}
+						if($.inArray(choixcommune,sect4) >=0){
+							$('#champ_input_4').val('mdph-secteur-sudouest-adultes@seinesaintdenis.fr');
+							break;
+						}
+						if($.inArray(choixcommune,sect5) >=0){
+							$('#champ_input_4').val('mdph-secteur-sudest-adultes@seinesaintdenis.fr');
+							break;
+						}
+					break;
+				}
 				break;
 				case "choixc":
 					switch(age) {
