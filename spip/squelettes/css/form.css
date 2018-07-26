@@ -54,5 +54,5 @@ form {
   font-size: 1.3em;
   padding: 0.5em 1em; }
 
-.formulaire_formidable_contactmdph .editer_input_4 {
+.formulaire_formidable_contactmdph .editer_input_4, .formulaire_formidable_contactmdph .afficher_input_4 {
   display: none; }
