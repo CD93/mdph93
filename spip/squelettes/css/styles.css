@@ -215,6 +215,9 @@ form {
   font-size: 1.3em;
   padding: 0.5em 1em; }
 
+.formulaire_formidable_contactmdph .editer_input_4 {
+  display: none; }
+
 @media print {
   body {
     font-size: 1em;

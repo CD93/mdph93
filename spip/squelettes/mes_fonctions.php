@@ -37,4 +37,46 @@ function dictionnaires_remplacer_defaut($mot, $definition) {
 function dictionnaires_remplacer_abbr($mot, $definition){
 	return '<abbr title="'.couper(trim(attribut_html(supprimer_tags(typo($definition['texte'])))),80).'">'.$mot.'</abbr>';
 }
+/* balise d'enregistrement des statistiques du formulaire formidable contactmdph du modele contactmdph
+*/
+function balise_STATS_CONTACT($p){
+	$var1 = interprete_argument_balise(1,$p);
+	$var2 = interprete_argument_balise(2,$p);
+	$var3 = interprete_argument_balise(3,$p);
+	$var4 = interprete_argument_balise(4,$p);
+    $p->code = "calculer_balise_STATS_CONTACT($var1,$var2,$var3,$var4)";
+	$p->interdire_scripts = false;
+	return $p;
+}
+
+function calculer_balise_STATS_CONTACT($commune,$age,$question,$mail) {
+	if ($mail) {
+		include_spip('inc/saisies');
+		$formulaire = sql_fetsel("saisies","spip_formulaires","identifiant='contactmdph'");
+		$saisies = unserialize($formulaire['saisies']);
+		$reponse = array();
+		$communet = "";
+		$aget = "";
+		$questiont = "";
+		foreach ($saisies as $k => $saisie) {
+			$datas = $saisie['options']['datas'];
+			$nom = $saisie['options']['nom'];
+			if ($datas) {
+				$data = saisies_chaine2tableau($datas);
+				if ($nom=='selection_1') $communet = $data[$commune];
+				if ($nom=='radio_1') $aget = $data[$age];
+				if ($nom=='radio_2') $questiont = $data[$question];
+			}
+		}
+		$reponse .= "reponse : ".$commune." (".$communet.")"."|".$age." (".$aget.")"."|".$question." (".$questiont.")"."<br/>";
+		$r = sql_fetsel("nom,email","spip_auteurs","id_auteur=$mail");
+		sql_insertq('stats_contact', array(
+			'commune' => $communet,
+			'age' => $aget,
+			'question' => $questiont,
+			'mail' => $r['email'])
+		);
+		return ""; 
+	}
+}
 ?>

@@ -232,36 +232,36 @@ require(['domReady'], function (domReady) {
 
 			switch (sujet) {
 				case "choixa":
-					$('#champ_input_4').val('mail1');
+					$('#champ_input_4').val('5');
 					$('#champ_hidden_1').val('5');
 					break;
 				case "choixb":
 				switch(age) {
 					case "choix1":
 						if($.inArray(choixcommune,sect1) >=0){
-							$('#champ_input_4').val('mail2');
+							$('#champ_input_4').val('6');
 							$('#champ_hidden_1').val('6');
 							break;
 						}
 						if($.inArray(choixcommune,sect2) >=0){
-							$('#champ_input_4').val('mail3');
+							$('#champ_input_4').val('7');
 							$('#champ_hidden_1').val('7');
 							break;
 						}
 					break;
 					case "choix2":
 						if($.inArray(choixcommune,sect3) >=0){
-							$('#champ_input_4').val('mail4');
+							$('#champ_input_4').val('8');
 							$('#champ_hidden_1').val('8');
 							break;
 						}
 						if($.inArray(choixcommune,sect4) >=0){
-							$('#champ_input_4').val('mail5');
+							$('#champ_input_4').val('9');
 							$('#champ_hidden_1').val('9');
 							break;
 						}
 						if($.inArray(choixcommune,sect5) >=0){
-							$('#champ_input_4').val('mail6');
+							$('#champ_input_4').val('10');
 							$('#champ_hidden_1').val('10');
 							break;
 						}
@@ -272,29 +272,29 @@ require(['domReady'], function (domReady) {
 					switch(age) {
 						case "choix1":
 							if($.inArray(choixcommune,sect1) >=0){
-								$('#champ_input_4').val('mail2');
+								$('#champ_input_4').val('6');
 								$('#champ_hidden_1').val('6');
 								break;
 							}
 							if($.inArray(choixcommune,sect2) >=0){
-								$('#champ_input_4').val('mail3');
+								$('#champ_input_4').val('7');
 								$('#champ_hidden_1').val('7');
 								break;
 							}
 						break;
 						case "choix2":
 							if($.inArray(choixcommune,sect3) >=0){
-								$('#champ_input_4').val('mail4');
+								$('#champ_input_4').val('8');
 								$('#champ_hidden_1').val('8');
 								break;
 							}
 							if($.inArray(choixcommune,sect4) >=0){
-								$('#champ_input_4').val('mail5');
+								$('#champ_input_4').val('9');
 								$('#champ_hidden_1').val('9');
 								break;
 							}
 							if($.inArray(choixcommune,sect5) >=0){
-								$('#champ_input_4').val('mail6');
+								$('#champ_input_4').val('10');
 								$('#champ_hidden_1').val('10');
 								break;
 							}
@@ -303,41 +303,41 @@ require(['domReady'], function (domReady) {
 				break;
 				case "choixd":
 				case "choixf":
-					$('#champ_input_4').val('mail7');
+					$('#champ_input_4').val('11');
 					$('#champ_hidden_1').val('11');
 					break;
 				case "choixe":
 					switch(age) {
 						case "choix1":
 							if($.inArray(choixcommune,sect1) >=0){
-								$('#champ_input_4').val('mail8');
+								$('#champ_input_4').val('12');
 								$('#champ_hidden_1').val('12');
 								break;
 							}
 							if($.inArray(choixcommune,sect2) >=0){
-								$('#champ_input_4').val('mail9');
+								$('#champ_input_4').val('13');
 								$('#champ_hidden_1').val('13');
 								break;
 							}
 						break;
 						case "choix2":
 							if($.inArray(choixcommune,sect6) >=0){
-								$('#champ_input_4').val('mail10');
+								$('#champ_input_4').val('14');
 								$('#champ_hidden_1').val('14');
 								break;
 							}
 							if($.inArray(choixcommune,sect7) >=0){
-								$('#champ_input_4').val('mail11');
+								$('#champ_input_4').val('15');
 								$('#champ_hidden_1').val('15');
 								break;
 							}
 							if($.inArray(choixcommune,sect8) >=0){
-								$('#champ_input_4').val('mail12');
+								$('#champ_input_4').val('16');
 								$('#champ_hidden_1').val('16');
 								break;
 							}
 							if($.inArray(choixcommune,sect9) >=0){
-								$('#champ_input_4').val('mail13');
+								$('#champ_input_4').val('17');
 								$('#champ_hidden_1').val('17');
 								break;
 							}

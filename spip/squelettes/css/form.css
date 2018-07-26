@@ -18,7 +18,7 @@ form {
     @media screen and (max-width: 800px) {
       form input[type=text], form input[type=email], form select {
         width: 100%; } }
-  form label.inline_norm {
+  form label.inline_norm, form .saisie_radio .choix label {
     display: inline-block;
     font-family: "robotoregular";
     margin: 0.8em 0 0.1em 0; }
@@ -53,3 +53,6 @@ form {
   font-weight: bold;
   font-size: 1.3em;
   padding: 0.5em 1em; }
+
+.formulaire_formidable_contactmdph .editer_input_4 {
+  display: none; }
