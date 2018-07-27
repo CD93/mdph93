@@ -3,36 +3,24 @@ identifiant: contactmdph
 titre: 'contacter la MDPH'
 descriptif: ''
 css: ''
-message_retour: ''
+message_retour: "Nous avons bien reçu votre courriel, nos équipes vont transmettre votre demande au service concerné dans les deux jours ouvrés. Merci de nous avoir contacté. L'équipe web.\r\n"
 saisies:
   - { options: { label: 'Votre nom', type: text, size: '40', autocomplete: defaut, obligatoire: on, nom: input_1 }, identifiant: '@5b4773ad1c3b5', saisie: input }
   - { options: { label: 'Votre prénom', type: text, size: '40', autocomplete: defaut, obligatoire: on, nom: input_2 }, identifiant: '@5b4773b32d277', saisie: input }
   - { options: { label: 'Votre adresse email', type: text, size: '40', autocomplete: defaut, obligatoire: on, nom: email_1 }, verifier: { type: email, options: { mode: normal } }, identifiant: '@5b47741e46587', saisie: email }
   - { options: { label: 'Votre numéro de dossier', type: text, size: '40', autocomplete: defaut, nom: input_3 }, identifiant: '@5b477e7a03bb7', saisie: input }
   - { options: { label: 'Indiquez votre commune', datas: "choix1|Aubervilliers\r\nchoix2|Aulnay-sous-Bois\r\nchoix3|Bagnolet\r\nchoix4|Bobigny\r\nchoix5|Bondy\r\nchoix6|Clichy-sous-Bois\r\nchoix7|Coubron\r\nchoix8|Drancy\r\nchoix9|Dugny\r\nchoix10|Epinay-sur-Seine\r\nchoix11|Gagny\r\nchoix12|Gournay-sur-Marne\r\nchoix13|L Ile-Saint-Denis\r\nchoix14|La Courneuve\r\nchoix15|Le Blanc-Mesnil\r\nchoix16|Le Bourget\r\nchoix17|Le Pré-Saint-Gervais\r\nchoix18|Le Raincy\r\nchoix19|Les Lilas\r\nchoix20|Les Pavillons-sous-Bois\r\nchoix21|Livry-Gargan\r\nchoix22|Montfermeil\r\nchoix23|Montreuil\r\nchoix24|Neuilly-Plaisance\r\nchoix25|Neuilly-sur-Marne\r\nchoix26|Noisy-le-Grand\r\nchoix27|Noisy-le-Sec\r\nchoix28|Pantin\r\nchoix29|Pierrefitte-sur-Seine\r\nchoix30|Romainville\r\nchoix31|Rosny-sous-Bois\r\nchoix32|Saint-Denis\r\nchoix33|Saint-Ouen\r\nchoix34|Sevran\r\nchoix35|Stains\r\nchoix36|Tremblay-en-France\r\nchoix37|Vaujours\r\nchoix38|Villemomble\r\nchoix39|Villepinte\r\nchoix40|Villetaneuse", option_intro: 'choisir une commune dans la liste', obligatoire: on, nom: selection_1 }, identifiant: '@5b47742ba8b96', saisie: selection }
-  - { options: { label: 'Âge de la personne concernée par la demande', datas: "choix1|moins de 20 ans\r\nchoix2|plus de vingt ans", obligatoire: on, nom: radio_1 }, identifiant: '@5b4774642a577', saisie: radio }
-  - { options: { label: 'Votre question', datas: "choixa|Je déménage vers un autre département (transfert)\r\nchoixb|Je souhaite modifier mon nom, adresse, etc\r\nchoixc|Jʼai perdu une ou des décisions (duplicata)\r\nchoixd|Jʼai un problème technique pour suivre mon dossier en ligne\r\nchoixe|Je souhaite connaître lʼavancée de mon dossier ou joindre un complément\r\nchoixf|Jʼai une autre question", obligatoire: on, nom: radio_2 }, identifiant: '@5b477469e8c5b', saisie: radio }
-  - { options: { label: 'Votre message', rows: '5', cols: '40', longueur_max: '10', obligatoire: on, nom: textarea_1 }, identifiant: '@5b4773a3b7306', saisie: textarea }
-  - { options: { label: 'Joindre un fichier', nb_fichiers: '1', label_fichiers_individuels: on, nom: fichiers_1 }, verifier: { type: fichiers, options: { mime: tout_mime, taille_max: '10000' } }, identifiant: '@5b4774f83f0a4', saisie: fichiers }
-  - { options: { label: autorisation, label_case: 'J''accepte', explication: 'En cochant cete case, j''autorise les services de la MDPH à traiter mes informations personnelles', valeur_oui: on, attention: 'explication longue voir très longue', obligatoire: on, nom: case_1 }, identifiant: '@5b477e9b064f6', saisie: case }
+  - { options: { label: 'Âge de la personne concernée par la demande', datas: "choix1|moins de 20 ans\r\nchoix2|plus de 20 ans", obligatoire: on, nom: radio_1 }, identifiant: '@5b4774642a577', saisie: radio }
+  - { options: { label: 'Votre question', explication: 'Un justificatif doit obligatoirement être joint pour toute demande de changement d’adresse, transfert, nom, etc.', datas: "choixa|Je déménage vers un autre département (transfert)\r\nchoixb|Je souhaite modifier mon nom, adresse, etc\r\nchoixc|Jʼai perdu une ou des décisions (duplicata)\r\nchoixd|Jʼai un problème technique pour suivre mon dossier en ligne\r\nchoixe|Je souhaite connaître lʼavancée de mon dossier ou joindre un complément\r\nchoixf|Jʼai une autre question", obligatoire: on, nom: radio_2 }, identifiant: '@5b477469e8c5b', saisie: radio }
+  - { options: { label: 'Votre message', rows: '5', cols: '40', obligatoire: on, nom: textarea_1 }, identifiant: '@5b4773a3b7306', saisie: textarea }
+  - { options: { label: 'Joindre un fichier', explication: '(par ex. justificatif de domicile en cas de changement d’adresse)', nb_fichiers: '2', label_fichiers_individuels: on, nom: fichiers_1 }, verifier: { type: fichiers, options: { mime: tout_mime, taille_max: '10000' } }, identifiant: '@5b4774f83f0a4', saisie: fichiers }
+  - { options: { label: Autorisation, label_case: 'J''accepte', explication: 'En soumettant ce formulaire, j’accepte que les informations saisies et les éventuels documents joints soit exploités par la MDPH aux fins de répondre à ma demande d’information et de permettre le traitement administratif et médico-social de ma demande de compensation du handicap.', valeur_oui: on, obligatoire: on, nom: case_1 }, identifiant: '@5b477e9b064f6', saisie: case }
   - { options: { label: mail1, nom: hidden_1 }, identifiant: '@5b4780cc2e039', saisie: hidden }
-  - { options: { label: mail2, nom: hidden_2 }, identifiant: '@5b4780fdac300', saisie: hidden }
-  - { options: { label: mail3, nom: hidden_3 }, identifiant: '@5b478108c09c0', saisie: hidden }
-  - { options: { label: mail4, nom: hidden_4 }, identifiant: '@5b478115b03ff', saisie: hidden }
-  - { options: { label: mail5, nom: hidden_5 }, identifiant: '@5b47811a1e0de', saisie: hidden }
-  - { options: { label: mail6, nom: hidden_6 }, identifiant: '@5b47811b9b477', saisie: hidden }
-  - { options: { label: mail7, nom: hidden_7 }, identifiant: '@5b47811d10728', saisie: hidden }
-  - { options: { label: mail8, nom: hidden_8 }, identifiant: '@5b47811e6c6a9', saisie: hidden }
-  - { options: { label: mail8, nom: hidden_9 }, identifiant: '@5b47814a105d2', saisie: hidden }
-  - { options: { label: mail9, nom: hidden_10 }, identifiant: '@5b47815ecaaef', saisie: hidden }
-  - { options: { label: mail10, nom: hidden_11 }, identifiant: '@5b47816c8c442', saisie: hidden }
-  - { options: { label: mail11, nom: hidden_12 }, identifiant: '@5b47816f921d3', saisie: hidden }
-  - { options: { label: mail12, nom: hidden_13 }, identifiant: '@5b47817167cbe', saisie: hidden }
-  - { options: { label: mail13, nom: hidden_14 }, identifiant: '@5b486f510fd99', saisie: hidden }
+  - { options: { label: 'test mail', type: text, size: '40', autocomplete: defaut, nom: input_4 }, identifiant: '@5b4dbc449e26b', saisie: input }
 traitements:
-  email: { champ_sujet: '@hidden_1@@hidden_2@@hidden_3@@hidden_4@@hidden_5@@hidden_6@@hidden_7@@hidden_8@@hidden_9@@hidden_10@@hidden_11@@hidden_12@@hidden_13@ @selection_1@ @radio_1@ @radio_2@', champ_sujet_valeurs_brutes: '', exclure_champs_email: '', pj: '', masquer_liens: '', activer_ip: '', champ_destinataires: '', destinataires_plus: dsimsen@seinesaintdenis.fr, destinataires_selon_champ: '', champ_courriel_destinataire_form: '', champ_courriel: '', activer_vrai_envoyeur: '', champ_nom: '', activer_accuse: '', sujet_accuse: '', courriel_envoyeur_accuse: '', nom_envoyeur_accuse: '' }
+  email: { champ_sujet: 'Formulaire PH | @selection_1@ | @radio_1@ | @radio_2@ | @input_4@', champ_sujet_valeurs_brutes: '', exclure_champs_email: hidden_1, pj: on, masquer_liens: '', activer_ip: '', champ_destinataires: hidden_1, destinataires_plus: streguier@seinesaintdenis.fr, destinataires_selon_champ: '', champ_courriel_destinataire_form: '', champ_courriel: email_1, activer_vrai_envoyeur: on, champ_nom: '@input_1@ @input_2@', activer_accuse: on, sujet_accuse: 'Formulaire PH | @selection_1@ | @radio_1@ | @radio_2@', courriel_envoyeur_accuse: '', nom_envoyeur_accuse: '' }
 public: non
-apres: valeurs
+apres: rien
 unicite: ''
 message_erreur_unicite: ''
 url_redirect: ''
