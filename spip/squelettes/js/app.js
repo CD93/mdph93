@@ -348,6 +348,7 @@ require(['domReady'], function (domReady) {
 			};
 			$(".formulaire_formidable_contactmdph input, .formulaire_formidable_contactmdph select").change(displayVals);
 			displayVals();
+			$("p.boutons input").addClass("btnviolet");
 
 
       //sondage formulaire avis formulaire_avis_utilisateur

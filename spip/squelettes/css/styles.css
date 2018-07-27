@@ -179,11 +179,11 @@ form {
     @media screen and (max-width: 800px) {
       form input[type=text], form input[type=email], form select {
         width: 100%; } }
-  form label.inline_norm, form .saisie_radio .choix label {
+  form label.inline_norm, form .saisie_radio .choix label, form .saisie_case .choix label {
     display: inline-block;
     font-family: "robotoregular";
     margin: 0.8em 0 0.1em 0; }
-  form .saisie_sujet_message_auteur div, form .saisie_age_message_auteur div, form .saisie_radio div {
+  form .saisie_sujet_message_auteur, form .saisie_age_message_auteur, form .saisie_radio {
     border: 1px solid white;
     padding: 0 0 0.3em 1em;
     margin: 0.2em 0; }
@@ -217,6 +217,11 @@ form {
 
 .formulaire_formidable_contactmdph .editer_input_4, .formulaire_formidable_contactmdph .afficher_input_4 {
   display: none; }
+
+.avertissement {
+  border: 1px solid #c2c1c1;
+  font-size: 0.8em;
+  padding: 1em; }
 
 @media print {
   body {
@@ -676,7 +681,6 @@ footer {
   padding: 0 0.6em 0.2em 0.6em;
   color: #fff;
   border: none;
-  float: right;
   font-family: 'robotoregular', sans-serif;
   font-size: 1em;
   cursor: pointer; }

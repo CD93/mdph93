@@ -26,19 +26,16 @@ form {
     }
   }
 
-    label.inline_norm, .saisie_radio .choix label {
+    label.inline_norm, .saisie_radio .choix label, .saisie_case .choix label  {
       display: inline-block;
       font-family: "robotoregular";
       margin: 0.8em 0 0.1em 0
     }
     .saisie_sujet_message_auteur, .saisie_age_message_auteur, .saisie_radio {
-      div {
         border: 1px solid rgb(255, 255, 255);
         padding:0 0 0.3em 1em;
         margin: 0.2em 0;
-      }
-
-    }
+     }
 
   textarea {
     width: 80%;
@@ -71,4 +68,9 @@ form {
 }
 .formulaire_formidable_contactmdph .editer_input_4, .formulaire_formidable_contactmdph .afficher_input_4, {
 	display: none;
+}
+.avertissement {
+  border: 1px solid $couleur-cadre;
+  font-size: 0.8em;
+  padding: 1em;
 }
