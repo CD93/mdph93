@@ -301,8 +301,9 @@ div.direct a:focus {
     line-height: 1.5em;
     font-weight: bold; }
   #main .flash_info ul {
-    margin : 0.5em;
-    list-style-type: disc;  }
+    margin: 0.5em;
+    list-style-type: disc; }
+
 #hoverlay {
   width: 100%;
   height: 0px;
