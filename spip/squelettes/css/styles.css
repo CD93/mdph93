@@ -183,7 +183,7 @@ form {
     display: inline-block;
     font-family: "robotoregular";
     margin: 0.8em 0 0.1em 0; }
-  form .saisie_sujet_message_auteur, form .saisie_age_message_auteur, form .saisie_radio {
+  form .saisie_sujet_message_auteur, form .saisie_age_message_auteur, form .saisie_radio, form .saisie_fichiers, form .saisie_case {
     border: 1px solid white;
     padding: 0 0 0.3em 1em;
     margin: 0.2em 0; }
