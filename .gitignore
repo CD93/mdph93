@@ -1,7 +1,7 @@
 mdph.crt
 mdph.key
 /node_modules
-/spip
+/dist
 !/spip
 /spip/*
 !/spip/service-worker.js
@@ -16,4 +16,5 @@ mdph.key
 !/spip/config/mes_options.php
 **/css/styles.css
 .DS_Store
+.vscode
 .eslintrc.js

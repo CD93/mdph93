@@ -1,4 +1,5 @@
 $break-menu: 800px;
+$couleur-cadre: rgb(194, 193, 193);
 form {
   padding: 0.5em 1em;
   margin: 1em 0;
@@ -16,18 +17,29 @@ form {
     display: block;
     margin: 1em 0 0.5em 0;
   }
-  input {
+  input[type=text],input[type=email],select {
     font-size: 1em;
-    border: 1px solid #000;
+    border: 1px solid $couleur-cadre;
     padding: 0.3em 1em;
     @media screen and (max-width: $break-menu) {
       width: 100%;
     }
   }
 
+    label.inline_norm, .saisie_radio .choix label, .saisie_case .choix label  {
+      display: inline-block;
+      font-family: "robotoregular";
+      margin: 0.8em 0 0.1em 0
+    }
+    .saisie_sujet_message_auteur, .saisie_age_message_auteur, .saisie_radio {
+        border: 1px solid rgb(255, 255, 255);
+        padding:0 0 0.3em 1em;
+        margin: 0.2em 0;
+     }
+
   textarea {
     width: 80%;
-    border: 1px solid #000;
+    border: 1px solid $couleur-cadre;
     @media screen and (max-width: $break-menu) {
       width: 100%;
     }
@@ -53,4 +65,12 @@ form {
   font-weight: bold;
   font-size: 1.3em;
   padding: 0.5em 1em;
+}
+.formulaire_formidable_contactmdph .editer_input_4, .formulaire_formidable_contactmdph .afficher_input_4, {
+	display: none;
+}
+.avertissement {
+  border: 1px solid $couleur-cadre;
+  font-size: 0.8em;
+  padding: 1em;
 }

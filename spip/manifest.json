@@ -29,7 +29,7 @@
     }
   ],
   "start_url": "/?utm_source=homescreen",
-  "background_color": "#5C3261",
+  "background_color": "#d4cb13",
   "display": "standalone",
   "theme_color": "#d4cb13"
 }
