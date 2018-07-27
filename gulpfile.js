@@ -11,6 +11,17 @@ var critical = require('critical');
 var modernizr = require('gulp-modernizr');
 var requirejsOptimize = require('gulp-requirejs-optimize');
 var cache = require('gulp-cache');
+var workboxBuild = require('workbox-build');
+
+gulp.task('service-worker', () => {
+  return workboxBuild.generateSW({
+    globDirectory: 'spip/squelettes-compil',
+    globPatterns: [
+      '**\/*.{html,json,js,css}',
+    ],
+    swDest: 'spip/sw.js',
+  });
+});
 
 gulp.task('sass', function(){
   return gulp.src('spip/squelettes/scss/*.scss')

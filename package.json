@@ -21,6 +21,7 @@
     "gulp-requirejs-optimize": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "workbox-build": "^3.4.1"
   }
 }

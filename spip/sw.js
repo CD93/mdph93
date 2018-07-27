@@ -1,347 +1,60 @@
-const CACHE_VERSION = 1;
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
 
-const BASE_CACHE_FILES = [
-  '/squelettes/js/require.js',
-  '/squelettes/js/app.js',
-  '/squelettes/js/domReady.js',
-  '/squelettes/js/jquery.3.2.1.min.js',
-  '/squelettes/css/styles.css',
-  '/manifest.json',
-  '/squelettes/images/icon-message.png',
-  '/squelettes/images/logo.png',
-  '/squelettes/images/fbas.png',
-  '/squelettes/images/fhaut.png',
-  '/squelettes/images/menu_mobile.png',
-  'spip.php?page=sommaire'
-];
-
-const OFFLINE_CACHE_FILES = [
-  '/squelettes/css/styles.css',
-  '/squelettes/js/require.js',
-  '/squelettes/js/app.js',
-  '/squelettes/js/domReady.js',
-  '/squelettes/js/jquery.3.2.1.min.js',
-  '/manifest.json',
-  'spip.php?page=article&id_article=257',
-  '/squelettes/images/icon-message.png',
-  '/squelettes/images/logo.png',
-  '/squelettes/images/fbas.png',
-  '/squelettes/images/fhaut.png',
-  '/squelettes/images/menu_mobile.png'
-];
-
-const NOT_FOUND_CACHE_FILES = [
-  '/squelettes/css/styles.css',
-  '/squelettes/js/require.js',
-  '/squelettes/js/app.js',
-  '/squelettes/js/domReady.js',
-  '/squelettes/js/jquery.3.2.1.min.js',
-  'spip.php?page=article&id_article=257'
-];
-
-const OFFLINE_PAGE = 'spip.php?page=article&id_article=257';
-const NOT_FOUND_PAGE = 'spip.php?page=article&id_article=257';
-
-const CACHE_VERSIONS = {
-  assets: 'assets-v' + CACHE_VERSION,
-  content: 'content-v' + CACHE_VERSION,
-  offline: 'offline-v' + CACHE_VERSION,
-  notFound: '404-v' + CACHE_VERSION,
-};
-
-// Durée de mise en cache en SECONDES en fonction des différentes extensions
-const MAX_TTL = {
-  '/': 3600,
-  html: 3600,
-  json: 86400,
-  js: 86400,
-  css: 86400,
-};
-
-const CACHE_BLACKLIST = [
-  //(str) => {
-  //    return !str.startsWith('http://localhost') && !str.startsWith('https://jamstatic.fr');
-  //},
-];
-
-const SUPPORTED_METHODS = [
-  'GET',
-];
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 /**
- * isBlackListed
- * @param {string} url
- * @returns {boolean}
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
  */
-function isBlacklisted(url) {
-  return (CACHE_BLACKLIST.length > 0) ? !CACHE_BLACKLIST.filter((rule) => {
-    if (typeof rule === 'function') {
-      return !rule(url);
-    } else {
-      return false;
-    }
-  }).length : false
-}
-
-/**
- * getFileExtension
- * @param {string} url
- * @returns {string}
- */
-function getFileExtension(url) {
-  let extension = url.split('.').reverse()[0].split('?')[0];
-  return (extension.endsWith('/')) ? '/' : extension;
-}
-
-/**
- * getTTL
- * @param {string} url
- */
-function getTTL(url) {
-  if (typeof url === 'string') {
-    let extension = getFileExtension(url);
-    if (typeof MAX_TTL[extension] === 'number') {
-      return MAX_TTL[extension];
-    } else {
-      return null;
-    }
-  } else {
-    return null;
-  }
-}
-
-/**
- * installServiceWorker
- * @returns {Promise}
- */
-function installServiceWorker() {
-  return Promise.all(
-    [
-      caches.open(CACHE_VERSIONS.assets)
-      .then(
-        (cache) => {
-          return cache.addAll(BASE_CACHE_FILES);
-        }
-      ),
-      caches.open(CACHE_VERSIONS.offline)
-      .then(
-        (cache) => {
-          return cache.addAll(OFFLINE_CACHE_FILES);
-        }
-      ),
-      caches.open(CACHE_VERSIONS.notFound)
-      .then(
-        (cache) => {
-          return cache.addAll(NOT_FOUND_CACHE_FILES);
-        }
-      )
-    ]
-  );
-}
-
-/**
- * cleanupLegacyCache
- * @returns {Promise}
- */
-function cleanupLegacyCache() {
-
-  let currentCaches = Object.keys(CACHE_VERSIONS)
-    .map(
-      (key) => {
-        return CACHE_VERSIONS[key];
-      }
-    );
-
-  return new Promise(
-    (resolve, reject) => {
-
-      caches.keys()
-        .then(
-          (keys) => {
-            return legacyKeys = keys.filter(
-              (key) => {
-                return !~currentCaches.indexOf(key);
-              }
-            );
-          }
-        )
-        .then(
-          (legacy) => {
-            if (legacy.length) {
-              Promise.all(
-                  legacy.map(
-                    (legacyKey) => {
-                      return caches.delete(legacyKey)
-                    }
-                  )
-                )
-                .then(
-                  () => {
-                    resolve()
-                  }
-                )
-                .catch(
-                  (err) => {
-                    reject(err);
-                  }
-                );
-            } else {
-              resolve();
-            }
-          }
-        )
-        .catch(
-          () => {
-            reject();
-          }
-        );
-
-    }
-  );
-}
-
-
-self.addEventListener(
-  'install', event => {
-    event.waitUntil(installServiceWorker());
-  }
-);
-
-// La méthode activate est chargée de supprimer les vieux caches
-self.addEventListener(
-  'activate', event => {
-    event.waitUntil(
-      Promise.all(
-        [
-          cleanupLegacyCache(),
-        ]
-      )
-      .catch(
-        (err) => {
-          event.skipWaiting();
-        }
-      )
-    );
-  }
-);
-
-self.addEventListener(
-  'fetch', event => {
-
-    event.respondWith(
-      caches.open(CACHE_VERSIONS.content)
-      .then(
-        (cache) => {
-
-          return cache.match(event.request)
-            .then(
-              (response) => {
-
-                if (response) {
-
-                  let headers = response.headers.entries();
-                  let date = null;
-
-                  for (let pair of headers) {
-                    if (pair[0] === 'date') {
-                      date = new Date(pair[1]);
-                    }
-                  }
-
-                  if (date) {
-                    let age = parseInt((new Date().getTime() - date.getTime()) / 1000);
-                    let ttl = getTTL(event.request.url);
-                    if (ttl &&  age > ttl) {
-                      return new Promise(
-                          (resolve) => {
-
-                            return fetch(event.request)
-                              .then(
-                                (updatedResponse) => {
-                                  if (updatedResponse) {
-                                    cache.put(event.request, updatedResponse.clone());
-                                    resolve(updatedResponse);
-                                  } else {
-                                    resolve(response)
-                                  }
-                                }
-                              )
-                              .catch(
-                                () => {
-                                  resolve(response);
-                                }
-                              );
-
-                          }
-                        )
-                        .catch(
-                          (err) => {
-                            return response;
-                          }
-                        );
-                    } else {
-                      return response;
-                    }
-
-                  } else {
-                    return response;
-                  }
-
-                } else {
-                  return null;
-                }
-              }
-            )
-            .then(
-              (response) => {
-                if (response) {
-                  return response;
-                } else {
-                  return fetch(event.request)
-                    .then(
-                      (response) => {
-
-                        if (response.status < 400) {
-                          if (~SUPPORTED_METHODS.indexOf(event.request.method) && !isBlacklisted(event.request.url)) {
-                            cache.put(event.request, response.clone());
-                          }
-                          return response;
-                        } else {
-                          return caches.open(CACHE_VERSIONS.notFound).then((cache) => {
-                            return cache.match(NOT_FOUND_PAGE);
-                          })
-                        }
-                      }
-                    )
-                    .then((response) => {
-                      if (response) {
-                        return response;
-                      }
-                    })
-                    .catch(
-                      () => {
-
-                        return caches.open(CACHE_VERSIONS.offline)
-                          .then(
-                            (offlineCache) => {
-                              return offlineCache.match(OFFLINE_PAGE)
-                            }
-                          )
-
-                      }
-                    );
-                }
-              }
-            )
-            .catch(
-              (error) => {
-                console.error('Error in fetch handler:', error);
-                throw error;
-              }
-            );
-        }
-      )
-    );
-
-  }
-);
+self.__precacheManifest = [
+  {
+    "url": "spip.php?page=sommaire",
+    "revision": "67bde026600ccfd20a302d57b133b3b2"
+  },
+  {
+    "url": "spip.php?page=article&id_article=257",
+    "revision": "36949eda49cb146b9f6cac6f693ebe44"
+  },
+  {
+    "url": "css/styles.css",
+    "revision": "e8efc54df5036c732b135c51e5682f5f"
+  },
+  {
+    "url": "js/app.js",
+    "revision": "4a73f61e9964321526e2d8a2d9defea1"
+  },
+  {
+    "url": "js/domReady.js",
+    "revision": "5bcfbcc2720186bb717bd99861ecd120"
+  },
+  {
+    "url": "js/html5shiv.min.js",
+    "revision": "f2a3edf1693bb9146d01382d6e950947"
+  },
+  {
+    "url": "js/jquery.3.2.1.min.js",
+    "revision": "73c8604494cde17818069dd3a3cb8e78"
+  },
+  {
+    "url": "js/js.cookie.js",
+    "revision": "a7a8d2842f52b7bccdc89629adfd608e"
+  },
+  {
+    "url": "js/require.js",
+    "revision": "a83e20fedccbc09ee204e5083353ed8b"
+  },
+].concat(self.__precacheManifest || []);
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
