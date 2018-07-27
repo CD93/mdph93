@@ -71,10 +71,14 @@ function calculer_balise_STATS_CONTACT($commune,$age,$question,$mail) {
 		$reponse .= "reponse : ".$commune." (".$communet.")"."|".$age." (".$aget.")"."|".$question." (".$questiont.")"."<br/>";
 		$r = sql_fetsel("nom,email","spip_auteurs","id_auteur=$mail");
 		sql_insertq('stats_contact', array(
-			'commune' => $communet,
-			'age' => $aget,
-			'question' => $questiont,
-			'mail' => $r['email'])
+			'commune' => $commune,
+			'age' => $age,
+			'question' => $question,
+			'mail' => $mail,
+			'communet' => $communet,
+			'aget' => $aget,
+			'questiont' => $questiont,
+			'mailt' => $r['email'])
 		);
 		return ""; 
 	}
