@@ -6,7 +6,7 @@
 	#SET{titrepage,""}<BOUCLE_hier(HIERARCHIE){id_article}>#SET{titrepage,#GET{titrepage}|concat{#TITRE}|concat{"/"}}</BOUCLE_hier>
 	#SET{titrepage,#GET{titrepage}|concat{#TITRE}}
 	<div class="ariane-rubrique">
-    <div id="minifil"><span class="lienaccueil"><a href="#URL_SITE_SPIP">Accueil</a> > </span><a href="#URL_RUBRIQUE">#TITRE</a></div>
+    <div id="minifil"><span class="lienaccueil"><a href="#URL_SITE_SPIP">Accueil</a></span>[(#ID_RUBRIQUE|!=={58}|oui) > <a href="#URL_RUBRIQUE">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</a>]</div>
   	<div id="fil_ariane">
       <div class="logoMDPH">[(#LOGO_SITE_SPIP|#URL_SITE_SPIP|inserer_attribut{alt,#DESCRIPTIF_SITE_SPIP*})]</div>
   		<div class="chemin">
