@@ -12,7 +12,7 @@ if (isset($_REQUEST['recherche'])) {
 defined('_FULLTEXT_ASTERISQUE_PARTOUT') || define('_FULLTEXT_ASTERISQUE_PARTOUT', true);
 
 // proteger le #FORMULAIRE_CONTACTER
-$GLOBALS['formulaires_no_spam'][] = 'contacter';
+$GLOBALS['formulaires_no_spam'][] = 'ecrire';
 define('_FORMIDABLE_EXPIRATION_FICHIERS_EMAIL', 15);
 define('_FORMIDABLE_TAILLE_MAX_FICHIERS_EMAIL',10);
 
