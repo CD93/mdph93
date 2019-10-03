@@ -115,21 +115,26 @@ function formulaires_contacter_traiter_dist() {
 			switch($age) {
 				case "moins":
 					if(in_array($choixcommune,$sect1)){
-						$message_retour = "mdph-secteur-ouest-enfants@seinesaintdenis.fr";
+						//$message_retour = "mdph-secteur-ouest-enfants@seinesaintdenis.fr";
+						$message_retour = "mdph-instruction@seinesaintdenis.fr";
 					}
 					if(in_array($choixcommune,$sect2)){
-						$message_retour = "mdph-secteur-est-enfants@seinesaintdenis.fr";
+						//$message_retour = "mdph-secteur-est-enfants@seinesaintdenis.fr";
+						$message_retour = "mdph-instruction@seinesaintdenis.fr";
 					}
 				break;
 				case "plus":
 					if(in_array($choixcommune,$sect3)){
-						$message_retour = "mdph-secteur-nordouest-adultes@seinesaintdenis.fr";
+						//$message_retour = "mdph-secteur-nordouest-adultes@seinesaintdenis.fr";
+						$message_retour = "mdph-instruction@seinesaintdenis.fr";
 					}
 					if(in_array($choixcommune,$sect4)){
-						$message_retour = "mdph-secteur-sudouest-adultes@seinesaintdenis.fr";
+						//$message_retour = "mdph-secteur-sudouest-adultes@seinesaintdenis.fr";
+						$message_retour = "mdph-instruction@seinesaintdenis.fr";
 					}
 					if(in_array($choixcommune,$sect5)){
-						$message_retour = "mdph-secteur-sudest-adultes@seinesaintdenis.fr";
+						//$message_retour = "mdph-secteur-sudest-adultes@seinesaintdenis.fr";
+						$message_retour = "mdph-instruction@seinesaintdenis.fr";
 					}
 				break;
 			}
