@@ -1,4 +1,42 @@
+@page {
+  size: A4 portrait;
+  margin: 25pt; }
+
 @media print {
   body {
     font-size: 1em;
-    background: none; } }
+    background: none; }
+  .chapo {
+    font-weight: normal;
+    line-height: 1.2em;
+    font-size: 1em; }
+  footer#footer,
+  header.conteneur,
+  div.direct a,
+  #hoverlay,
+  .spip-admin-bloc,
+  .spip-admin-float,
+  header.conteneur .entete,
+  .btnaction,
+  #fil_ariane .chemin,
+  .pliage,
+  #main h2 button.titrepara[aria-expanded="false"] {
+    display: none; }
+  #main h2 button.titrepara[aria-expanded="true"] {
+    border: none;
+    font-size: 1.3em; }
+  #main article div.paragraphe {
+    page-break-after: auto;
+    margin-top: 0; }
+  #main article p {
+    orphans: 3;
+    widows: 3;
+    page-break-inside: avoid;
+    page-break-before: avoid; }
+  #main article h3 {
+    margin-top: 0;
+    page-break-after: avoid;
+    page-break-before: auto; }
+  #main.conteneur {
+    display: block;
+    transition: none; } }
