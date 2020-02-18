@@ -1080,6 +1080,8 @@ em {
   #main h2 button.titrepara[aria-expanded="true"] {
     border: none;
     font-size: 1.3em; }
+  #main article header .titre.fix-titre {
+    position: relative; }
   #main article div.paragraphe {
     page-break-after: auto;
     margin-top: 0; }
