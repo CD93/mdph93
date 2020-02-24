@@ -20,7 +20,7 @@ function dictionnaires_remplacer_defaut($mot, $definition) {
 	$class = (strlen($class) > 0) ? " class='$class' " : "";
 	return $mot
 		.'<sup><a href="'.$url.'"'.$class.'title="'._T('definition:titre_definition').': '
-			. couper(trim(attribut_html(supprimer_tags(typo(expanser_liens($definition['texte']))))),80).'">'
+			. couper(trim(attribut_html(supprimer_tags(typo(expanser_liens($definition['texte']))))),500).'">'
 		.'?'
 		.'</a></sup>';
 
@@ -35,7 +35,7 @@ function dictionnaires_remplacer_defaut($mot, $definition) {
  * (car seuls les gens avec des yeux valides et un pointeur de souris ont accès à l'information)
  */
 function dictionnaires_remplacer_abbr($mot, $definition){
-	return '<abbr title="'.couper(trim(attribut_html(supprimer_tags(typo($definition['texte'])))),80).'">'.$mot.'</abbr>';
+	return '<abbr title="'.couper(trim(attribut_html(supprimer_tags(typo($definition['texte'])))),500).'">'.$mot.'</abbr>';
 }
 /* balise d'enregistrement des statistiques du formulaire formidable contactmdph du modele contactmdph
 */
